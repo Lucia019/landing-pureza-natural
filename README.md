@@ -10,5 +10,6 @@ En preparación. La página se construirá con HTML, CSS y JavaScript sin paso d
 
 ```
 .
+├── .gitignore   # archivos del sistema que no se suben al repositorio
 └── README.md
 ```
