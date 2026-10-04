@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/favicon-48.png">
+<title>Reels Pureza Natural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F4F1E9;--panel:#FBF9F4;--deep:#174C46;--accent:#C66F45;--water:#007585;--text:#24302E;--text-2:#4E5D58;--line:#DDD6C6;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--text);font:16px/1.55 var(--body)}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto;padding-block:32px 72px}
+.kick{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--water);margin:0 0 8px}
+h1{font:700 clamp(2rem,4vw,3rem)/1.05 var(--display);letter-spacing:-.02em;color:var(--deep);margin:0 0 10px;text-wrap:balance}
+.lead{color:var(--text-2);max-width:66ch;margin:0}
+.lead a{color:var(--water);font-weight:600}
+.grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;margin-top:32px}
+.reel{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.reel video{width:100%;aspect-ratio:9/16;border-radius:16px;background:#123D38;display:block;box-shadow:0 30px 60px -40px rgba(23,76,70,.45)}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta span{font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--water);border:1px solid var(--line);border-radius:999px;padding:3px 9px;background:#fff}
+.reel h2{font:700 1.45rem/1.1 var(--display);letter-spacing:-.015em;color:var(--deep);margin:0}
+.ensena{margin:0;color:var(--text-2)}
+.ensena b{color:var(--text);font-weight:600}
+details{border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--deep);min-height:32px;display:flex;align-items:center}
+summary:focus-visible,.copiar:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.cap{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;font-size:15px}
+.tags{color:var(--water);font-size:14px;margin:0 0 10px}
+.copiar{font:600 14px var(--body);border:1px solid var(--line);background:#fff;color:var(--deep);border-radius:999px;padding:9px 16px;cursor:pointer;min-height:40px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kick">Pureza Natural · Reels de Instagram</p>
+  <h1>Seis reels que enseñan algo del agua.</h1>
+  <p class="lead">Videos cortos de 7 a 10 segundos, sin rostro, con música y sonido propios: cada movimiento suena en el momento exacto. Cada uno enseña una sola cosa e invita a guardar, compartir o comentar. Toca un video para verlo con sonido. <a href="../feed/">Ver el feed</a> · <a href="../destacadas/">Ver las historias destacadas</a></p>
+  <div class="grilla" id="grilla"></div>
+</div>
+<script>
+'use strict';
+const REELS = [
+  { id: 'reel-01-sin-cloro', titulo: 'Así suena el agua sin cloro', gancho: 'ASMR', ensena: 'qué le quita el carbón activado al agua.', cta: 'Comentar',
+    caption: 'El cloro protege el agua en la tubería, pero deja olor y sabor. El carbón activado que va dentro de la vasija de barro lo retiene. ¿Tu agua sabe a cloro? Cuéntanos.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #ASMR #VidaSana' },
+  { id: 'reel-02-gravedad', titulo: 'La gravedad también purifica', gancho: 'ASMR', ensena: 'cómo funciona un purificador sin luz.', cta: 'Guardar',
+    caption: 'Sin enchufe ni tubería: la gravedad empuja el agua a través del barro, despacio, y la deja en el vidrio de abajo. Guárdalo para cuando te pregunten cómo funciona.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #ComoFunciona #HogarConsciente' },
+  { id: 'reel-03-1440-kilos', titulo: '1.440 kilos', gancho: 'Contraste', ensena: 'el peso real, para la espalda y para el planeta, de depender del botellón.', cta: 'Compartir',
+    caption: '6 botellones de 20 litros al mes son 1.440 kilos al año, subidos por escaleras y metidos en el carro. Más el plástico que queda. Mándaselo a quien todavía los carga.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #MenosPlastico #VidaSana' },
+  { id: 'reel-04-no-se-ve', titulo: 'Lo que no se ve', gancho: 'Visual', ensena: 'qué es la turbiedad y qué midió el laboratorio.', cta: 'Guardar',
+    caption: 'La turbiedad son partículas tan pequeñas que el agua se ve casi limpia. En las pruebas del Laboratorio de Ingeniería Ambiental de la Universidad Nacional bajó 95,2 %, en las muestras analizadas. Guárdalo.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #AguaSegura #Salud' },
+  { id: 'reel-05-micras', titulo: '0,2 micras', gancho: 'Dato', ensena: 'qué tan pequeños son los poros del barro y qué detienen.', cta: 'Seguir',
+    caption: 'Una micra es la milésima parte de un milímetro. Los poros de la arcilla miden entre 0,2 y 0,5 micras, y ahí se quedan sedimentos, bacterias y parásitos. Síguenos para aprender más del agua en casa.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #Ciencia #AguaSegura' },
+  { id: 'reel-06-hervir', titulo: 'Hervir no basta', gancho: 'Dato', ensena: 'la diferencia entre hervir y purificar.', cta: 'Compartir',
+    caption: 'Hervir ayuda con algunos microbios, pero el sedimento, el cloro y el sabor siguen ahí. La arcilla, el carbón activado y la plata coloidal trabajan juntos en la vasija de barro. Mándaselo a quien todavía hierve el agua.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #AguaSegura #Meta' },
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+document.getElementById('grilla').innerHTML = REELS.map((r, i) => `
+  <article class="reel">
+    <video controls playsinline preload="none" poster="videos/${r.id}.jpg" src="videos/${r.id}.mp4" aria-label="Reel ${i + 1}: ${esc(r.titulo)}"></video>
+    <div class="meta"><span>Reel ${String(i + 1).padStart(2, '0')}</span><span>Gancho ${esc(r.gancho)}</span><span>CTA ${esc(r.cta)}</span></div>
+    <h2>${esc(r.titulo)}</h2>
+    <p class="ensena"><b>Enseña:</b> ${esc(r.ensena)}</p>
+    <details><summary>Caption y hashtags</summary>
+      <p class="cap">${esc(r.caption)}</p><p class="tags">${esc(r.tags)}</p>
+      <button class="copiar" data-i="${i}">Copiar caption</button></details>
+  </article>`).join('');
+// un solo video suena a la vez
+document.querySelectorAll('video').forEach(v => v.addEventListener('play', () => document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); })));
+document.addEventListener('click', async e => {
+  const b = e.target.closest('.copiar'); if (!b) return;
+  const r = REELS[+b.dataset.i];
+  try { await navigator.clipboard.writeText(r.caption + '\n\n' + r.tags); b.textContent = 'Copiado'; }
+  catch { b.textContent = 'Selecciona el texto y cópialo'; }
+  setTimeout(() => { b.textContent = 'Copiar caption'; }, 1800);
+});
+</script>
+</body>
+</html>
