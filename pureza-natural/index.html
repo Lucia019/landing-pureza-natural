@@ -315,6 +315,49 @@ section{position:relative}
 .quote footer span{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--water)}
 @media (max-width:900px){.voices-grid{grid-template-columns:1fr;gap:40px}.voices-photo{aspect-ratio:4/3}}
 
+/* ===== Experiencia táctil en celular ===== */
+.rail,.dots{display:none}
+@media (max-width:720px){
+  /* Carruseles con el dedo: partes del filtro y testimonios */
+  .parts,.quotes{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;margin-inline:-16px;padding:4px 16px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  .parts::-webkit-scrollbar,.quotes::-webkit-scrollbar{display:none}
+  .voices-grid > *,.product-grid > *{min-width:0}
+  .parts > .part{flex:0 0 78%;scroll-snap-align:start}
+  .quotes > .quote{flex:0 0 86%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:space-between}
+  .parts{margin-top:48px}
+  .dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+  .dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:rgba(23,76,70,.22);transition:width .4s var(--ease-out),background .4s var(--ease-out);position:relative}
+  .dots button::before{content:"";position:absolute;inset:-14px -6px}
+  .dots button.on{width:24px;background:var(--water)}
+  /* Barra de progreso del armado, con una gota por cada mensaje */
+  .rail{display:block;position:absolute;right:10px;top:calc(50% - 70px);height:140px;width:3px;border-radius:3px;background:rgba(23,76,70,.14);z-index:3;opacity:0;transition:opacity .6s var(--ease-out)}
+  .stage.video-ready .rail{opacity:1}
+  .rail .fill{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:3px;background:var(--water);transform-origin:top;transform:scaleY(var(--prog,0))}
+  .rail b{position:absolute;left:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50% 50% 50% 0;transform:rotate(-45deg) scale(.7);background:#DFCDB0;border:2px solid rgba(23,76,70,.3);transition:transform .4s var(--ease-out),background .4s var(--ease-out),border-color .4s var(--ease-out)}
+  .rail b.on{background:var(--water);border-color:var(--water);transform:rotate(-45deg) scale(1)}
+  /* Destello cuando la tapa cierra */
+  .stage .flash{position:absolute;left:50%;bottom:calc(var(--bh,64svh) * .55);width:120vw;height:120vw;margin-left:-60vw;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 60%);opacity:0;transform:scale(.4);z-index:1}
+  .stage.snap .flash{animation:snapFlash 1.1s var(--ease-out)}
+}
+@keyframes snapFlash{0%{opacity:0;transform:scale(.4)}25%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
+@media (max-width:720px) and (prefers-reduced-motion: no-preference){
+  /* Títulos que suben desde una ranura */
+  .rv h2.p{clip-path:inset(0 0 100% 0);transform:translateY(40%);transition:clip-path 1s var(--ease-out),transform 1s var(--ease-out),opacity .6s var(--ease-out)}
+  .rv.in h2.p{clip-path:inset(0 0 -10% 0);transform:none}
+  /* Fotos que entran con un acercamiento suave */
+  .rv .p img,.product-shot.rv img.p,.voices-photo.rv img.p{transform:scale(1.14);transition:transform 1.6s var(--ease-out),opacity .9s var(--ease-out)}
+  .rv.in .p img,.product-shot.rv.in img.p,.voices-photo.rv.in img.p{transform:scale(1)}
+  /* El botón flotante avisa que llegó */
+  .wa.on::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);animation:waPulse 1.8s var(--ease-out) 2}
+}
+@keyframes waPulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+/* Los botones se hunden al tocarlos */
+@media (pointer:coarse){
+  .btn,.hold,.wa,.dots button,.faq summary{-webkit-tap-highlight-color:transparent}
+  .btn:active,.wa:active{transform:scale(.95);transition-duration:.12s}
+  .faq summary:active{opacity:.6}
+}
+
 /* 7. Por qué Pureza Natural */
 .why{background:var(--panel);border-block:1px solid var(--line)}
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line)}
@@ -442,6 +485,8 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     <div class="poster" aria-hidden="true"></div>
     <video id="hero" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
     <div class="scrim" aria-hidden="true"></div>
+    <div class="flash" aria-hidden="true"></div>
+    <div class="rail" aria-hidden="true"><i class="fill"></i><b style="top:0%"></b><b style="top:27%"></b><b style="top:54%"></b><b style="top:82%"></b></div>
 
     <div class="band left e-drift" data-a="0" data-b="0.22">
       <span class="kicker">Distribuidor autorizado Agualogic</span>
@@ -909,7 +954,19 @@ function updateCaptions(p, now){
   });
   var sc = p > 0.03;
   if (sc !== stage._sc){ stage._sc = sc; stage.classList.toggle('scrolled', sc); }
+  /* Barra de progreso del armado y destello al cerrar la tapa (solo se ven en celular) */
+  var pr = Math.round(p * 200) / 200;
+  if (pr !== stage._pr){ stage._pr = pr; railEl.style.setProperty('--prog', pr); }
+  railDots.forEach(function(d, i){ var on = p >= bands[i].a - 0.005; if (on !== d._on){ d._on = on; d.classList.toggle('on', on); } });
+  var closed = p > 0.95;
+  if (closed && !stage._closed && !RM.matches){
+    stage.classList.remove('snap'); void stage.offsetWidth; stage.classList.add('snap');
+    clearTimeout(stage._snapT); stage._snapT = setTimeout(function(){ stage.classList.remove('snap'); }, 1200);
+  }
+  stage._closed = closed;
 }
+var railEl = stage.querySelector('.rail');
+var railDots = [].slice.call(railEl.querySelectorAll('b'));
 function onScroll(){
   target = heroProgress();
   if (rafId === null && heroOnScreen) rafId = requestAnimationFrame(tick);
@@ -1017,6 +1074,42 @@ var liveIO = new IntersectionObserver(function(es){
 });
 document.querySelectorAll('.pains,.product').forEach(function(el){ liveIO.observe(el); });
 document.addEventListener('visibilitychange', function(){ document.body.classList.toggle('paused', document.hidden); });
+
+/* ===== Carruseles con el dedo en celular: puntos y amago de deslizar ===== */
+var MOBILE = matchMedia('(max-width: 720px)');
+[].slice.call(document.querySelectorAll('.parts, .quotes')).forEach(function(track){
+  var cards = [].slice.call(track.children);
+  var dots = document.createElement('div'); dots.className = 'dots';
+  cards.forEach(function(card, i){
+    var b = document.createElement('button'); b.type = 'button';
+    b.setAttribute('aria-label', 'Ver ' + (i + 1) + ' de ' + cards.length);
+    b.addEventListener('click', function(){ track.scrollTo({ left: card.offsetLeft - cards[0].offsetLeft, behavior: RM.matches ? 'auto' : 'smooth' }); });
+    dots.appendChild(b);
+  });
+  track.parentNode.insertBefore(dots, track.nextSibling);
+  var btns = [].slice.call(dots.children), cur = -1, ticking = false;
+  function sync(){
+    ticking = false;
+    var x = track.scrollLeft + 24, idx = 0;
+    cards.forEach(function(c, i){ if (c.offsetLeft - cards[0].offsetLeft <= x) idx = i; });
+    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) idx = cards.length - 1;
+    if (idx !== cur){ cur = idx; btns.forEach(function(b, i){ b.classList.toggle('on', i === idx); b.setAttribute('aria-current', i === idx ? 'true' : 'false'); }); }
+  }
+  track.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(sync); } }, { passive: true });
+  sync();
+  /* La primera vez que se ve, el carrusel se asoma un poco para mostrar que se puede deslizar */
+  var touched = false;
+  track.addEventListener('touchstart', function(){ touched = true; }, { passive: true });
+  new IntersectionObserver(function(es, obs){
+    if (!es[0].isIntersecting) return; obs.disconnect();
+    if (!MOBILE.matches || RM.matches) return;
+    setTimeout(function(){
+      if (touched || track.scrollLeft > 0) return;
+      track.scrollTo({ left: 64, behavior: 'smooth' });
+      setTimeout(function(){ if (!touched) track.scrollTo({ left: 0, behavior: 'smooth' }); }, 650);
+    }, 900);
+  }, { threshold: 0.6 }).observe(track);
+});
 
 /* ===== Contadores de laboratorio ===== */
 var counters = [].slice.call(document.querySelectorAll('.count'));
