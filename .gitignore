@@ -9,3 +9,9 @@ $RECYCLE.BIN/
 
 # Archivos de macOS (por si alguien abre el proyecto en una Mac)
 .DS_Store
+
+# Material de trabajo que no se publica
+mis-fotos/
+review/
+.claude/
+pureza-natural/assets/corte.jpg

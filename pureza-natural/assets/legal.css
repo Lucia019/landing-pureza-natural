@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap');
+:root{--canvas:#F4F1E9;--deep:#174C46;--water:#008094;--accent:#C66F45;--text:#24302E;--muted:#4E5D58;--line:#DDD6C6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;overflow-x:clip}
+body{background:var(--canvas);color:var(--text);font-family:'Figtree',system-ui,sans-serif;font-size:1.0625rem;line-height:1.7;overflow-x:hidden;overflow-x:clip}
+a{color:var(--water);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:fixed;left:16px;top:-60px;background:var(--deep);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;transition:top .3s ease}
+.skip:focus{top:16px}
+.top{padding:24px 16px;border-bottom:1px solid var(--line)}
+.back{display:inline-block;font-weight:600;color:var(--deep);text-decoration:none;max-width:760px;width:100%;margin:0 auto}
+.top{display:flex;justify-content:center}
+.top .back{max-width:760px}
+.doc{width:min(760px,100% - 32px);margin:0 auto;padding:56px 0 72px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--water)}
+h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:clamp(2rem,5vw,3rem);line-height:1.1;letter-spacing:-.02em;color:var(--deep);margin-top:10px}
+.meta{margin-top:10px;color:var(--muted);font-size:.92rem}
+h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:1.35rem;color:var(--deep);margin-top:40px}
+p{margin-top:14px}
+ul{margin-top:12px;padding-left:22px}
+li{margin-top:6px}
+.links-end{margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
+.bottom{border-top:1px solid var(--line);padding:28px 16px 40px;text-align:center;color:var(--muted);font-size:.9rem}
+.bottom p{margin-top:4px}
+@media (pointer:coarse){.back,.links-end a{display:inline-block;padding:10px 0}}
