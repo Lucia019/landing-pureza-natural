@@ -986,7 +986,8 @@ function pageFrame(){
   var heroEl = scrubOn ? heroSec : document.querySelector('.static-hero');
   var heroEnd = heroEl.offsetTop + heroEl.offsetHeight;
   var y = scrollY;
-  var solid = y > heroEnd - 90 || !scrubOn;
+  /* El menú se vuelve sólido apenas el video empieza a subir, para que el logo no quede sobre el filtro */
+  var solid = y > heroEnd - innerHeight - 4 || !scrubOn;
   if (solid !== pageState.solid){ pageState.solid = solid; nav.classList.toggle('solid', solid); }
   var past = y > heroEnd - innerHeight * 0.5;
   if (past !== pageState.wa){ pageState.wa = past; waBtn.classList.toggle('on', past); wl.classList.toggle('on', past); }
