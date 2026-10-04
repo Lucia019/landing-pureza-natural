@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap');
-:root{--canvas:#F4F1E9;--deep:#174C46;--water:#008094;--accent:#C66F45;--text:#24302E;--muted:#4E5D58;--line:#DDD6C6}
+:root{--canvas:#F4F1E9;--deep:#174C46;--water:#007585;--accent:#C66F45;--text:#24302E;--muted:#4E5D58;--line:#DDD6C6}
 *{box-sizing:border-box;margin:0;padding:0}
 html{overflow-x:hidden;overflow-x:clip}
 body{background:var(--canvas);color:var(--text);font-family:'Figtree',system-ui,sans-serif;font-size:1.0625rem;line-height:1.7;overflow-x:hidden;overflow-x:clip}
