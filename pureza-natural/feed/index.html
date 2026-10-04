@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/favicon-48.png">
+<title>Feed Pureza Natural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,600;1,500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#174C46;--accent:#C66F45;--canvas:#F4F1E9;--panel:#FBF9F4;--line:#DDD6C6;--text:#24302E;--text-2:#4E5D58;--water:#007585}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--text);font:15px/1.5 'Figtree',system-ui,sans-serif}
+header{max-width:1180px;margin:0 auto;padding:24px 16px 8px}
+h1{font:700 28px/1.1 'Bricolage Grotesque',sans-serif;color:var(--deep);margin:0 0 6px}
+header p{margin:0;color:var(--text-2);max-width:70ch}
+.tabs{display:flex;gap:8px;margin:16px 0 0}
+.tabs button{font:600 14px 'Figtree',sans-serif;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;padding:9px 16px;cursor:pointer;min-height:40px}
+.tabs button[aria-pressed=true]{background:var(--deep);color:#fff;border-color:var(--deep)}
+main{max-width:1180px;margin:0 auto;padding:16px 16px 48px}
+/* cuadrícula del perfil: 3 columnas, recorte 3:4 */
+.perfil{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:520px;margin:0 auto;background:#fff;padding:3px;border-radius:12px}
+.perfil figure{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden;background:#ddd;cursor:pointer}
+.perfil canvas{position:absolute;left:50%;top:50%;height:100%;width:auto;transform:translate(-50%,-50%);aspect-ratio:4/5}
+.perfil .num{position:absolute;left:6px;top:6px;font:500 11px 'IBM Plex Mono',monospace;background:rgba(255,255,255,.85);color:var(--text);padding:2px 6px;border-radius:6px}
+.perfil .pin{position:absolute;right:6px;top:6px;font:600 11px 'Figtree',sans-serif;background:var(--deep);color:#fff;padding:2px 7px;border-radius:6px}
+.nota{max-width:520px;margin:12px auto 0;color:var(--text-2);font-size:14px}
+/* lista de publicaciones */
+.lista{display:grid;gap:20px}
+.pub{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:24px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px}
+.pub canvas{width:100%;height:auto;aspect-ratio:4/5;border-radius:12px;display:block;box-shadow:0 20px 40px -28px rgba(23,76,70,.45)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.meta span{font:500 12px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--water);border:1px solid var(--line);border-radius:999px;padding:3px 9px;background:#fff}
+.pub h2{font:700 22px/1.15 'Bricolage Grotesque',sans-serif;color:var(--deep);margin:0 0 10px}
+.pub pre{white-space:pre-wrap;font:15px/1.55 'Figtree',sans-serif;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;max-height:260px;overflow:auto}
+.pub .alt{font-size:13.5px;color:var(--text-2);margin:0 0 12px}
+.acc{display:flex;flex-wrap:wrap;gap:8px}
+.btn{font:600 14px 'Figtree',sans-serif;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;background:var(--accent);color:#fff;min-height:42px}
+.btn.sec{background:#fff;color:var(--deep);border:1px solid var(--line)}
+.btn:focus-visible,.tabs button:focus-visible,.perfil figure:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+/* una sola publicación (para exportar) */
+body.sola{background:#000;margin:0;overflow:hidden}
+body.sola canvas{display:block;width:1080px;height:1350px}
+@media (max-width:760px){.pub{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header id="cab">
+  <h1>Feed de Instagram · 12 publicaciones</h1>
+  <p>Doce publicaciones animadas para el perfil de Pureza Natural, con su texto, su caption y su fecha. Mira primero cómo queda la cuadrícula y después cada publicación con sus textos. <a href="../destacadas/" style="color:var(--water);font-weight:600">Ver también las historias destacadas</a>.</p>
+  <div class="tabs" role="group" aria-label="Vista">
+    <button id="vPerfil" aria-pressed="true">Cómo se ve el perfil</button>
+    <button id="vLista" aria-pressed="false">Publicaciones y textos</button>
+  </div>
+</header>
+<main id="app"></main>
+
+<script src="fotos.js"></script>
+<script src="fotos-feed.js"></script>
+<script src="publicaciones.js"></script>
+<script src="animaciones.js"></script>
+<script>
+const { W, H, TEMAS, P, fondo } = ANIM;
+const CFG = window.CONFIG, D = CFG.duracion;
+const PUBS = window.PUBLICACIONES;
+const assets = { cfg: CFG, fotos: {} };
+const quieto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function dibujar(ctx, p, t) {
+  t = ((t % D) + D) % D;
+  const tema = TEMAS[p.fondo] || TEMAS.niebla;
+  ctx.save(); ctx.clearRect(0, 0, W, H); fondo(ctx, tema, t, D);
+  P[p.plantilla].render(ctx, t, p, tema, assets, D);
+  ctx.restore();
+}
+
+const listo = (async () => {
+  await Promise.all((window.FOTOS || []).map(f => new Promise(ok => { const i = new Image(); i.onload = () => { assets.fotos[f.id] = i; ok(); }; i.onerror = ok; i.src = f.src; })));
+  await Promise.all(["700 100px 'Bricolage Grotesque'", "800 100px 'Bricolage Grotesque'", "600 100px 'Bricolage Grotesque'",
+    "400 30px Figtree", "500 30px Figtree", "600 30px Figtree", "italic 500 30px Figtree", "500 20px 'IBM Plex Mono'"].map(f => document.fonts.load(f)));
+  await document.fonts.ready;
+  PUBS.forEach(p => P[p.plantilla].prep && P[p.plantilla].prep(p));
+})();
+
+// Para exportar: pinta la publicación n en el segundo t y devuelve el cuadro
+window.__listo = listo;
+window.__cuadro = (n, t, tipo = 'image/jpeg') => { const c = document.querySelector('canvas'); dibujar(c.getContext('2d'), PUBS.find(p => p.n === n), t); return c.toDataURL(tipo, .95); };
+
+const lienzos = []; let raf;
+function lienzo(p) { const c = document.createElement('canvas'); c.width = W; c.height = H; c.setAttribute('role', 'img'); c.setAttribute('aria-label', p.alt); lienzos.push({ c, p, ver: false }); return c; }
+function animar() {
+  cancelAnimationFrame(raf); const t0 = performance.now();
+  const io = new IntersectionObserver(es => es.forEach(e => { const l = lienzos.find(x => x.c === e.target); if (l) l.ver = e.isIntersecting; }));
+  lienzos.forEach(l => { io.observe(l.c); dibujar(l.c.getContext('2d'), l.p, l.p.portada); });
+  if (quieto) return;
+  const paso = now => { const t = (now - t0) / 1000; lienzos.forEach(l => l.ver && l.animar && dibujar(l.c.getContext('2d'), l.p, t)); raf = requestAnimationFrame(paso); };
+  raf = requestAnimationFrame(paso);
+}
+
+function vistaPerfil() {
+  const app = document.getElementById('app'); app.innerHTML = ''; lienzos.length = 0;
+  const g = document.createElement('div'); g.className = 'perfil';
+  [...PUBS].sort((a, b) => b.n - a.n).forEach((p, i) => {
+    const f = document.createElement('figure'); f.tabIndex = 0;
+    f.innerHTML = `<span class="num">${p.n}</span>${i < 3 ? '<span class="pin">Fijada</span>' : ''}`;
+    const c = lienzo(p); f.prepend(c); g.append(f);
+    const l = lienzos[lienzos.length - 1];
+    const on = () => { l.animar = true; }, off = () => { l.animar = false; dibujar(c.getContext('2d'), p, p.portada); };
+    f.addEventListener('mouseenter', on); f.addEventListener('mouseleave', off); f.addEventListener('focus', on); f.addEventListener('blur', off);
+    f.addEventListener('click', () => { document.getElementById('vLista').click(); setTimeout(() => document.getElementById('pub' + p.n).scrollIntoView({ behavior: 'smooth' }), 50); });
+  });
+  const nota = document.createElement('p'); nota.className = 'nota';
+  nota.textContent = 'Así queda el perfil con las 12 publicaciones (la última arriba a la izquierda). Las tres de arriba van fijadas. Pasa el mouse para verlas moverse, o toca una para abrir su publicación animada con el texto.';
+  app.append(g, nota); animar();
+}
+
+function vistaLista() {
+  const app = document.getElementById('app'); app.innerHTML = ''; lienzos.length = 0;
+  const box = document.createElement('div'); box.className = 'lista';
+  PUBS.forEach(p => {
+    const art = document.createElement('article'); art.className = 'pub'; art.id = 'pub' + p.n;
+    const c = lienzo(p); lienzos[lienzos.length - 1].animar = true;
+    const der = document.createElement('div');
+    der.innerHTML = `<div class="meta"><span>#${p.n}</span><span>${p.fecha}</span><span>${p.pilar}</span><span>${p.plantilla}</span></div>
+      <h2>${p.titulo.replace(/\*/g, '')}</h2><pre></pre><p class="alt"><b>Texto alternativo:</b> </p>
+      <div class="acc"><button class="btn sec" data-a="copiar">Copiar caption</button></div>`;
+    der.querySelector('pre').textContent = p.caption + '\n\n' + p.hashtags;
+    der.querySelector('.alt').append(p.alt);
+    der.addEventListener('click', async e => {
+      const a = e.target.dataset.a; if (!a) return;
+      if (a === 'copiar') { await navigator.clipboard.writeText(p.caption + '\n\n' + p.hashtags); e.target.textContent = 'Copiado'; setTimeout(() => e.target.textContent = 'Copiar caption', 1500); }
+      if (a === 'png') { const k = document.createElement('canvas'); k.width = W; k.height = H; dibujar(k.getContext('2d'), p, p.portada); const l = document.createElement('a'); l.download = `pureza-${String(p.n).padStart(2, '0')}-portada.png`; l.href = k.toDataURL('image/png'); l.click(); }
+    });
+    art.append(c, der); box.append(art);
+  });
+  app.append(box); animar();
+}
+
+listo.then(() => {
+  const n = +new URLSearchParams(location.search).get('p');
+  if (n) { document.body.className = 'sola'; document.getElementById('cab').remove(); const c = lienzo(PUBS.find(p => p.n === n)); document.getElementById('app').replaceWith(c); dibujar(c.getContext('2d'), lienzos[0].p, +new URLSearchParams(location.search).get('t') || 0); return; }
+  const vP = document.getElementById('vPerfil'), vL = document.getElementById('vLista');
+  vP.onclick = () => { vP.setAttribute('aria-pressed', 'true'); vL.setAttribute('aria-pressed', 'false'); vistaPerfil(); };
+  vL.onclick = () => { vL.setAttribute('aria-pressed', 'true'); vP.setAttribute('aria-pressed', 'false'); vistaLista(); };
+  vistaPerfil();
+});
+</script>
+</body>
+</html>
