@@ -331,16 +331,19 @@ section{position:relative}
 .cat-tab[aria-pressed="true"]{background:var(--deep);color:#fff;box-shadow:none}
 @media (pointer:coarse){.cat-tab{min-height:44px}}
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
-.cat-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
-.cat-card .ph{aspect-ratio:1/1;overflow:hidden;background:var(--canvas)}
-.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
-.cat-card:hover img{transform:scale(1.04)}
+.cat-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(23,76,70,.35);transition:box-shadow .4s var(--ease-out),transform .4s var(--ease-out)}
+.cat-card:hover{box-shadow:0 26px 48px -26px rgba(23,76,70,.45);transform:translateY(-3px)}
+.cat-card .ph{aspect-ratio:1/1;overflow:hidden;background:var(--canvas);padding:clamp(8px,2.2%,16px)}
+.cat-card img{width:100%;height:100%;object-fit:contain;border-radius:14px;transition:transform 1.2s var(--ease-out)}
+.cat-card:hover img{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.cat-card,.cat-card img{transition:none}.cat-card:hover,.cat-card:hover img{transform:none}}
 .cat-card .tx{display:flex;flex-direction:column;gap:6px;padding:16px 18px 20px;flex:1}
 .cat-card h3{font-size:1.1rem;line-height:1.15}
 .cat-card p{font-size:.92rem;color:var(--text-secondary)}
 .cat-card .go{margin-top:auto;padding-top:10px;font-weight:600;font-size:.95rem;color:var(--accent-hover);text-decoration:none;display:inline-flex;gap:8px;align-items:center;min-height:44px}
 .cat-card .go:hover{text-decoration:underline}
 .cat-card.star{grid-column:span 2;grid-row:span 2;background:var(--deep-2);border-color:var(--deep-2)}
+.cat-card.star .ph{background:var(--canvas);padding:clamp(10px,2.5%,20px)}
 .cat-card.star .tx{padding:22px 26px 26px}
 .cat-card.star .kicker{color:#7FC4CE}
 .cat-card.star h3{color:#fff;font-size:clamp(1.5rem,2.4vw,2rem)}
