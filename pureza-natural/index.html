@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pureza Natural | Filtros de agua Agualogic en Villavicencio</title>
-<meta name="description" content="Filtro de agua Agualogic de barro, vidrio y acero. Sin luz, sin instalación, sin botellones. Distribuidor autorizado en Villavicencio y el Meta.">
+<title>Pureza Natural | Purificadores de agua Agualogic en Villavicencio</title>
+<meta name="description" content="Purificador de agua Agualogic de barro, vidrio y acero. Sin luz, sin instalación, sin botellones. Distribuidor autorizado en Villavicencio y el Meta.">
 <meta name="theme-color" content="#174C46">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pureza Natural | Agua pura, hecha de barro">
-<meta property="og:description" content="Filtro Agualogic de 20 litros. Sin luz, sin instalación, sin botellones. Envíos en Villavicencio y el Meta.">
+<meta property="og:description" content="Purificador Agualogic de 20 litros. Sin luz, sin instalación, sin botellones. Envíos en Villavicencio y el Meta.">
 <meta property="og:site_name" content="Pureza Natural">
 <meta property="og:image" content="https://lucia019.github.io/landing-pureza-natural/assets/compartir.jpg?v=2">
 <meta property="og:image:secure_url" content="https://lucia019.github.io/landing-pureza-natural/assets/compartir.jpg?v=2">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Filtro de agua Agualogic de barro, vidrio y acero sobre una mesa de piedra">
+<meta property="og:image:alt" content="Purificador de agua Agualogic de barro, vidrio y acero sobre una mesa de piedra">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://lucia019.github.io/landing-pureza-natural/">
@@ -324,6 +324,32 @@ section{position:relative}
 .quote footer span{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--water)}
 @media (max-width:900px){.voices-grid{grid-template-columns:1fr;gap:40px}.voices-photo{aspect-ratio:4/3}}
 
+/* ===== Catálogo ===== */
+.cat-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.cat-tab{font:600 .95rem var(--body);color:var(--deep);background:transparent;border:0;border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line);transition:background .3s var(--ease-out),color .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+.cat-tab:hover{box-shadow:inset 0 0 0 1.5px var(--deep)}
+.cat-tab[aria-pressed="true"]{background:var(--deep);color:#fff;box-shadow:none}
+@media (pointer:coarse){.cat-tab{min-height:44px}}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.cat-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.cat-card .ph{aspect-ratio:1/1;overflow:hidden;background:var(--canvas)}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
+.cat-card:hover img{transform:scale(1.04)}
+.cat-card .tx{display:flex;flex-direction:column;gap:6px;padding:16px 18px 20px;flex:1}
+.cat-card h3{font-size:1.1rem;line-height:1.15}
+.cat-card p{font-size:.92rem;color:var(--text-secondary)}
+.cat-card .go{margin-top:auto;padding-top:10px;font-weight:600;font-size:.95rem;color:var(--accent-hover);text-decoration:none;display:inline-flex;gap:8px;align-items:center;min-height:44px}
+.cat-card .go:hover{text-decoration:underline}
+.cat-card.star{grid-column:span 2;grid-row:span 2;background:var(--deep-2);border-color:var(--deep-2)}
+.cat-card.star .tx{padding:22px 26px 26px}
+.cat-card.star .kicker{color:#7FC4CE}
+.cat-card.star h3{color:#fff;font-size:clamp(1.5rem,2.4vw,2rem)}
+.cat-card.star p{color:var(--on-deep-2);font-size:1.02rem}
+.cat-card.star .go{color:#fff}
+.cat-note{margin-top:28px;color:var(--text-secondary);font-size:.95rem;max-width:60ch}
+@media (max-width:1000px){.cat-grid{grid-template-columns:repeat(3,1fr)}.cat-card.star{grid-column:span 3;grid-row:auto}}
+@media (max-width:640px){.cat-grid{grid-template-columns:repeat(2,1fr);gap:12px}.cat-card.star{grid-column:span 2}.cat-card .tx{padding:12px 12px 14px}.cat-card h3{font-size:1rem}.cat-card p{display:none}.cat-card.star p{display:block}}
+
 /* ===== Experiencia táctil en celular ===== */
 .rail,.dots{display:none}
 @media (max-width:720px){
@@ -502,7 +528,8 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </a>
     <div class="nav-links">
       <a href="#como-filtra">Cómo filtra</a>
-      <a href="#producto">El filtro</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#producto">El purificador</a>
       <a href="#preguntas">Preguntas</a>
       <a class="btn btn-cta btn-sm wa-link" href="#pedir">WhatsApp</a>
     </div>
@@ -512,7 +539,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
 <main id="main" tabindex="-1">
 
 <!-- ===== HERO CON SCROLL ===== -->
-<section class="scrub-hero" aria-label="Así se arma tu filtro">
+<section class="scrub-hero" aria-label="Así se arma tu purificador">
   <div class="stage" id="stage">
     <div class="poster" aria-hidden="true"></div>
     <video id="hero" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
@@ -527,7 +554,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </div>
     <div class="band right e-drip" data-a="0.27" data-b="0.49">
       <h2 data-split="chars">El barro detiene lo que no ves.</h2>
-      <p class="e-sub">Bacterias, parásitos y microplásticos se quedan en poros de 0,2 micras.</p>
+      <p class="e-sub">En pruebas de laboratorio, el agua filtrada bajó de 40,5 a 1,94 UNT de turbiedad.</p>
     </div>
     <div class="band left e-punch" data-a="0.54" data-b="0.76">
       <h2 data-split="words" data-em="hervir.,cargar.">Deja de hervir. Deja de cargar.</h2>
@@ -535,7 +562,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </div>
     <div class="band left e-rise deep" data-a="0.82" data-b="1" data-ramp="0.06">
       <h2 data-split="words">Claridad que cuida.</h2>
-      <p class="e-sub">Filtro Agualogic de 20 litros. Envíos en Villavicencio y el Meta.</p>
+      <p class="e-sub">Purificador Agualogic de 20 litros. Envíos en Villavicencio y el Meta.</p>
       <div class="row"><a class="btn btn-cta wa-link" href="#pedir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>Pide el tuyo por WhatsApp</a></div>
     </div>
 
@@ -546,11 +573,11 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
 
 <!-- ===== HERO ESTÁTICO (movimiento reducido) ===== -->
 <section class="static-hero" aria-label="Presentación">
-  <div class="shot"><img src="assets/hero-ending.jpg" alt="Filtro de agua Agualogic armado: vasija de barro dentro de un recipiente de vidrio verde con tapa de acero, sobre una mesa de piedra" width="1920" height="1080" loading="eager"></div>
+  <div class="shot"><img src="assets/hero-ending.jpg" alt="Purificador de agua Agualogic armado: vasija de barro dentro de un recipiente de vidrio verde con tapa de acero, sobre una mesa de piedra" width="1920" height="1080" loading="eager"></div>
   <div class="copy">
     <span class="kicker">Distribuidor autorizado Agualogic</span>
     <h1 style="margin-top:12px">Agua pura, hecha de barro.</h1>
-    <p>Filtro Agualogic de 20 litros. Sin luz, sin instalación, sin botellones.</p>
+    <p>Purificador Agualogic de 20 litros. Sin luz, sin instalación, sin botellones.</p>
     <a class="btn btn-cta wa-link" href="#pedir">Pide el tuyo por WhatsApp</a>
   </div>
 </section>
@@ -583,7 +610,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </div>
     <div class="how-grid">
       <div class="filter-box rv">
-        <svg class="fx p" viewBox="0 0 360 330" role="img" aria-label="Dibujo del filtro: el agua pasa de la vasija de barro al recipiente de vidrio">
+        <svg class="fx p" viewBox="0 0 360 330" role="img" aria-label="Dibujo del purificador: el agua pasa de la vasija de barro al recipiente de vidrio">
           <defs>
             <linearGradient id="gGlass" x1="0" x2="1"><stop offset="0" stop-color="#5FA898" stop-opacity=".35"/><stop offset=".5" stop-color="#9ED0C2" stop-opacity=".18"/><stop offset="1" stop-color="#5FA898" stop-opacity=".35"/></linearGradient>
             <linearGradient id="gClay" x1="0" x2="1"><stop offset="0" stop-color="#B85F35"/><stop offset=".55" stop-color="#D8875A"/><stop offset="1" stop-color="#B85F35"/></linearGradient>
@@ -605,13 +632,13 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
           <rect x="70" y="296" width="220" height="10" rx="5" fill="#D9CFBC"/>
         </svg>
         <button class="hold p" id="hold" type="button" aria-describedby="holdNote"><i class="bar" aria-hidden="true"></i><span id="holdLabel">Mantén presionado para filtrar</span></button>
-        <p class="hold-note p" id="holdNote">Así trabaja tu filtro: despacio y sin enchufe.</p>
+        <p class="hold-note p" id="holdNote">Así trabaja tu purificador: despacio y sin enchufe.</p>
       </div>
       <div>
         <ol class="layers" id="layers">
-          <li class="layer"><span class="n">01</span><div><h3><i class="dot" style="background:#C66F45"></i>Arcilla</h3><p>Sus poros de 0,2 a 0,5 micras detienen sedimentos, bacterias y parásitos.</p></div></li>
+          <li class="layer"><span class="n">01</span><div><h3><i class="dot" style="background:#C66F45"></i>Arcilla</h3><p>Sus poros diminutos detienen los sedimentos y las partículas del agua.</p></div></li>
           <li class="layer"><span class="n">02</span><div><h3><i class="dot" style="background:#2F3A38"></i>Carbón activado</h3><p>Le quita al agua el cloro, el color, el olor y el sabor raro.</p></div></li>
-          <li class="layer"><span class="n">03</span><div><h3><i class="dot" style="background:#9CA3A6"></i>Plata coloidal</h3><p>Actúa sobre coliformes y bacterias, incluida la E. coli.</p></div></li>
+          <li class="layer"><span class="n">03</span><div><h3><i class="dot" style="background:#9CA3A6"></i>Plata coloidal</h3><p>Va dentro de la vasija de barro, junto al carbón activado.</p></div></li>
         </ol>
         <p class="how-foot">Llenas la parte de arriba y en unas horas tienes agua lista. <b>Sin tubería, sin enchufe y sin técnico.</b></p>
       </div>
@@ -631,10 +658,10 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </div>
     <div class="stats rv">
       <div class="stat p"><div class="num"><span class="count" data-to="95.2" data-dec="1">95,2</span><small>%</small></div><h3>Menos turbiedad</h3><p>De 40,5 a 1,94 UNT. Máximo permitido: 2 UNT.</p></div>
-      <div class="stat p"><div class="num"><span class="count" data-to="100" data-dec="0">100</span><small>%</small></div><h3>Coliformes y E. coli removidos</h3><p>En las muestras analizadas.</p></div>
-      <div class="stat p"><div class="num"><span class="count" data-to="84.8" data-dec="1">84,8</span><small>%</small></div><h3>Menos arsénico</h3><p>De 21,7 a 3,3 µg/L.</p></div>
+      <div class="stat p"><div class="num"><span class="count" data-to="0" data-dec="0">0</span><small>UFC/100 mL</small></div><h3>Coliformes y E. coli detectados</h3><p>En el agua de prueba, ya filtrada. Antes: 16.000 y 2.000 UFC/100 mL.</p></div>
+      <div class="stat p"><div class="num"><span>&lt;0,05</span><small>mg/L</small></div><h3>Cloro libre después de filtrar</h3><p>Antes: 1,50 mg/L. Es lo que se nota en el sabor.</p></div>
     </div>
-    <p class="fine">Son resultados sobre las muestras indicadas en cada informe. No garantizan un resultado idéntico en cualquier fuente de agua. Te enviamos los informes completos por WhatsApp si los quieres ver.</p>
+    <p class="fine">Casi todas las pruebas se hicieron con agua preparada en el laboratorio y cada informe vale solo para su muestra. No garantizan un resultado idéntico en cualquier fuente de agua. Te enviamos los informes completos por WhatsApp si los quieres ver.</p>
   </div>
 </section>
 
@@ -642,11 +669,11 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
 <section class="sec product" id="producto" aria-labelledby="t-product">
   <div class="wrap">
     <div class="product-grid">
-      <div class="product-shot rv"><img class="p" src="assets/hero-ending.jpg" alt="Filtro Agualogic armado sobre una mesa de piedra, con luz cálida de tarde" width="1920" height="1080" loading="lazy"><i class="glint" aria-hidden="true"></i></div>
+      <div class="product-shot rv"><img class="p" src="assets/hero-ending.jpg" alt="Purificador Agualogic armado sobre una mesa de piedra, con luz cálida de tarde" width="1920" height="1080" loading="lazy"><i class="glint" aria-hidden="true"></i></div>
       <div class="rv">
-        <span class="kicker p">Gota 04 · El filtro</span>
+        <span class="kicker p">Gota 04 · El purificador</span>
         <h2 id="t-product" class="p" style="font-size:clamp(2.2rem,4.6vw,3.8rem);margin-top:14px">Vidrio, barro y acero. Nada más.</h2>
-        <p class="lead p" style="margin-top:18px">Un filtro que se ve bien en tu cocina y que no suelta nada raro en el agua.</p>
+        <p class="lead p" style="margin-top:18px">Un purificador que se ve bien en tu cocina y que no suelta nada raro en el agua.</p>
         <dl class="specs p">
           <div><dt>Capacidad</dt><dd>20 litros</dd></div>
           <div><dt>Medidas</dt><dd>45 cm alto · 34,5 cm diámetro</dd></div>
@@ -664,6 +691,24 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
       <figure class="part p"><div class="ph"><img src="assets/vidrio.jpg" alt="Recipiente de vidrio verde con agua filtrada" width="1400" height="1050" loading="lazy"></div><figcaption><b>Recipiente de vidrio</b><span>Guarda el agua ya filtrada. No suelta sabores.</span></figcaption></figure>
       <figure class="part p"><div class="ph"><img src="assets/llave.jpg" alt="Llave dispensadora de acero con una gota de agua" width="1400" height="1050" loading="lazy"></div><figcaption><b>Llave</b><span>Acero inoxidable. Sirves directo al vaso.</span></figcaption></figure>
     </div>
+  </div>
+</section>
+
+<!-- ===== 4B. CATÁLOGO ===== -->
+<section class="sec" id="catalogo" aria-labelledby="t-cat">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Gota 04B · Catálogo</span>
+      <h2 id="t-cat">Elige el tuyo.</h2>
+      <p>Purificadores en vidrio, peltre y acero, con sus soportes y piezas para la mesa. Toca uno y te escribimos con el precio.</p>
+    </div>
+    <div class="cat-tabs" role="group" aria-label="Filtrar catálogo">
+      <button class="cat-tab" type="button" data-c="purificadores" aria-pressed="true">Purificadores</button>
+      <button class="cat-tab" type="button" data-c="soportes" aria-pressed="false">Mesas y bases</button>
+      <button class="cat-tab" type="button" data-c="mesa" aria-pressed="false">Para la mesa</button>
+    </div>
+    <div class="cat-grid" id="catGrid" aria-live="polite"></div>
+    <p class="cat-note">Los precios y la disponibilidad te los confirmamos por WhatsApp. Los colores pueden variar un poco de la foto.</p>
   </div>
 </section>
 
@@ -707,7 +752,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
 <!-- ===== 6. TESTIMONIOS ===== -->
 <section class="sec" aria-labelledby="t-voices">
   <div class="wrap voices-grid">
-    <div class="voices-photo rv"><img class="p" src="assets/familia.jpg" alt="Una mamá y su hija toman agua en la cocina junto al filtro Agualogic" width="1600" height="1067" loading="lazy"></div>
+    <div class="voices-photo rv"><img class="p" src="assets/familia.jpg" alt="Una mamá y su hija toman agua en la cocina junto al purificador Agualogic" width="1600" height="1067" loading="lazy"></div>
     <div class="rv">
       <span class="kicker p">Gota 06 · Lo que dicen en casa</span>
       <h2 id="t-voices" class="p" style="font-size:clamp(2.2rem,4.6vw,3.8rem);margin-top:14px">“Se ve en el barro toda la suciedad.”</h2>
@@ -730,7 +775,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     <div class="why-grid rv">
       <div class="why-item p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12z"/></svg><h3>Atención por WhatsApp</h3><p>Te ayudamos a elegir antes de comprar y te seguimos atendiendo después.</p></div>
       <div class="why-item p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg><h3>Envíos en el Meta</h3><p>Villavicencio y municipios cercanos. Fuera de la ciudad el envío tiene un costo adicional.</p></div>
-      <div class="why-item p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2.5-6 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg><h3>Te enseñamos a usarlo</h3><p>Te explicamos el curado inicial del filtro y el lavado de cada mes.</p></div>
+      <div class="why-item p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3.5 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2.5-6 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg><h3>Te enseñamos a usarlo</h3><p>Te explicamos el curado inicial del purificador y el lavado de cada mes.</p></div>
       <div class="why-item p"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>Garantía Agualogic</h3><p>Si hay un defecto de fábrica, nosotros hacemos el trámite con Agualogic por ti.</p></div>
     </div>
   </div>
@@ -803,7 +848,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
       </div>
       <div>
         <h3>La página</h3>
-        <ul><li><a href="#como-filtra">Cómo filtra</a></li><li><a href="#producto">El filtro</a></li><li><a href="#preguntas">Preguntas</a></li><li><a href="#pedir">Pedir el tuyo</a></li></ul>
+        <ul><li><a href="#como-filtra">Cómo filtra</a></li><li><a href="#catalogo">Catálogo</a></li><li><a href="#producto">El purificador</a></li><li><a href="#preguntas">Preguntas</a></li><li><a href="#pedir">Pedir el tuyo</a></li></ul>
       </div>
       <div>
         <h3>Contacto</h3>
@@ -827,7 +872,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
 (function(){
 'use strict';
 var WA_NUMBER = '573132696087';
-var WA_DEFAULT = 'Hola Pureza Natural, quiero información y el precio del filtro Agualogic.';
+var WA_DEFAULT = 'Hola Pureza Natural, quiero información y el precio del purificador Agualogic.';
 function waURL(msg){ return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg || WA_DEFAULT); }
 
 /* Todos los botones de WhatsApp abren el chat directo */
@@ -1146,7 +1191,7 @@ var MOBILE = matchMedia('(max-width: 720px)');
   if (MOBILE.matches){
     track.tabIndex = 0;
     track.setAttribute('role', 'region');
-    track.setAttribute('aria-label', track.classList.contains('parts') ? 'Partes del filtro, desliza para ver más' : 'Testimonios de clientes, desliza para ver más');
+    track.setAttribute('aria-label', track.classList.contains('parts') ? 'Partes del purificador, desliza para ver más' : 'Testimonios de clientes, desliza para ver más');
   }
   var btns = [].slice.call(dots.children), cur = -1, ticking = false;
   function sync(){
@@ -1311,7 +1356,7 @@ form.addEventListener('submit', function(e){
     return;
   }
   var pretty = phone.replace(/(\d{3})(\d{3})(\d{4})/, '$1 $2 $3');
-  var msg = 'Hola Pureza Natural, soy ' + name + ', estoy en ' + town + ' y mi celular es ' + pretty + '. Quiero el precio del filtro Agualogic y saber cómo es la entrega.';
+  var msg = 'Hola Pureza Natural, soy ' + name + ', estoy en ' + town + ' y mi celular es ' + pretty + '. Quiero el precio del purificador Agualogic y saber cómo es la entrega.';
   var url = waURL(msg);
   window.open(url, '_blank', 'noopener');
   document.getElementById('fRetry').href = url;
@@ -1323,6 +1368,34 @@ document.getElementById('fEdit').addEventListener('click', function(){
   form.classList.remove('sent');
   document.getElementById('fName').focus();
 });
+})();
+</script>
+<script>
+(function(){
+'use strict';
+var WA = '573132696087';
+var ITEMS = [{"n":"Purificador Vidrio Luna Azul Cobalto","c":"purificadores","d":"Purificador de vidrio Luna en azul cobalto, nuestra pieza más elegante.","i":"unidad-vidrio-luna-azul-cobalto-1.jpg"},{"n":"Mini purificador Peltre · Negro Micromate Grifo Dorado","c":"purificadores","d":"Mini purificador en peltre negro micromate con grifo dorado.","i":"mini-peltre-negro-micromate-grifo-dorado-1.jpg"},{"n":"Purificador Plástico · Blanco 20 litros","c":"purificadores","d":"Purificador plástico blanco de 20 litros, práctico y económico.","i":"unidad-plastica-blanco-20-litros-1.jpg"},{"n":"Purificador Peltre · Negro Jaspeado","c":"purificadores","d":"Purificador de peltre negro jaspeado, de aspecto artesanal.","i":"unidad-peltre-negro-jaspeado-1.jpg"},{"n":"Purificador Peltre · Blanco","c":"purificadores","d":"Purificador de peltre blanco, limpio y fácil de combinar.","i":"unidad-peltre-blanco-1.jpg"},{"n":"Purificador Peltre · Azul Turquesa","c":"purificadores","d":"Purificador de peltre azul turquesa, un toque de color en tu cocina.","i":"unidad-peltre-azul-turquesa-1.jpg"},{"n":"Purificador Peltre · Negro Micromate","c":"purificadores","d":"Purificador de peltre negro micromate, de acabado sobrio.","i":"unidad-peltre-negro-micromate-1.jpg"},{"n":"Purificador Peltre · Negro Micromate Grifo Dorado","c":"purificadores","d":"Purificador de peltre negro micromate con grifo dorado.","i":"unidad-peltre-negro-micromate-grifo-dorado-1.jpg"},{"n":"Purificador Acero Inox Cobrizo","c":"purificadores","d":"Purificador en acero inoxidable con acabado cobrizo.","i":"unidad-acero-inox-cobrizo-1.jpg"},{"n":"Purificador Masaru Natural","c":"purificadores","d":"Purificador Masaru en acabado natural, de diseño artesanal.","i":"masaru-natural-1.jpg"},{"n":"Purificador Masaru Flores","c":"purificadores","d":"Purificador Masaru decorado con flores, una pieza para destacar.","i":"masaru-flores-1.jpg"},{"n":"Purificador Acero Inox","c":"purificadores","d":"Purificador en acero inoxidable, resistente y duradero.","i":"unidad-acero-inox-1.jpg"},{"n":"Base Metal Madera","c":"soportes","d":"Base en metal y madera para ubicar tu purificador a buena altura.","i":"base-metal-madera-1.jpg"},{"n":"Mesa Metal Madera","c":"soportes","d":"Mesa de metal y madera para tu purificador, firme y de buen diseño.","i":"mesa-metal-madera-1.jpg"},{"n":"Mesa Palomino","c":"soportes","d":"Mesa Palomino, un soporte con estilo para tu purificador de agua.","i":"mesa-palomino-1.jpg"},{"n":"Mug Peltre · Azul Jaspeado","c":"mesa","d":"Mug de peltre azul jaspeado, resistente y liviano para tu café o agua.","i":"mug-peltre-azul-jaspeado-1.jpg"},{"n":"Mug Peltre · Blanco","c":"mesa","d":"Mug de peltre blanco, resistente y fácil de limpiar. Un clásico de cocina.","i":"mug-peltre-blanco-1.jpg"},{"n":"Mini Jarra Peltre · Azul Jaspeado","c":"mesa","d":"Mini jarra de peltre azul jaspeado para servir agua en la mesa.","i":"mini-jarra-peltre-azul-jaspeado-1.jpg"},{"n":"Mini Jarra Peltre · Blanco","c":"mesa","d":"Mini jarra de peltre blanco, ideal para servir y tener a mano.","i":"mini-jarra-peltre-blanco-1.jpg"},{"n":"Jarra Peltre · Azul Jaspeado","c":"mesa","d":"Jarra de peltre azul jaspeado, más grande para toda la familia.","i":"jarra-peltre-azul-jaspeado-1.jpg"},{"n":"Termo Agualogic · Negro","c":"mesa","d":"Termo Agualogic en color negro para llevar tu agua a todas partes.","i":"termo-agualogic-negro-1.jpg"},{"n":"Termo Agualogic · Azul","c":"mesa","d":"Termo Agualogic en color azul para llevar tu agua a todas partes.","i":"termo-agualogic-azul-1.jpg"},{"n":"Termo Agualogic Plus · Negro","c":"mesa","d":"Termo Agualogic Plus negro, la versión mejorada para el día a día.","i":"termo-agualogic-plus-negro-1.jpg"},{"n":"Termo Agualogic Plus · Azul","c":"mesa","d":"Termo Agualogic Plus azul, la versión mejorada para el día a día.","i":"termo-agualogic-plus-azul-1.jpg"}];
+var grid = document.getElementById('catGrid');
+var tabs = document.querySelectorAll('.cat-tab');
+var icon = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
+function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+function show(cat){
+  var list = ITEMS.filter(function(x){ return x.c === cat; });
+  grid.innerHTML = list.map(function(x, i){
+    var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('Hola Pureza Natural, me interesa: ' + x.n + '. ¿Me cuentas el precio y la disponibilidad?');
+    var star = cat === 'purificadores' && i === 0;
+    return '<article class="cat-card' + (star ? ' star' : '') + '"><div class="ph"><img src="assets/catalogo/' + x.i + '" alt="' + esc(x.n) + '" width="800" height="800" loading="lazy"></div>' +
+      '<div class="tx">' + (star ? '<span class="kicker">Nuestra pieza más elegante</span>' : '') + '<h3>' + esc(x.n) + '</h3><p>' + esc(x.d) + '</p>' +
+      '<a class="go" href="' + url + '" target="_blank" rel="noopener">' + icon + 'Pregunta el precio por WhatsApp<span class="sr-only"> de ' + esc(x.n) + '</span></a></div></article>';
+  }).join('');
+}
+tabs.forEach(function(b){
+  b.addEventListener('click', function(){
+    tabs.forEach(function(t){ t.setAttribute('aria-pressed', t === b ? 'true' : 'false'); });
+    show(b.getAttribute('data-c'));
+  });
+});
+show('purificadores');
 })();
 </script>
 </body>
