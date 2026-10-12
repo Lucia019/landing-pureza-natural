@@ -811,6 +811,27 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
 .ok-back { margin-top: 10px; background: none; border: 0; color: var(--ink-soft); font: 700 14px var(--body); text-decoration: underline; cursor: pointer; padding: 8px; }
 @media (prefers-reduced-motion: reduce) { dialog.okd[open], dialog.okd[open] .ok-sh .sch { animation: none; } .ok-sh .sch { stroke-dashoffset: 0; } }
 .ok-nq { margin: 0 0 12px; padding: 10px 14px; border-radius: 12px; background: #fbf7ef; border: 1px solid #eadfcb; font-size: 13.5px; text-align: left; color: #2c4540; } .ok-nq[hidden] { display: none; }
+
+/* v23: flujo Nequi y entrega estimada */
+.ok-in section[hidden] { display: none; }
+.nq-steps { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 14px; text-align: left; }
+.nq-steps > li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; }
+.nq-steps .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--cta); color: #fff; font: 700 14px var(--display); }
+.nq-steps > li > div > b { display: block; font-size: 15px; margin-bottom: 6px; }
+.nq-steps small { display: block; margin-top: 6px; color: var(--ink-soft); font-size: 12.5px; line-height: 1.35; }
+.nq-row { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; padding: 9px 12px; margin-top: 6px; border-radius: 12px; background: #fbf7ef; border: 1px solid #eadfcb; }
+.nq-row span { grid-column: 1 / -1; font-size: 11.5px; color: var(--ink-soft); }
+.nq-row strong { font: 700 17px var(--display); }
+.nq-copy { height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: 700 12.5px var(--body); cursor: pointer; }
+.nq-copy:hover { background: var(--ink); color: #fff; }
+#nq-ref { width: 100%; height: 46px; padding: 0 14px; border: 1.5px solid #cfd8d4; border-radius: 12px; font: 16px var(--body); }
+#nq-ref:focus { outline: 2px solid var(--teal); border-color: transparent; }
+.ok-in .btn-wa[disabled] { opacity: .45; cursor: not-allowed; }
+.dn-est { margin: 14px 0 16px; padding: 14px; border-radius: 16px; background: #eaf6f8; border: 1px solid #b9dde5; }
+.dn-est small { display: block; font: 700 11px var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--teal); }
+.dn-est b { display: block; margin: 6px 0 4px; font: 600 20px/1.25 var(--display); }
+.dn-est span { font-size: 12.5px; color: var(--ink-soft); line-height: 1.35; display: block; }
+.dn-link { display: block; margin: 0 0 12px; font-size: 13px; color: var(--teal); font-weight: 700; }
 </style>
 
 <header class="top">
@@ -1077,18 +1098,46 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
 </main>
 <dialog class="okd" id="okd" aria-labelledby="ok-t">
   <div class="ok-in">
-    <svg class="ok-sh" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 2l19 7v15c0 14-8 24-19 30C13 48 5 38 5 24V9z" fill="#2e7d4f"/><path class="sch" d="M16 26l6 6 11-13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <h3 id="ok-t">Hola, <span id="ok-n"></span>. Tus datos están seguros</h3>
-    <p class="ok-sub">Revisa y envía tu pedido. Lo recibimos por WhatsApp.</p>
-    <ul class="ok-l">
-      <li><i></i><span>Usamos tus datos <b>solo para tu pedido y tu entrega</b>.</span></li>
-      <li><i></i><span>Antes de despachar te confirmamos por WhatsApp <b>disponibilidad, costo y tiempo de envío</b>.</span></li>
-      <li><i></i><span>Compras a un <b>distribuidor autorizado AguaLogic</b>, con retracto de 5 días hábiles.</span></li>
-    </ul>
-    <p class="ok-nq" id="ok-nq" hidden>Pago por Nequi al <b>313 269 6087</b>, a nombre de <b>Cla*** Taf***</b>.</p>
-    <div class="ok-tot"><span>Total referencial</span><b id="ok-t2"></b></div>
-    <button type="button" class="btn-wa big" id="ok-go">Enviar pedido por WhatsApp</button>
-    <button type="button" class="ok-back" id="ok-back">Volver y revisar</button>
+    <section id="ok-review">
+      <svg class="ok-sh" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 2l19 7v15c0 14-8 24-19 30C13 48 5 38 5 24V9z" fill="#2e7d4f"/><path class="sch" d="M16 26l6 6 11-13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3 id="ok-t">Hola, <span id="ok-n"></span>. Tus datos están seguros</h3>
+      <p class="ok-sub" id="ok-sub">Revisa y envía tu pedido. Lo recibimos por WhatsApp.</p>
+      <ul class="ok-l">
+        <li><i></i><span>Usamos tus datos <b>solo para tu pedido y tu entrega</b>.</span></li>
+        <li><i></i><span>Antes de despachar te confirmamos por WhatsApp <b>disponibilidad, costo y tiempo de envío</b>.</span></li>
+        <li><i></i><span>Compras a un <b>distribuidor autorizado AguaLogic</b>, con retracto de 5 días hábiles.</span></li>
+      </ul>
+      <div class="ok-tot"><span>Total referencial</span><b id="ok-t2"></b></div>
+      <button type="button" class="btn-wa big" id="ok-go">Enviar pedido por WhatsApp</button>
+      <button type="button" class="ok-back" id="ok-back">Volver y revisar</button>
+    </section>
+    <section id="ok-pay" hidden>
+      <h3>Paga por Nequi</h3>
+      <p class="ok-sub">Dos pasos. Primero pagas, luego envías el comprobante.</p>
+      <ol class="nq-steps">
+        <li><b class="n">1</b><div><b>Abre Nequi y envía plata</b>
+          <div class="nq-row"><span>Valor</span><strong id="nq-amt"></strong><button type="button" class="nq-copy" data-copy="amt">Copiar</button></div>
+          <div class="nq-row"><span>Número</span><strong>313 269 6087</strong><button type="button" class="nq-copy" data-copy="num">Copiar</button></div>
+          <div class="nq-row"><span>Debe aparecer a nombre de</span><strong>Cla*** Taf***</strong></div>
+          <small>Si el nombre no coincide, no envíes el pago y escríbenos.</small></div></li>
+        <li><b class="n">2</b><div><b>Escribe la referencia del comprobante</b>
+          <input id="nq-ref" inputmode="text" maxlength="30" placeholder="Referencia del pago" autocomplete="off">
+          <small>Al enviar, adjunta la captura del comprobante en el chat de WhatsApp.</small></div></li>
+      </ol>
+      <button type="button" class="btn-wa big" id="nq-go" disabled>Ya pagué, enviar comprobante</button>
+      <button type="button" class="ok-back" id="nq-back">Volver</button>
+    </section>
+    <section id="ok-done" hidden>
+      <svg class="ok-sh" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 2l19 7v15c0 14-8 24-19 30C13 48 5 38 5 24V9z" fill="#2e7d4f"/><path class="sch" d="M16 26l6 6 11-13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>¡Listo, <span id="dn-n"></span>! Pedido en proceso</h3>
+      <div class="dn-est"><small>Entrega estimada</small><b id="dn-est"></b><span id="dn-note"></span></div>
+      <ul class="ok-l">
+        <li><i></i><span id="dn-l1"></span></li>
+        <li><i></i><span>Te escribimos por WhatsApp para <b>coordinar el día y la franja</b> de entrega.</span></li>
+      </ul>
+      <a class="dn-link" id="dn-wa" href="#" target="_blank" rel="noopener">¿No se abrió WhatsApp? Toca aquí</a>
+      <button type="button" class="btn-wa big" id="dn-close">Cerrar</button>
+    </section>
   </div>
 </dialog>
 <button type="button" id="to-top" class="to-top" aria-label="Volver arriba" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Arriba</span></button>
@@ -1359,14 +1408,15 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
       <div class="row2"><label>Ciudad<input name="ciudad" autocomplete="address-level2" required maxlength="50" placeholder="Villavicencio"></label><label>Municipio<input name="municipio" autocomplete="address-level1" required maxlength="50" placeholder="Meta"></label></div>
       <label>Dirección<input name="dir" autocomplete="street-address" required maxlength="120" placeholder="Calle, carrera, número, apto o casa"></label>
       <label>Punto de referencia<input name="ref" required maxlength="120" placeholder="Barrio y referencia (ej. frente al parque)"></label>
+      <h4>Entrega</h4>
+      <div class="row2"><label>Día preferido<select name="dia" id="f-dia" required></select></label><label>Franja<select name="franja" required><option>Mañana</option><option>Tarde</option><option>Indiferente</option></select></label></div>
       <h4>Forma de pago</h4>
       <div class="pays" role="radiogroup" aria-label="Forma de pago">
         <label class="pay"><input type="radio" name="pago" value="Contraentrega" checked><span class="pay-dot" aria-hidden="true"></span><div><b>Contraentrega</b><small>Pagas cuando recibes tu pedido.</small></div></label>
-        <label class="pay"><input type="radio" name="pago" value="Nequi"><span class="pay-dot" aria-hidden="true"></span><div><b>Nequi</b><small>Pagas por Nequi antes del envío.</small></div></label>
+        <label class="pay"><input type="radio" name="pago" value="Nequi"><span class="pay-dot" aria-hidden="true"></span><div><b>Nequi</b><small>Pagas por Nequi y envías el comprobante.</small></div></label>
       </div>
       <div class="nequi" id="nequi-box" hidden>
-        <p id="nequi-info">Haz el pago por Nequi y escribe aquí el número de referencia del comprobante. Te confirmamos el número de Nequi por WhatsApp.</p>
-        <label>Referencia del pago Nequi<input name="nref" maxlength="30" placeholder="Número de referencia"></label>
+        <p id="nequi-info">Al continuar verás el número, el nombre y el valor exacto para pagar. Luego envías el comprobante y te damos la fecha estimada de entrega.</p><input type="hidden" name="nref" value="">
       </div>
       <p class="cart-note">Envío a Villavicencio y municipios cercanos. Los municipios tienen costo extra de envío, que te confirmamos por WhatsApp.</p>
     </form></div>
@@ -1431,17 +1481,19 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
   document.getElementById("cart-clear").addEventListener("click",function(){cart={};save();render();});
   var NEQUI_NUM="313 269 6087";
   (function(){var f=document.getElementById("cart-form"),bx=document.getElementById("nequi-box"),r=f.elements["nref"];
-    if(NEQUI_NUM)document.getElementById("nequi-info").textContent="Paga por Nequi al "+NEQUI_NUM+". Te aparecerá a nombre de Cla*** Taf***. Escribe aquí el número de referencia del comprobante.";
-    f.addEventListener("change",function(e){if(e.target.name!=="pago")return;var nq=e.target.value==="Nequi";bx.hidden=!nq;r.required=nq;});})();
+    
+    f.addEventListener("change",function(e){if(e.target.name!=="pago")return;var nq=e.target.value==="Nequi";bx.hidden=!nq;});})();
   document.getElementById("cart-form").addEventListener("submit",function(e){
     e.preventDefault();var f=e.target;
     if(!f.checkValidity()){f.reportValidity();return;}
     if(!Object.keys(cart).length)return;
     var v=function(n){return f.elements[n].value.trim();};
     var pg=f.elements["pago"].value,nr=v("nref");
-    var msg="Hola, quiero hacer este pedido con pago "+(pg==="Nequi"?"por Nequi":"contraentrega")+":\n"+orderTxt+"\n\nDatos de entrega:\nNombre: "+v("nombre")+" "+v("apellido")+"\nCelular: "+v("tel")+"\nCiudad: "+v("ciudad")+"\nMunicipio: "+v("municipio")+"\nDirección: "+v("dir")+"\nPunto de referencia: "+v("ref")+"\nPago: "+pg+(pg==="Nequi"?"\nReferencia de pago Nequi: "+nr:"")+"\n\n¿Me confirman disponibilidad y costo de envío?\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";
-    var url="https://wa.me/"+NUM+"?text="+encodeURIComponent(msg);
-    window.__pnOrder={url:url,name:v("nombre"),total:(document.getElementById("cart-total")||{}).textContent||"",pago:pg};if(window.__pnConfirm){window.__pnConfirm();}else{var w=window.open(url,"_blank","noopener");if(!w)location.href=url;}
+    var mk=function(nr){var paid=pg==="Nequi";var head=paid?"Hola, ya pagué por Nequi este pedido (referencia "+nr+"). Adjunto el comprobante:":"Hola, quiero hacer este pedido con pago contraentrega:";
+      var m=head+"\n"+orderTxt+"\n\nDatos de entrega:\nNombre: "+v("nombre")+" "+v("apellido")+"\nCelular: "+v("tel")+"\nCiudad: "+v("ciudad")+"\nMunicipio: "+v("municipio")+"\nDirección: "+v("dir")+"\nPunto de referencia: "+v("ref")+"\nDía preferido de entrega: "+v("dia")+" ("+v("franja")+")\nPago: "+pg+(paid?"\nReferencia de pago Nequi: "+nr:"")+"\n\n¿Me confirman la fecha de entrega y el costo de envío?\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";
+      return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);};
+    var url=mk("");
+    window.__pnOrder={url:url,mk:mk,name:v("nombre"),ciudad:v("ciudad"),municipio:v("municipio"),dia:v("dia"),franja:v("franja"),total:(document.getElementById("cart-total")||{}).textContent||"",pago:pg};if(window.__pnConfirm){window.__pnConfirm();}else{var w=window.open(url,"_blank","noopener");if(!w)location.href=url;}
   });
   render();
 })();
@@ -1498,9 +1550,36 @@ s.hidden=false;})();
 </script>
 <script>
 (function(){var d=document.getElementById("okd");if(!d)return;
-window.__pnConfirm=function(){var o=window.__pnOrder||{};document.getElementById("ok-n").textContent=o.name||"";document.getElementById("ok-t2").textContent=o.total||"";document.getElementById("ok-nq").hidden=o.pago!=="Nequi";if(!d.open)d.showModal();};
-document.getElementById("ok-back").addEventListener("click",function(){d.close();});
-document.getElementById("ok-go").addEventListener("click",function(){var o=window.__pnOrder;if(!o)return;var w=window.open(o.url,"_blank","noopener");if(!w)location.href=o.url;d.close();});
+/* Plazos de entrega estimados en días hábiles (lunes a sábado). AJUSTAR a los tiempos reales. */
+var ENVIO={local:[1,2],otros:[2,4]},NEQ="313 269 6087";
+var $=function(i){return document.getElementById(i);};
+function addDays(n){var x=new Date();while(n>0){x.setDate(x.getDate()+1);if(x.getDay()!==0)n--;}return x;}
+var F=new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"long"});
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function est(o){var loc=/villavicencio/i.test(o.ciudad||"");var r=loc?ENVIO.local:ENVIO.otros;return {txt:cap(F.format(addDays(r[0])))+(r[1]!==r[0]?" a "+F.format(addDays(r[1])):""),loc:loc};}
+/* días preferidos */
+var sel=$("f-dia");if(sel){var o0=document.createElement("option");o0.textContent="Lo antes posible";sel.appendChild(o0);var x=new Date(),k=0;while(k<6){x.setDate(x.getDate()+1);if(x.getDay()===0)continue;var op=document.createElement("option");op.textContent=cap(new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"short"}).format(x));sel.appendChild(op);k++;}}
+function show(id){["ok-review","ok-pay","ok-done"].forEach(function(s){$(s).hidden=s!==id;});var sc=d.querySelector("#"+id+" .sch");if(sc){sc.style.animation="none";void sc.getBoundingClientRect();sc.style.animation="";}}
+function openWA(u){var w=window.open(u,"_blank","noopener");if(!w)location.href=u;}
+function done(o,u){var e=est(o),nq=o.pago==="Nequi";$("dn-n").textContent=o.name||"";$("dn-est").textContent=e.txt;
+ $("dn-note").textContent="Días hábiles"+(nq?", contados desde que confirmemos tu pago":"")+". Te confirmamos la fecha exacta por WhatsApp.";
+ $("dn-l1").innerHTML=nq?"Envía la <b>captura del comprobante</b> en el chat de WhatsApp si no se adjuntó.":"Pagas <b>contraentrega</b>, cuando recibes tu pedido.";
+ $("dn-wa").href=u;show("ok-done");}
+window.__pnConfirm=function(){var o=window.__pnOrder||{};$("ok-n").textContent=o.name||"";$("ok-t2").textContent=o.total||"";
+ var nq=o.pago==="Nequi";$("ok-go").textContent=nq?"Continuar al pago por Nequi":"Enviar pedido por WhatsApp";
+ $("ok-sub").textContent=nq?"Revisa tus datos. En el siguiente paso pagas por Nequi.":"Revisa y envía tu pedido. Lo recibimos por WhatsApp.";
+ show("ok-review");if(!d.open)d.showModal();};
+$("ok-back").addEventListener("click",function(){d.close();});
+$("ok-go").addEventListener("click",function(){var o=window.__pnOrder;if(!o)return;
+ if(o.pago==="Nequi"){$("nq-amt").textContent=o.total||"";$("nq-ref").value="";$("nq-go").disabled=true;show("ok-pay");}
+ else{var u=o.mk("");openWA(u);done(o,u);}});
+$("nq-back").addEventListener("click",function(){show("ok-review");});
+$("nq-ref").addEventListener("input",function(){$("nq-go").disabled=this.value.trim().length<4;});
+$("nq-go").addEventListener("click",function(){var o=window.__pnOrder;var r=$("nq-ref").value.trim();if(!o||r.length<4)return;var u=o.mk(r);openWA(u);done(o,u);});
+d.addEventListener("click",function(e){var b=e.target.closest(".nq-copy");if(!b)return;var o=window.__pnOrder||{};var v=b.getAttribute("data-copy")==="num"?NEQ.replace(/\s/g,""):(o.total||"").replace(/[^0-9]/g,"");
+ function ok(){var t=b.textContent;b.textContent="Copiado";setTimeout(function(){b.textContent="Copiar";},1400);}
+ try{navigator.clipboard.writeText(v).then(ok,ok);}catch(_){ok();}});
+$("dn-close").addEventListener("click",function(){d.close();var c=$("cart-clear");if(c)c.click();var x=$("cart-x");if(x&&document.getElementById("cartd").open)x.click();});
 })();
 </script>
 
