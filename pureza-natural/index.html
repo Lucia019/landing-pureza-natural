@@ -325,33 +325,6 @@ section{position:relative}
 @media (max-width:900px){.voices-grid{grid-template-columns:1fr;gap:40px}.voices-photo{aspect-ratio:4/3}}
 
 /* ===== Catálogo ===== */
-.cat-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
-.cat-tab{font:600 .95rem var(--body);color:var(--deep);background:transparent;border:0;border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line);transition:background .3s var(--ease-out),color .3s var(--ease-out),box-shadow .3s var(--ease-out)}
-.cat-tab:hover{box-shadow:inset 0 0 0 1.5px var(--deep)}
-.cat-tab[aria-pressed="true"]{background:var(--deep);color:#fff;box-shadow:none}
-@media (pointer:coarse){.cat-tab{min-height:44px}}
-.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
-.cat-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(23,76,70,.35);transition:box-shadow .4s var(--ease-out),transform .4s var(--ease-out)}
-.cat-card:hover{box-shadow:0 26px 48px -26px rgba(23,76,70,.45);transform:translateY(-3px)}
-.cat-card .ph{aspect-ratio:1/1;overflow:hidden;background:var(--canvas);padding:clamp(8px,2.2%,16px)}
-.cat-card img{width:100%;height:100%;object-fit:contain;border-radius:14px;transition:transform 1.2s var(--ease-out)}
-.cat-card:hover img{transform:scale(1.03)}
-@media (prefers-reduced-motion:reduce){.cat-card,.cat-card img{transition:none}.cat-card:hover,.cat-card:hover img{transform:none}}
-.cat-card .tx{display:flex;flex-direction:column;gap:6px;padding:16px 18px 20px;flex:1}
-.cat-card h3{font-size:1.1rem;line-height:1.15}
-.cat-card p{font-size:.92rem;color:var(--text-secondary)}
-.cat-card .go{margin-top:auto;padding-top:10px;font-weight:600;font-size:.95rem;color:var(--accent-hover);text-decoration:none;display:inline-flex;gap:8px;align-items:center;min-height:44px}
-.cat-card .go:hover{text-decoration:underline}
-.cat-card.star{grid-column:span 2;grid-row:span 2;background:var(--deep-2);border-color:var(--deep-2)}
-.cat-card.star .ph{background:var(--canvas);padding:clamp(10px,2.5%,20px)}
-.cat-card.star .tx{padding:22px 26px 26px}
-.cat-card.star .kicker{color:#7FC4CE}
-.cat-card.star h3{color:#fff;font-size:clamp(1.5rem,2.4vw,2rem)}
-.cat-card.star p{color:var(--on-deep-2);font-size:1.02rem}
-.cat-card.star .go{color:#fff}
-.cat-note{margin-top:28px;color:var(--text-secondary);font-size:.95rem;max-width:60ch}
-@media (max-width:1000px){.cat-grid{grid-template-columns:repeat(3,1fr)}.cat-card.star{grid-column:span 3;grid-row:auto}}
-@media (max-width:640px){.cat-grid{grid-template-columns:repeat(2,1fr);gap:12px}.cat-card.star{grid-column:span 2}.cat-card .tx{padding:12px 12px 14px}.cat-card h3{font-size:1rem}.cat-card p{display:none}.cat-card.star p{display:block}}
 
 /* ===== Experiencia táctil en celular ===== */
 .rail,.dots{display:none}
@@ -531,7 +504,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </a>
     <div class="nav-links">
       <a href="#como-filtra">Cómo filtra</a>
-      <a href="#catalogo">Catálogo</a>
+      <a href="catalogo/">Catálogo</a>
       <a href="#producto">El purificador</a>
       <a href="#preguntas">Preguntas</a>
       <a class="btn btn-cta btn-sm wa-link" href="#pedir">WhatsApp</a>
@@ -697,24 +670,6 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
   </div>
 </section>
 
-<!-- ===== 4B. CATÁLOGO ===== -->
-<section class="sec" id="catalogo" aria-labelledby="t-cat">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="kicker">Gota 04B · Catálogo</span>
-      <h2 id="t-cat">Elige el tuyo.</h2>
-      <p>Purificadores en vidrio, peltre y acero, con sus soportes y piezas para la mesa. Toca uno y te escribimos con el precio.</p>
-    </div>
-    <div class="cat-tabs" role="group" aria-label="Filtrar catálogo">
-      <button class="cat-tab" type="button" data-c="purificadores" aria-pressed="true">Purificadores</button>
-      <button class="cat-tab" type="button" data-c="soportes" aria-pressed="false">Mesas y bases</button>
-      <button class="cat-tab" type="button" data-c="mesa" aria-pressed="false">Para la mesa</button>
-    </div>
-    <div class="cat-grid" id="catGrid" aria-live="polite"></div>
-    <p class="cat-note">Los precios y la disponibilidad te los confirmamos por WhatsApp. Los colores pueden variar un poco de la foto.</p>
-  </div>
-</section>
-
 <!-- ===== 5. CALCULADORA ===== -->
 <section class="calc sec" aria-labelledby="t-calc">
   <div class="wrap">
@@ -851,7 +806,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
       </div>
       <div>
         <h3>La página</h3>
-        <ul><li><a href="#como-filtra">Cómo filtra</a></li><li><a href="#catalogo">Catálogo</a></li><li><a href="#producto">El purificador</a></li><li><a href="#preguntas">Preguntas</a></li><li><a href="#pedir">Pedir el tuyo</a></li></ul>
+        <ul><li><a href="#como-filtra">Cómo filtra</a></li><li><a href="catalogo/">Catálogo</a></li><li><a href="#producto">El purificador</a></li><li><a href="#preguntas">Preguntas</a></li><li><a href="#pedir">Pedir el tuyo</a></li></ul>
       </div>
       <div>
         <h3>Contacto</h3>
@@ -1371,34 +1326,6 @@ document.getElementById('fEdit').addEventListener('click', function(){
   form.classList.remove('sent');
   document.getElementById('fName').focus();
 });
-})();
-</script>
-<script>
-(function(){
-'use strict';
-var WA = '573132696087';
-var ITEMS = [{"n":"Purificador Vidrio Luna Azul Cobalto","c":"purificadores","d":"Purificador de vidrio Luna en azul cobalto, nuestra pieza más elegante.","i":"unidad-vidrio-luna-azul-cobalto-1.jpg"},{"n":"Mini purificador Peltre · Negro Micromate Grifo Dorado","c":"purificadores","d":"Mini purificador en peltre negro micromate con grifo dorado.","i":"mini-peltre-negro-micromate-grifo-dorado-1.jpg"},{"n":"Purificador Plástico · Blanco 20 litros","c":"purificadores","d":"Purificador plástico blanco de 20 litros, práctico y económico.","i":"unidad-plastica-blanco-20-litros-1.jpg"},{"n":"Purificador Peltre · Negro Jaspeado","c":"purificadores","d":"Purificador de peltre negro jaspeado, de aspecto artesanal.","i":"unidad-peltre-negro-jaspeado-1.jpg"},{"n":"Purificador Peltre · Blanco","c":"purificadores","d":"Purificador de peltre blanco, limpio y fácil de combinar.","i":"unidad-peltre-blanco-1.jpg"},{"n":"Purificador Peltre · Azul Turquesa","c":"purificadores","d":"Purificador de peltre azul turquesa, un toque de color en tu cocina.","i":"unidad-peltre-azul-turquesa-1.jpg"},{"n":"Purificador Peltre · Negro Micromate","c":"purificadores","d":"Purificador de peltre negro micromate, de acabado sobrio.","i":"unidad-peltre-negro-micromate-1.jpg"},{"n":"Purificador Peltre · Negro Micromate Grifo Dorado","c":"purificadores","d":"Purificador de peltre negro micromate con grifo dorado.","i":"unidad-peltre-negro-micromate-grifo-dorado-1.jpg"},{"n":"Purificador Acero Inox Cobrizo","c":"purificadores","d":"Purificador en acero inoxidable con acabado cobrizo.","i":"unidad-acero-inox-cobrizo-1.jpg"},{"n":"Purificador Masaru Natural","c":"purificadores","d":"Purificador Masaru en acabado natural, de diseño artesanal.","i":"masaru-natural-1.jpg"},{"n":"Purificador Masaru Flores","c":"purificadores","d":"Purificador Masaru decorado con flores, una pieza para destacar.","i":"masaru-flores-1.jpg"},{"n":"Purificador Acero Inox","c":"purificadores","d":"Purificador en acero inoxidable, resistente y duradero.","i":"unidad-acero-inox-1.jpg"},{"n":"Base Metal Madera","c":"soportes","d":"Base en metal y madera para ubicar tu purificador a buena altura.","i":"base-metal-madera-1.jpg"},{"n":"Mesa Metal Madera","c":"soportes","d":"Mesa de metal y madera para tu purificador, firme y de buen diseño.","i":"mesa-metal-madera-1.jpg"},{"n":"Mesa Palomino","c":"soportes","d":"Mesa Palomino, un soporte con estilo para tu purificador de agua.","i":"mesa-palomino-1.jpg"},{"n":"Mug Peltre · Azul Jaspeado","c":"mesa","d":"Mug de peltre azul jaspeado, resistente y liviano para tu café o agua.","i":"mug-peltre-azul-jaspeado-1.jpg"},{"n":"Mug Peltre · Blanco","c":"mesa","d":"Mug de peltre blanco, resistente y fácil de limpiar. Un clásico de cocina.","i":"mug-peltre-blanco-1.jpg"},{"n":"Mini Jarra Peltre · Azul Jaspeado","c":"mesa","d":"Mini jarra de peltre azul jaspeado para servir agua en la mesa.","i":"mini-jarra-peltre-azul-jaspeado-1.jpg"},{"n":"Mini Jarra Peltre · Blanco","c":"mesa","d":"Mini jarra de peltre blanco, ideal para servir y tener a mano.","i":"mini-jarra-peltre-blanco-1.jpg"},{"n":"Jarra Peltre · Azul Jaspeado","c":"mesa","d":"Jarra de peltre azul jaspeado, más grande para toda la familia.","i":"jarra-peltre-azul-jaspeado-1.jpg"},{"n":"Termo Agualogic · Negro","c":"mesa","d":"Termo Agualogic en color negro para llevar tu agua a todas partes.","i":"termo-agualogic-negro-1.jpg"},{"n":"Termo Agualogic · Azul","c":"mesa","d":"Termo Agualogic en color azul para llevar tu agua a todas partes.","i":"termo-agualogic-azul-1.jpg"},{"n":"Termo Agualogic Plus · Negro","c":"mesa","d":"Termo Agualogic Plus negro, la versión mejorada para el día a día.","i":"termo-agualogic-plus-negro-1.jpg"},{"n":"Termo Agualogic Plus · Azul","c":"mesa","d":"Termo Agualogic Plus azul, la versión mejorada para el día a día.","i":"termo-agualogic-plus-azul-1.jpg"}];
-var grid = document.getElementById('catGrid');
-var tabs = document.querySelectorAll('.cat-tab');
-var icon = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
-function esc(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
-function show(cat){
-  var list = ITEMS.filter(function(x){ return x.c === cat; });
-  grid.innerHTML = list.map(function(x, i){
-    var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent('Hola Pureza Natural, me interesa: ' + x.n + '. ¿Me cuentas el precio y la disponibilidad?');
-    var star = cat === 'purificadores' && i === 0;
-    return '<article class="cat-card' + (star ? ' star' : '') + '"><div class="ph"><img src="assets/catalogo/' + x.i + '" alt="' + esc(x.n) + '" width="800" height="800" loading="lazy"></div>' +
-      '<div class="tx">' + (star ? '<span class="kicker">Nuestra pieza más elegante</span>' : '') + '<h3>' + esc(x.n) + '</h3><p>' + esc(x.d) + '</p>' +
-      '<a class="go" href="' + url + '" target="_blank" rel="noopener">' + icon + 'Pregunta el precio por WhatsApp<span class="sr-only"> de ' + esc(x.n) + '</span></a></div></article>';
-  }).join('');
-}
-tabs.forEach(function(b){
-  b.addEventListener('click', function(){
-    tabs.forEach(function(t){ t.setAttribute('aria-pressed', t === b ? 'true' : 'false'); });
-    show(b.getAttribute('data-c'));
-  });
-});
-show('purificadores');
 })();
 </script>
 </body>

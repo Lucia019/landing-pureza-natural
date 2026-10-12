@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de purificadores Agualogic | Pureza Natural</title>
+<meta name="description" content="Catálogo de purificadores de agua Agualogic en vidrio, peltre y acero, con mesas, bases, termos y jarras. Distribuidor autorizado en Villavicencio.">
+<link rel="icon" href="../assets/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F4F1E9;--panel:#FBF9F4;--deep:#174C46;--deep-2:#123D38;--accent:#C66F45;--accent-hover:#A85A36;--water:#007585;--water-soft:rgba(0,117,133,.16);--text-secondary:#4E5D58;--text-primary:#24302E;--line:#DDD6C6;--on-deep-2:#B9D0C9;--ease-out:cubic-bezier(.22,.8,.24,1);
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--canvas);color:var(--text-primary);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--deep)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.kicker{font-family:var(--mono);font-weight:500;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--water)}
+.top{position:sticky;top:0;z-index:30;background:rgba(244,241,233,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{width:min(1180px,100% - 32px);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font:700 1.1rem var(--display);color:var(--deep);display:block;line-height:1.1}
+.brand small{display:block;font:500 .6rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary)}
+.top-links{display:flex;align-items:center;gap:10px}
+.back{font-weight:600;font-size:.95rem;text-decoration:none;color:var(--deep);padding:10px 14px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center}
+.back:hover{background:var(--water-soft)}
+.wa-top{background:var(--accent);color:#fff;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:999px;padding:10px 20px;min-height:44px;display:inline-flex;align-items:center}
+.wa-top:hover{background:var(--accent-hover)}
+.cat-page{padding:clamp(36px,6vw,72px) 0 clamp(80px,10vw,130px)}
+.sec-head{max-width:40rem}
+.sec-head h1{font-size:clamp(2.2rem,4.6vw,3.8rem);margin-top:14px}
+.sec-head p{margin-top:18px;font-size:1.15rem;color:var(--text-secondary);max-width:46ch}
+.foot-mini{border-top:1px solid var(--line);padding:28px 0 90px;color:var(--text-secondary);font-size:.9rem}
+.foot-mini .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+@media (max-width:560px){.brand small{display:none}.back{padding:10px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.cat-bar{display:flex;flex-direction:column;gap:14px;margin-top:32px;position:sticky;top:0;z-index:5;background:linear-gradient(var(--canvas) 82%,rgba(244,241,233,0));padding:10px 0 14px}
+.cat-tabs,.cat-mats{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cat-tabs::-webkit-scrollbar,.cat-mats::-webkit-scrollbar{display:none}
+.cat-tab{flex:none;font:600 .95rem var(--body);color:var(--deep);background:transparent;border:0;border-radius:999px;padding:10px 20px;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line);transition:background .3s var(--ease-out),color .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+.cat-tab i{font:500 .72rem var(--mono);font-style:normal;opacity:.65;margin-left:6px}
+.cat-tab:hover{box-shadow:inset 0 0 0 1.5px var(--deep)}
+.cat-tab[aria-pressed="true"]{background:var(--deep);color:#fff;box-shadow:none}
+.cat-mat{flex:none;font:500 .85rem var(--body);color:var(--text-secondary);background:var(--panel);border:0;border-radius:10px;padding:7px 14px;cursor:pointer;box-shadow:inset 0 0 0 1px var(--line)}
+.cat-mat[aria-pressed="true"]{color:var(--deep);box-shadow:inset 0 0 0 1.5px var(--water);background:var(--water-soft)}
+@media (pointer:coarse){.cat-tab,.cat-mat{min-height:44px}}
+.cat-count{margin-top:6px;font:500 .8rem var(--mono);letter-spacing:.06em;color:var(--text-secondary);text-transform:uppercase}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+.cat-card{position:relative;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(23,76,70,.35);transition:box-shadow .4s var(--ease-out),transform .4s var(--ease-out);animation:catIn .5s var(--ease-out) both;animation-delay:calc(var(--i,0)*45ms)}
+@keyframes catIn{from{opacity:0;transform:translateY(14px)}}
+.cat-card:hover{box-shadow:0 26px 48px -26px rgba(23,76,70,.45);transform:translateY(-3px)}
+.cat-card .ph{display:block;width:100%;border:0;padding:clamp(8px,2.2%,16px);cursor:pointer;aspect-ratio:1/1;overflow:hidden;background:radial-gradient(circle at 50% 38%,#fff 0,var(--canvas) 72%)}
+.cat-card img{width:100%;height:100%;object-fit:contain;border-radius:14px;mix-blend-mode:multiply;transition:transform 1.2s var(--ease-out)}
+.cat-card:hover img{transform:scale(1.05)}
+.cat-card .eye{position:absolute;top:12px;left:12px;font:600 .72rem var(--body);color:var(--deep);background:rgba(251,249,244,.92);border-radius:999px;padding:5px 10px;opacity:0;transform:translateY(-4px);transition:opacity .3s,transform .3s;pointer-events:none}
+.cat-card:hover .eye,.cat-card:focus-within .eye{opacity:1;transform:none}
+@media (hover:none){.cat-card .eye{display:none}}
+.cat-card .add{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(251,249,244,.94);color:var(--deep);cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px rgba(20,40,50,.14);transition:background .25s,color .25s,transform .25s var(--ease-out)}
+.cat-card .add:hover{transform:scale(1.08)}
+.cat-card .add svg{width:20px;height:20px;transition:transform .3s var(--ease-out)}
+.cat-card .add[aria-pressed="true"]{background:var(--accent);color:#fff}
+.cat-card .add[aria-pressed="true"] svg{transform:rotate(45deg)}
+.cat-card .tx{display:flex;flex-direction:column;gap:6px;padding:14px 18px 18px;flex:1}
+.cat-card .mat{font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--water)}
+.cat-card h3{font-size:1.08rem;line-height:1.15}
+.cat-card p{font-size:.92rem;color:var(--text-secondary)}
+.price{font:700 1.15rem var(--display);color:var(--deep);letter-spacing:-.01em}
+.cat-card.star .price{color:#fff;font-size:1.5rem}
+.p-in .price{font-size:1.6rem}
+.acc-card .price{font-size:1.05rem}
+.cat-card .go{margin-top:auto;padding-top:8px;background:none;border:0;font:600 .95rem var(--body);color:var(--accent-hover);cursor:pointer;display:inline-flex;gap:6px;align-items:center;min-height:44px;text-align:left}
+.cat-card .go:hover{text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){.cat-card,.cat-card img{transition:none;animation:none}.cat-card:hover,.cat-card:hover img{transform:none}}
+.cat-card.star{grid-column:span 2;grid-row:span 2;background:var(--deep-2);border-color:var(--deep-2)}
+.cat-card.star .ph{background:radial-gradient(circle at 50% 38%,#fff 0,var(--canvas) 72%);flex:1}
+.cat-card.star .tx{padding:22px 26px 26px;flex:none}
+.cat-card.star .kicker{color:#7FC4CE}
+.cat-card.star .mat{color:#7FC4CE}
+.cat-card.star h3{color:#fff;font-size:clamp(1.5rem,2.4vw,2rem)}
+.cat-card.star p{color:var(--on-deep-2);font-size:1.02rem}
+.cat-card.star .go{color:#fff}
+.cat-note{margin-top:28px;color:var(--text-secondary);font-size:.95rem;max-width:60ch}
+@media (max-width:1000px){.cat-grid{grid-template-columns:repeat(3,1fr)}.cat-card.star{grid-column:span 3;grid-row:auto}.cat-card.star .ph{aspect-ratio:4/3;flex:none}}
+@media (max-width:640px){.cat-grid{grid-template-columns:repeat(2,1fr);gap:12px}.cat-card.star{grid-column:span 2}.cat-card .tx{padding:10px 12px 12px}.cat-card h3{font-size:.98rem}.cat-card p{display:none}.cat-card.star p{display:block}.cat-card .go{font-size:.88rem}}
+.sel-bar{position:fixed;left:50%;bottom:16px;transform:translate(-50%,0);z-index:40;display:flex;align-items:center;gap:14px;background:var(--deep-2);color:#fff;border-radius:999px;padding:8px 8px 8px 22px;box-shadow:0 18px 40px rgba(18,61,56,.4);max-width:calc(100vw - 24px);animation:selUp .4s var(--ease-out)}
+.sel-bar[hidden]{display:none}
+@keyframes selUp{from{opacity:0;transform:translate(-50%,20px)}}
+.sel-bar span{font-weight:600;font-size:.95rem;white-space:nowrap}
+.sel-clear{background:none;border:0;color:var(--on-deep-2);font:500 .85rem var(--body);cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:44px}
+.sel-go{background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;border-radius:999px;padding:12px 20px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+.sel-go:hover{background:var(--accent-hover)}
+@media (max-width:520px){.sel-bar{gap:8px;padding-left:16px;bottom:calc(10px + env(safe-area-inset-bottom))}.sel-bar span{font-size:.85rem}.sel-go{padding:12px 14px;font-size:.88rem}}
+.p-dlg{border:0;border-radius:28px;padding:0;width:min(940px,94vw);max-height:92vh;overflow:hidden;background:var(--panel);color:var(--text-primary);box-shadow:0 30px 80px rgba(20,40,50,.35)}
+.p-dlg[open]{display:grid;grid-template-columns:1.05fr 1fr;animation:pIn .35s var(--ease-out)}
+@keyframes pIn{from{opacity:0;transform:translateY(16px) scale(.98)}}
+.p-dlg::backdrop{background:rgba(20,40,50,.55);backdrop-filter:blur(3px)}
+.p-dlg .x{position:absolute;top:12px;right:12px;z-index:3;width:44px;height:44px;border-radius:50%;border:0;background:rgba(244,241,233,.94);cursor:pointer;font-size:1.3rem;color:var(--deep)}
+.p-img{position:relative;background:radial-gradient(circle at 50% 40%,#fff 0,var(--canvas) 75%);display:grid;place-items:center;min-height:0}
+.p-img img{width:100%;height:100%;max-height:92vh;object-fit:contain;mix-blend-mode:multiply;display:block;aspect-ratio:1/1}
+.p-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(251,249,244,.92);color:var(--deep);cursor:pointer;font-size:1.1rem;box-shadow:0 4px 14px rgba(20,40,50,.15)}
+.p-nav.prev{left:12px}.p-nav.next{right:12px}
+.p-in{display:flex;flex-direction:column;gap:10px;padding:34px 30px 28px;overflow-y:auto;max-height:92vh}
+.p-in h3{font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.1}
+.p-in p{color:var(--text-secondary);font-size:1.02rem}
+.p-tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:4px 0}
+.p-tags li{font:500 .8rem var(--body);color:var(--deep);background:var(--water-soft);border-radius:999px;padding:5px 12px}
+.p-act{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.p-add,.p-wa{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;font:700 1rem var(--body);cursor:pointer;text-decoration:none;border:0;padding:0 24px}
+.p-wa{background:var(--accent);color:#fff}.p-wa:hover{background:var(--accent-hover)}
+.p-add{background:transparent;color:var(--deep);box-shadow:inset 0 0 0 1.5px var(--deep)}
+.p-add[aria-pressed="true"]{background:var(--deep);color:#fff}
+.p-rel-t{margin-top:12px;font:500 .75rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary)}
+.p-rel{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
+.p-rel button{flex:none;width:76px;height:76px;border-radius:16px;border:0;padding:4px;cursor:pointer;background:var(--canvas);box-shadow:inset 0 0 0 1px var(--line)}
+.p-rel img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+@media (max-width:760px){.p-dlg{width:100vw;max-width:100vw;max-height:94vh;margin:auto 0 0;border-radius:26px 26px 0 0}.p-dlg[open]{display:flex;flex-direction:column;overflow-y:auto}.p-img img{max-height:44vh}.p-in{padding:18px 20px 24px;max-height:none;overflow:visible}.p-act{position:sticky;bottom:0;background:var(--panel);padding:10px 0}}
+@media (prefers-reduced-motion:reduce){.p-dlg[open],.sel-bar{animation:none}}
+
+/* ===== Kit + accesorios ===== */
+.kit-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;margin-top:64px;align-items:stretch}
+.kit-card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 10px 30px rgba(20,40,50,.07)}
+.kit-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.kit-card .tx{display:flex;flex-direction:column;gap:8px;padding:20px 22px 24px;flex:1}
+.kit-card h3{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.15}
+.kit-card p{color:var(--text-secondary);font-size:.98rem}
+.acc{min-width:0;display:flex;flex-direction:column}
+.acc-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.acc-head h3{font-size:clamp(1.2rem,1.8vw,1.45rem)}
+.acc-nav{display:flex;gap:8px}
+.acc-nav button{width:44px;height:44px;border-radius:50%;border:0;background:transparent;box-shadow:inset 0 0 0 1.5px var(--line);color:var(--deep);cursor:pointer;font-size:1.1rem;transition:box-shadow .3s var(--ease-out)}
+.acc-nav button:hover{box-shadow:inset 0 0 0 1.5px var(--deep)}
+.acc-track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:2px;padding:4px 2px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.acc-track::-webkit-scrollbar{display:none}
+.acc-card{flex:0 0 min(248px,72%);scroll-snap-align:start;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(20,40,50,.06)}
+.acc-card .ph{aspect-ratio:1/1;background:var(--canvas);padding:0;border:0;cursor:pointer;display:block;width:100%}
+.acc-card .ph img{width:100%;height:100%;object-fit:contain;display:block}
+.acc-card .tx{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px;flex:1}
+.acc-card h4{font-size:1.05rem;line-height:1.2}
+.acc-card .dim{font-size:.9rem;color:var(--text-secondary)}
+.acc-card .more{background:none;border:0;padding:0;font:600 .92rem var(--body);color:var(--deep);text-align:left;cursor:pointer;text-decoration:underline;text-underline-offset:3px;min-height:36px}
+.acc-card .go,.kit-card .go,.acc-dlg .go{margin-top:auto;padding-top:8px;font-weight:600;font-size:.95rem;color:var(--accent-hover);text-decoration:none;display:inline-flex;gap:8px;align-items:center;min-height:44px}
+.acc-card .go:hover,.kit-card .go:hover,.acc-dlg .go:hover{text-decoration:underline}
+.acc-pdf{margin-top:10px;font-size:.92rem;color:var(--text-secondary)}
+.acc-pdf a{color:var(--text-secondary);text-underline-offset:3px}
+.acc-dlg{border:0;border-radius:24px;padding:0;max-width:min(520px,92vw);width:100%;background:var(--panel);color:var(--text-primary);box-shadow:0 30px 80px rgba(20,40,50,.3)}
+.acc-dlg::backdrop{background:rgba(20,40,50,.5)}
+.acc-dlg img{width:100%;aspect-ratio:1/1;object-fit:contain;background:var(--canvas);display:block}
+.acc-dlg .in{padding:18px 22px 24px;display:flex;flex-direction:column;gap:8px}
+.acc-dlg h4{font-size:1.3rem}
+.acc-dlg .x{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(244,241,233,.92);cursor:pointer;font-size:1.2rem;color:var(--deep)}
+@media (max-width:900px){.kit-row{grid-template-columns:1fr;margin-top:48px}.acc-nav{display:none}}
+@media (prefers-reduced-motion:reduce){.acc-track{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="../index.html" aria-label="Pureza Natural, ir al inicio">
+      <img src="../assets/logo-mark.png" alt="" width="40" height="41">
+      <span><b>Pureza Natural</b><small>Distribuidor autorizado Agualogic</small></span>
+    </a>
+    <div class="top-links">
+      <a class="back" href="../index.html">&larr; Inicio</a>
+      <a class="wa-top" href="https://wa.me/573132696087?text=Hola%20Pureza%20Natural%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20cat%C3%A1logo." target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</header>
+<main id="main" class="cat-page"><section id="catalogo" aria-labelledby="t-cat">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Catálogo</span>
+      <h1 id="t-cat">Elige el tuyo.</h1>
+      <p>Purificadores en vidrio, peltre y acero, con sus soportes y piezas para la mesa. Toca uno para ver el detalle y pídelo por WhatsApp.</p>
+    </div>
+    <div class="cat-bar">
+      <div class="cat-tabs" role="group" aria-label="Filtrar catálogo">
+        <button class="cat-tab" type="button" data-c="purificadores" aria-pressed="true">Purificadores <i id="nPur"></i></button>
+        <button class="cat-tab" type="button" data-c="soportes" aria-pressed="false">Mesas y bases <i id="nSop"></i></button>
+        <button class="cat-tab" type="button" data-c="mesa" aria-pressed="false">Para la mesa <i id="nMes"></i></button>
+      </div>
+      <div class="cat-mats" id="catMats" role="group" aria-label="Filtrar por material"></div>
+    </div>
+    <p class="cat-count" id="catCount" aria-live="polite"></p>
+    <div class="cat-grid" id="catGrid"></div>
+    <div class="sel-bar" id="selBar" hidden>
+      <span id="selTxt"></span>
+      <button type="button" id="selClear" class="sel-clear">Vaciar</button>
+      <a id="selWa" class="sel-go" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+    </div>
+    <dialog class="p-dlg" id="pDlg" aria-labelledby="pT">
+      <button class="x" type="button" id="pX" aria-label="Cerrar">&times;</button>
+      <div class="p-img"><img id="pImg" alt="" width="800" height="800"><button type="button" class="p-nav prev" id="pPrev" aria-label="Producto anterior">&#8592;</button><button type="button" class="p-nav next" id="pNext" aria-label="Producto siguiente">&#8594;</button></div>
+      <div class="p-in">
+        <span class="kicker" id="pK"></span>
+        <h3 id="pT"></h3>
+        <span class="price" id="pP"></span>
+        <p id="pD"></p>
+        <ul class="p-tags" id="pTags"></ul>
+        <div class="p-act"><button type="button" class="p-add" id="pAdd"></button><a class="p-wa" id="pWa" href="#" target="_blank" rel="noopener"></a></div>
+        <p class="p-rel-t" id="pRelT" hidden>Va bien con</p>
+        <div class="p-rel" id="pRel"></div>
+      </div>
+    </dialog>
+    <p class="cat-note">Precios en pesos colombianos. Por WhatsApp te confirmamos la disponibilidad y cómo es la entrega. Los colores pueden variar un poco de la foto.</p>
+  
+    <div class="kit-row" id="kit">
+      <article class="kit-card">
+        <img src="../assets/catalogo/kit-completo.jpg" alt="Kit completo: purificador de vidrio con jarra, termo y mug Agualogic" width="1024" height="898" loading="lazy">
+        <div class="tx">
+          <span class="kicker">Kit completo</span>
+          <h3>El purificador con sus accesorios.</h3>
+          <p>Purificador de vidrio con la jarra, el termo y el mug de la misma línea, para que todo combine en tu mesa.</p>
+          <a class="go" id="kitWa" href="#" target="_blank" rel="noopener">Pregunta el precio por WhatsApp<span class="sr-only"> del kit completo</span></a>
+        </div>
+      </article>
+      <div class="acc" role="group" aria-labelledby="t-acc">
+        <div class="acc-head">
+          <h3 id="t-acc">Accesorios para tu mesa</h3>
+          <div class="acc-nav"><button type="button" id="accPrev" aria-label="Accesorios anteriores">&#8592;</button><button type="button" id="accNext" aria-label="Más accesorios">&#8594;</button></div>
+        </div>
+        <div class="acc-track" id="accTrack" tabindex="0" role="region" aria-label="Accesorios, desliza para ver más"></div>
+        <p class="acc-pdf"><a id="pdfWa" href="#" target="_blank" rel="noopener">Solicitar el catálogo completo en PDF</a></p>
+      </div>
+    </div>
+    <dialog class="acc-dlg" id="accDlg" aria-labelledby="accDlgT"><button class="x" type="button" id="accX" aria-label="Cerrar">&times;</button><img id="accDlgImg" alt="" width="800" height="800"><div class="in"><h4 id="accDlgT"></h4><p id="accDlgD"></p><p class="dim" id="accDlgM"></p><a class="go" id="accDlgWa" href="#" target="_blank" rel="noopener"></a></div></dialog>
+  </div>
+</section>
+</main>
+<footer class="foot-mini"><div class="wrap"><span>© 2026 Pureza Natural · Villavicencio, Meta, Colombia</span><a href="../index.html">Ir a la página principal</a></div></footer>
+<script>
+(function(){
+'use strict';
+var WA = '573132696087';
+var ITEMS = [{"n":"Purificador Vidrio Luna Azul Cobalto","c":"purificadores","d":"Purificador de vidrio Luna en azul cobalto, nuestra pieza más elegante.","i":"unidad-vidrio-luna-azul-cobalto-1.jpg","p":1250000},{"n":"Mini purificador Peltre · Negro Micromate Grifo Dorado","c":"purificadores","d":"Mini purificador en peltre negro micromate con grifo dorado.","i":"mini-peltre-negro-micromate-grifo-dorado-1.jpg","p":440000},{"n":"Purificador Peltre · Negro Jaspeado","c":"purificadores","d":"Purificador de peltre negro jaspeado, de aspecto artesanal.","i":"unidad-peltre-negro-jaspeado-1.jpg","p":540000},{"n":"Purificador Peltre · Blanco","c":"purificadores","d":"Purificador de peltre blanco, limpio y fácil de combinar.","i":"unidad-peltre-blanco-1.jpg","p":540000},{"n":"Purificador Peltre · Azul Turquesa","c":"purificadores","d":"Purificador de peltre azul turquesa, un toque de color en tu cocina.","i":"unidad-peltre-azul-turquesa-1.jpg","p":540000},{"n":"Purificador Peltre · Negro Micromate","c":"purificadores","d":"Purificador de peltre negro micromate, de acabado sobrio.","i":"unidad-peltre-negro-micromate-1.jpg","p":580000},{"n":"Purificador Peltre · Negro Micromate Grifo Dorado","c":"purificadores","d":"Purificador de peltre negro micromate con grifo dorado.","i":"unidad-peltre-negro-micromate-grifo-dorado-1.jpg","p":630000},{"n":"Purificador Acero Inox Cobrizo","c":"purificadores","d":"Purificador en acero inoxidable con acabado cobrizo.","i":"unidad-acero-inox-cobrizo-1.jpg","p":730000},{"n":"Purificador Masaru Natural","c":"purificadores","d":"Purificador Masaru en acabado natural, de diseño artesanal.","i":"masaru-natural-1.jpg","p":630000},{"n":"Purificador Masaru Flores","c":"purificadores","d":"Purificador Masaru decorado con flores, una pieza para destacar.","i":"masaru-flores-1.jpg","p":730000},{"n":"Purificador Acero Inox","c":"purificadores","d":"Purificador en acero inoxidable, resistente y duradero.","i":"unidad-acero-inox-1.jpg","p":680000},{"n":"Base Metal Madera","c":"soportes","d":"Base en metal y madera para ubicar tu purificador a buena altura.","i":"base-metal-madera-1.jpg","p":203000},{"n":"Mesa Metal Madera","c":"soportes","d":"Mesa de metal y madera para tu purificador, firme y de buen diseño.","i":"mesa-metal-madera-1.jpg","p":302000},{"n":"Mesa Palomino","c":"soportes","d":"Mesa Palomino, un soporte con estilo para tu purificador de agua.","i":"mesa-palomino-1.jpg","p":330000},{"n":"Mug Peltre · Azul Jaspeado","c":"mesa","d":"Mug de peltre azul jaspeado, resistente y liviano para tu café o agua.","i":"mug-peltre-azul-jaspeado-1.jpg","p":21000},{"n":"Mug Peltre · Blanco","c":"mesa","d":"Mug de peltre blanco, resistente y fácil de limpiar. Un clásico de cocina.","i":"mug-peltre-blanco-1.jpg","p":21000},{"n":"Mini Jarra Peltre · Azul Jaspeado","c":"mesa","d":"Mini jarra de peltre azul jaspeado para servir agua en la mesa.","i":"mini-jarra-peltre-azul-jaspeado-1.jpg","p":58000},{"n":"Mini Jarra Peltre · Blanco","c":"mesa","d":"Mini jarra de peltre blanco, ideal para servir y tener a mano.","i":"mini-jarra-peltre-blanco-1.jpg","p":58000},{"n":"Jarra Peltre · Azul Jaspeado","c":"mesa","d":"Jarra de peltre azul jaspeado, más grande para toda la familia.","i":"jarra-peltre-azul-jaspeado-1.jpg","p":94000},{"n":"Termo Agualogic · Negro","c":"mesa","d":"Termo Agualogic en color negro para llevar tu agua a todas partes.","i":"termo-agualogic-negro-1.jpg","p":89000},{"n":"Termo Agualogic · Azul","c":"mesa","d":"Termo Agualogic en color azul para llevar tu agua a todas partes.","i":"termo-agualogic-azul-1.jpg","p":89000},{"n":"Termo Agualogic Plus · Negro","c":"mesa","d":"Termo Agualogic Plus negro, la versión mejorada para el día a día.","i":"termo-agualogic-plus-negro-1.jpg","p":139000},{"n":"Termo Agualogic Plus · Azul","c":"mesa","d":"Termo Agualogic Plus azul, la versión mejorada para el día a día.","i":"termo-agualogic-plus-azul-1.jpg","p":139000}];
+var CATS = {purificadores:'Purificador', soportes:'Mesa o base', mesa:'Para la mesa'};
+function mat(x){
+  var n = x.n.toLowerCase();
+  if (/masaru/.test(n)) return 'Masaru';
+  if (/vidrio/.test(n)) return 'Vidrio';
+  if (/acero/.test(n)) return 'Acero inox';
+  if (/termo/.test(n)) return 'Termos';
+  if (/peltre/.test(n)) return 'Peltre';
+  if (/madera|palomino/.test(n)) return 'Metal y madera';
+  return 'Otros';
+}
+ITEMS.forEach(function(x, k){ x.k = k; x.m = mat(x); });
+var grid = document.getElementById('catGrid'), tabs = document.querySelectorAll('.cat-tab');
+var matsBox = document.getElementById('catMats'), count = document.getElementById('catCount');
+var bar = document.getElementById('selBar');
+var cat = 'purificadores', fm = 'Todos', sel = [];
+try { sel = JSON.parse(localStorage.getItem('pn_sel') || '[]').filter(function(k){ return ITEMS[k]; }); } catch (e) {}
+var iconWa = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
+var iconPlus = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+function wa(t){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t); }
+function cop(n){ return '$' + n.toLocaleString('es-CO'); }
+function save(){ try { localStorage.setItem('pn_sel', JSON.stringify(sel)); } catch (e) {} }
+function has(k){ return sel.indexOf(k) > -1; }
+function toggle(k){ var i = sel.indexOf(k); if (i > -1) sel.splice(i, 1); else sel.push(k); save(); renderBar(); syncAdd(); }
+function syncAdd(){
+  document.querySelectorAll('.cat-card .add').forEach(function(b){
+    var on = has(+b.getAttribute('data-k')); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', (on ? 'Quitar de mi selección: ' : 'Agregar a mi selección: ') + ITEMS[+b.getAttribute('data-k')].n);
+  });
+  if (dlg.open) paintAdd();
+}
+function renderBar(){
+  if (!sel.length){ bar.hidden = true; return; }
+  bar.hidden = false;
+  document.getElementById('selTxt').textContent = sel.length + (sel.length === 1 ? ' producto' : ' productos');
+  var lines = sel.map(function(k){ return '- ' + ITEMS[k].n + ' (' + cop(ITEMS[k].p) + ')'; }).join('\n');
+  document.getElementById('selWa').href = wa('Hola Pureza Natural, me interesan estos productos:\n' + lines + '\n¿Me cuentas disponibilidad y entrega?');
+}
+function inCat(c){ return ITEMS.filter(function(x){ return x.c === c; }); }
+function renderMats(){
+  var ms = ['Todos']; inCat(cat).forEach(function(x){ if (ms.indexOf(x.m) < 0) ms.push(x.m); });
+  matsBox.hidden = ms.length < 3;
+  matsBox.innerHTML = ms.map(function(m){ return '<button class="cat-mat" type="button" data-m="' + esc(m) + '" aria-pressed="' + (m === fm) + '">' + esc(m) + '</button>'; }).join('');
+}
+function show(){
+  var list = inCat(cat).filter(function(x){ return fm === 'Todos' || x.m === fm; });
+  grid.innerHTML = list.map(function(x, i){
+    var star = cat === 'purificadores' && fm === 'Todos' && i === 0;
+    return '<article class="cat-card' + (star ? ' star' : '') + '" style="--i:' + i + '">' +
+      '<button class="ph" type="button" data-k="' + x.k + '" data-open aria-label="Ver ' + esc(x.n) + '"><img src="../assets/catalogo/' + x.i + '" alt="' + esc(x.n) + '" width="800" height="800" loading="lazy"></button>' +
+      '<span class="eye" aria-hidden="true">Ver detalle</span>' +
+      '<button class="add" type="button" data-k="' + x.k + '" aria-pressed="false">' + iconPlus + '</button>' +
+      '<div class="tx">' + (star ? '<span class="kicker">Nuestra pieza más elegante</span>' : '') + '<span class="mat">' + esc(x.m) + '</span><h3>' + esc(x.n) + '</h3><span class="price">' + cop(x.p) + '</span><p>' + esc(x.d) + '</p>' +
+      '<button class="go" type="button" data-k="' + x.k + '" data-open>Ver detalle &rarr;</button></div></article>';
+  }).join('');
+  count.textContent = list.length + (list.length === 1 ? ' producto' : ' productos');
+  syncAdd();
+}
+tabs.forEach(function(b){
+  b.addEventListener('click', function(){
+    cat = b.getAttribute('data-c'); fm = 'Todos';
+    tabs.forEach(function(t){ t.setAttribute('aria-pressed', t === b ? 'true' : 'false'); });
+    renderMats(); show();
+  });
+});
+matsBox.addEventListener('click', function(e){
+  var b = e.target.closest('[data-m]'); if (!b) return;
+  fm = b.getAttribute('data-m');
+  matsBox.querySelectorAll('.cat-mat').forEach(function(t){ t.setAttribute('aria-pressed', t === b ? 'true' : 'false'); });
+  show();
+});
+grid.addEventListener('click', function(e){
+  var a = e.target.closest('.add');
+  if (a){ toggle(+a.getAttribute('data-k')); return; }
+  var o = e.target.closest('[data-open]');
+  if (o) open(+o.getAttribute('data-k'));
+});
+document.getElementById('selClear').addEventListener('click', function(){ sel = []; save(); renderBar(); syncAdd(); });
+
+/* ===== Ficha de producto ===== */
+var dlg = document.getElementById('pDlg'), cur = 0, ring = [];
+function related(x){
+  var other = x.c === 'purificadores' ? 'soportes' : 'purificadores';
+  var a = inCat(other).slice(0, 2), b = inCat('mesa').filter(function(y){ return y.k !== x.k; }).slice(0, 2);
+  var c = inCat(x.c).filter(function(y){ return y.k !== x.k && y.m === x.m; }).slice(0, 2);
+  return c.concat(a, b).filter(function(y, i, arr){ return arr.indexOf(y) === i; }).slice(0, 5);
+}
+function paintAdd(){
+  var b = document.getElementById('pAdd'), on = has(cur);
+  b.setAttribute('aria-pressed', on); b.textContent = on ? 'En mi selección ✓' : 'Agregar a mi selección';
+}
+function fill(k){
+  cur = k; var x = ITEMS[k];
+  var img = document.getElementById('pImg'); img.src = '../assets/catalogo/' + x.i; img.alt = x.n;
+  document.getElementById('pK').textContent = CATS[x.c];
+  document.getElementById('pT').textContent = x.n;
+  document.getElementById('pD').textContent = x.d;
+  document.getElementById('pP').textContent = cop(x.p);
+  document.getElementById('pTags').innerHTML = '<li>' + esc(x.m) + '</li><li>Línea Agualogic</li>';
+  var w = document.getElementById('pWa'); w.innerHTML = iconWa + 'Pide el tuyo por WhatsApp';
+  w.href = wa('Hola Pureza Natural, me interesa: ' + x.n + ' (' + cop(x.p) + '). ¿Me cuentas la disponibilidad y cómo es la entrega?');
+  var rel = related(x);
+  document.getElementById('pRelT').hidden = !rel.length;
+  document.getElementById('pRel').innerHTML = rel.map(function(y){ return '<button type="button" data-k="' + y.k + '" aria-label="Ver ' + esc(y.n) + '"><img src="../assets/catalogo/' + y.i + '" alt="" loading="lazy"></button>'; }).join('');
+  paintAdd();
+}
+function open(k){
+  ring = ITEMS.filter(function(x){ return x.c === ITEMS[k].c; }).map(function(x){ return x.k; });
+  fill(k);
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+}
+function go(d){ var i = (ring.indexOf(cur) + d + ring.length) % ring.length; fill(ring[i]); }
+document.getElementById('pPrev').addEventListener('click', function(){ go(-1); });
+document.getElementById('pNext').addEventListener('click', function(){ go(1); });
+document.getElementById('pAdd').addEventListener('click', function(){ toggle(cur); });
+document.getElementById('pRel').addEventListener('click', function(e){ var b = e.target.closest('[data-k]'); if (b){ var k = +b.getAttribute('data-k'); ring = ITEMS.filter(function(x){ return x.c === ITEMS[k].c; }).map(function(x){ return x.k; }); fill(k); } });
+document.getElementById('pX').addEventListener('click', function(){ dlg.close(); });
+dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+dlg.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') go(-1); else if (e.key === 'ArrowRight') go(1); });
+var tx0 = null;
+dlg.addEventListener('touchstart', function(e){ tx0 = e.touches[0].clientX; }, {passive:true});
+dlg.addEventListener('touchend', function(e){ if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; tx0 = null; if (Math.abs(dx) > 60 && e.target.closest('.p-img')) go(dx < 0 ? 1 : -1); }, {passive:true});
+
+document.getElementById('nPur').textContent = inCat('purificadores').length;
+document.getElementById('nSop').textContent = inCat('soportes').length;
+document.getElementById('nMes').textContent = inCat('mesa').length;
+renderMats(); show(); renderBar();
+})();
+</script>
+<script>
+(function(){
+'use strict';
+var WA='573132696087';
+var ACC=[
+ {n:'Termo Inox 1.6L',p:'Desde $89.000',i:'termo-agualogic-azul-1.jpg',d:'Termo Agualogic en acero inoxidable con tapa y asa para llevar tu agua a todas partes.',m:'22 cm de alto \u00d7 10,3 cm de diámetro'},
+ {n:'Jarra Esmaltada',p:'$94.000',i:'jarra-peltre-azul-jaspeado-1.jpg',d:'Jarra de peltre esmaltado, para servir el agua en la mesa.',m:'30 cm de alto \u00d7 19 cm de diámetro'},
+ {n:'Mug Peltre',p:'$21.000',i:'mug-peltre-blanco-1.jpg',d:'Mug de peltre esmaltado con el logo Agualogic.',m:''},
+ {n:'Mini Jarra Peltre',p:'$58.000',i:'mini-jarra-peltre-blanco-1.jpg',d:'Mini jarra de peltre para servir y tener a mano.',m:''}
+];
+function wa(t){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t);}
+function ask(n){return wa('Hola Pureza Natural, me interesa: '+n+'. ¿Me cuentas la disponibilidad y cómo es la entrega?');}
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+var icon='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
+var track=document.getElementById('accTrack');
+track.innerHTML=ACC.map(function(a,k){
+ return '<article class="acc-card"><button class="ph" type="button" data-k="'+k+'" aria-label="Ver detalle de '+esc(a.n)+'"><img src="../assets/catalogo/'+a.i+'" alt="'+esc(a.n)+'" width="800" height="800" loading="lazy"></button>'+
+ '<div class="tx"><h4>'+esc(a.n)+'</h4><span class="price">'+a.p+'</span>'+(a.m?'<p class="dim">'+esc(a.m)+'</p>':'')+
+ '<button class="more" type="button" data-k="'+k+'">Ver detalle</button>'+
+ '<a class="go" href="'+ask(a.n)+'" target="_blank" rel="noopener">'+icon+'Pídelo por WhatsApp<span class="sr-only"> '+esc(a.n)+'</span></a></div></article>';
+}).join('');
+var dlg=document.getElementById('accDlg');
+track.addEventListener('click',function(e){
+ var b=e.target.closest('[data-k]'); if(!b)return;
+ var a=ACC[+b.getAttribute('data-k')];
+ document.getElementById('accDlgImg').src='../assets/catalogo/'+a.i;
+ document.getElementById('accDlgImg').alt=a.n;
+ document.getElementById('accDlgT').textContent=a.n;
+ document.getElementById('accDlgD').textContent=a.d+' · '+a.p;
+ document.getElementById('accDlgM').textContent=a.m?'Medidas: '+a.m:'';
+ var l=document.getElementById('accDlgWa'); l.href=ask(a.n); l.innerHTML=icon+'Pide el tuyo por WhatsApp';
+ if(dlg.showModal)dlg.showModal(); else dlg.setAttribute('open','');
+});
+document.getElementById('accX').addEventListener('click',function(){dlg.close();});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+function step(d){track.scrollBy({left:d*track.clientWidth*.8,behavior:'smooth'});}
+document.getElementById('accPrev').addEventListener('click',function(){step(-1);});
+document.getElementById('accNext').addEventListener('click',function(){step(1);});
+document.getElementById('kitWa').href=ask('Kit completo (purificador con jarra, termo y mug)');
+document.getElementById('pdfWa').href=wa('Hola Pureza Natural, ¿me envían el catálogo completo en PDF?');
+})();
+</script>
+</body>
+</html>
