@@ -790,6 +790,26 @@ body.at-foot .wa-tip { display: none; }
 .pol-head h3, .cart-head h3 { flex: 1; min-width: 0; }
 .spot > .volver { position: absolute; top: 14px; left: 14px; z-index: 6; }
 @media (max-width: 520px) { .pol-head h3 { font-size: 17px; } }
+
+/* v22: confirmación de datos */
+dialog.okd { border: 0; padding: 0; border-radius: 24px; width: min(440px, calc(100vw - 28px)); background: #fff; color: var(--ink); box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); }
+dialog.okd::backdrop { background: rgba(10,30,26,.6); backdrop-filter: blur(3px); }
+dialog.okd[open] { animation: okin .35s cubic-bezier(.2,.8,.2,1); }
+@keyframes okin { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+.ok-in { padding: 28px 24px 22px; text-align: center; }
+.ok-sh { width: 56px; height: 66px; filter: drop-shadow(0 8px 12px rgba(46,125,79,.4)); }
+.ok-sh .sch { stroke-dasharray: 34; stroke-dashoffset: 34; }
+dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
+.ok-in h3 { margin: 12px 0 6px; font: 600 23px/1.2 var(--display); text-wrap: balance; }
+.ok-sub { margin: 0 0 16px; color: var(--ink-soft); font-size: 14.5px; }
+.ok-l { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px; text-align: left; }
+.ok-l li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 14px; line-height: 1.4; color: #2c4540; }
+.ok-l i { width: 22px; height: 22px; border-radius: 50%; background: var(--wa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l4 4 10-10'/%3E%3C/svg%3E") center / 13px no-repeat; margin-top: 1px; }
+.ok-tot { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 14px; border-radius: 14px; background: #f1f8f3; margin-bottom: 16px; font-size: 14px; }
+.ok-tot b { font: 700 22px var(--display); }
+.ok-in .btn-wa.big { width: 100%; justify-content: center; }
+.ok-back { margin-top: 10px; background: none; border: 0; color: var(--ink-soft); font: 700 14px var(--body); text-decoration: underline; cursor: pointer; padding: 8px; }
+@media (prefers-reduced-motion: reduce) { dialog.okd[open], dialog.okd[open] .ok-sh .sch { animation: none; } .ok-sh .sch { stroke-dashoffset: 0; } }
 </style>
 
 <header class="top">
@@ -1054,6 +1074,21 @@ body.at-foot .wa-tip { display: none; }
 </section>
 
 </main>
+<dialog class="okd" id="okd" aria-labelledby="ok-t">
+  <div class="ok-in">
+    <svg class="ok-sh" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 2l19 7v15c0 14-8 24-19 30C13 48 5 38 5 24V9z" fill="#2e7d4f"/><path class="sch" d="M16 26l6 6 11-13" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h3 id="ok-t">Hola, <span id="ok-n"></span>. Tus datos están seguros</h3>
+    <p class="ok-sub">Revisa y envía tu pedido. Lo recibimos por WhatsApp.</p>
+    <ul class="ok-l">
+      <li><i></i><span>Usamos tus datos <b>solo para tu pedido y tu entrega</b>.</span></li>
+      <li><i></i><span>Antes de despachar te confirmamos por WhatsApp <b>disponibilidad, costo y tiempo de envío</b>.</span></li>
+      <li><i></i><span>Compras a un <b>distribuidor autorizado AguaLogic</b>, con retracto de 5 días hábiles.</span></li>
+    </ul>
+    <div class="ok-tot"><span>Total referencial</span><b id="ok-t2"></b></div>
+    <button type="button" class="btn-wa big" id="ok-go">Enviar pedido por WhatsApp</button>
+    <button type="button" class="ok-back" id="ok-back">Volver y revisar</button>
+  </div>
+</dialog>
 <button type="button" id="to-top" class="to-top" aria-label="Volver arriba" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Arriba</span></button>
 
 
@@ -1404,7 +1439,7 @@ body.at-foot .wa-tip { display: none; }
     var pg=f.elements["pago"].value,nr=v("nref");
     var msg="Hola, quiero hacer este pedido con pago "+(pg==="Nequi"?"por Nequi":"contraentrega")+":\n"+orderTxt+"\n\nDatos de entrega:\nNombre: "+v("nombre")+" "+v("apellido")+"\nCelular: "+v("tel")+"\nCiudad: "+v("ciudad")+"\nMunicipio: "+v("municipio")+"\nDirección: "+v("dir")+"\nPunto de referencia: "+v("ref")+"\nPago: "+pg+(pg==="Nequi"?"\nReferencia de pago Nequi: "+nr:"")+"\n\n¿Me confirman disponibilidad y costo de envío?\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";
     var url="https://wa.me/"+NUM+"?text="+encodeURIComponent(msg);
-    var w=window.open(url,"_blank","noopener");if(!w)location.href=url;
+    window.__pnOrder={url:url,name:v("nombre"),total:(document.getElementById("cart-total")||{}).textContent||"",pago:pg};if(window.__pnConfirm){window.__pnConfirm();}else{var w=window.open(url,"_blank","noopener");if(!w)location.href=url;}
   });
   render();
 })();
@@ -1457,6 +1492,13 @@ s.hidden=false;})();
     document.addEventListener("close",function(e){var d=e.target;if(!d||d.tagName!=="DIALOG")return;var i=stack.lastIndexOf(d);if(i<0)return;stack.splice(i,1);if(fromPop){fromPop=false;return;}skipPop=true;try{history.back();}catch(_){skipPop=false;}},true);
     window.addEventListener("popstate",function(){if(skipPop){skipPop=false;return;}var o=stack[stack.length-1];if(o){fromPop=true;var xb=o.querySelector(".spot-x,.pol-x,#cart-x");if(xb)xb.click();else o.close();}});
   }catch(e){}
+})();
+</script>
+<script>
+(function(){var d=document.getElementById("okd");if(!d)return;
+window.__pnConfirm=function(){var o=window.__pnOrder||{};document.getElementById("ok-n").textContent=o.name||"";document.getElementById("ok-t2").textContent=o.total||"";if(!d.open)d.showModal();};
+document.getElementById("ok-back").addEventListener("click",function(){d.close();});
+document.getElementById("ok-go").addEventListener("click",function(){var o=window.__pnOrder;if(!o)return;var w=window.open(o.url,"_blank","noopener");if(!w)location.href=o.url;d.close();});
 })();
 </script>
 
