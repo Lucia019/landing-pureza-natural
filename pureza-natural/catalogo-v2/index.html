@@ -810,6 +810,7 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
 .ok-in .btn-wa.big { width: 100%; justify-content: center; }
 .ok-back { margin-top: 10px; background: none; border: 0; color: var(--ink-soft); font: 700 14px var(--body); text-decoration: underline; cursor: pointer; padding: 8px; }
 @media (prefers-reduced-motion: reduce) { dialog.okd[open], dialog.okd[open] .ok-sh .sch { animation: none; } .ok-sh .sch { stroke-dashoffset: 0; } }
+.ok-nq { margin: 0 0 12px; padding: 10px 14px; border-radius: 12px; background: #fbf7ef; border: 1px solid #eadfcb; font-size: 13.5px; text-align: left; color: #2c4540; } .ok-nq[hidden] { display: none; }
 </style>
 
 <header class="top">
@@ -1084,6 +1085,7 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
       <li><i></i><span>Antes de despachar te confirmamos por WhatsApp <b>disponibilidad, costo y tiempo de envío</b>.</span></li>
       <li><i></i><span>Compras a un <b>distribuidor autorizado AguaLogic</b>, con retracto de 5 días hábiles.</span></li>
     </ul>
+    <p class="ok-nq" id="ok-nq" hidden>Pago por Nequi al <b>313 269 6087</b>, a nombre de <b>Cla*** Taf***</b>.</p>
     <div class="ok-tot"><span>Total referencial</span><b id="ok-t2"></b></div>
     <button type="button" class="btn-wa big" id="ok-go">Enviar pedido por WhatsApp</button>
     <button type="button" class="ok-back" id="ok-back">Volver y revisar</button>
@@ -1429,7 +1431,7 @@ dialog.okd[open] .ok-sh .sch { animation: sch 1s ease .35s forwards; }
   document.getElementById("cart-clear").addEventListener("click",function(){cart={};save();render();});
   var NEQUI_NUM="313 269 6087";
   (function(){var f=document.getElementById("cart-form"),bx=document.getElementById("nequi-box"),r=f.elements["nref"];
-    if(NEQUI_NUM)document.getElementById("nequi-info").textContent="Paga por Nequi al "+NEQUI_NUM+" y escribe aquí el número de referencia del comprobante.";
+    if(NEQUI_NUM)document.getElementById("nequi-info").textContent="Paga por Nequi al "+NEQUI_NUM+". Te aparecerá a nombre de Cla*** Taf***. Escribe aquí el número de referencia del comprobante.";
     f.addEventListener("change",function(e){if(e.target.name!=="pago")return;var nq=e.target.value==="Nequi";bx.hidden=!nq;r.required=nq;});})();
   document.getElementById("cart-form").addEventListener("submit",function(e){
     e.preventDefault();var f=e.target;
@@ -1496,7 +1498,7 @@ s.hidden=false;})();
 </script>
 <script>
 (function(){var d=document.getElementById("okd");if(!d)return;
-window.__pnConfirm=function(){var o=window.__pnOrder||{};document.getElementById("ok-n").textContent=o.name||"";document.getElementById("ok-t2").textContent=o.total||"";if(!d.open)d.showModal();};
+window.__pnConfirm=function(){var o=window.__pnOrder||{};document.getElementById("ok-n").textContent=o.name||"";document.getElementById("ok-t2").textContent=o.total||"";document.getElementById("ok-nq").hidden=o.pago!=="Nequi";if(!d.open)d.showModal();};
 document.getElementById("ok-back").addEventListener("click",function(){d.close();});
 document.getElementById("ok-go").addEventListener("click",function(){var o=window.__pnOrder;if(!o)return;var w=window.open(o.url,"_blank","noopener");if(!w)location.href=o.url;d.close();});
 })();
