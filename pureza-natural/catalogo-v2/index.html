@@ -1644,14 +1644,17 @@ s.hidden=false;})();
 <script>
 (function(){var d=document.getElementById("okd");if(!d)return;
 /* Plazos de entrega estimados en días hábiles (lunes a sábado). AJUSTAR a los tiempos reales. */
-var ENVIO={local:[1,2],otros:[2,4]},NEQ="313 269 6087";
+var ENVIO={local:[5,5],otros:[10,10]},NEQ="313 269 6087";
 var $=function(i){return document.getElementById(i);};
 function addDays(n){var x=new Date();while(n>0){x.setDate(x.getDate()+1);if(x.getDay()!==0)n--;}return x;}
 var F=new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"long"});
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
-function est(o){var loc=/villavicencio/i.test(o.ciudad||"");var r=loc?ENVIO.local:ENVIO.otros;return {txt:cap(F.format(addDays(r[0])))+(r[1]!==r[0]?" a "+F.format(addDays(r[1])):""),loc:loc};}
+function est(o){var loc=/villavicencio/i.test(o.ciudad||"");var r=loc?ENVIO.local:ENVIO.otros;return {txt:(r[1]!==r[0]?cap(F.format(addDays(r[0])))+" a "+F.format(addDays(r[1])):"Hacia el "+F.format(addDays(r[0]))+" ("+r[0]+" días hábiles)"),loc:loc};}
 /* días preferidos */
-var sel=$("f-dia");if(sel){var o0=document.createElement("option");o0.textContent="Lo antes posible";sel.appendChild(o0);var x=new Date(),k=0;while(k<6){x.setDate(x.getDate()+1);if(x.getDay()===0)continue;var op=document.createElement("option");op.textContent=cap(new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"short"}).format(x));sel.appendChild(op);k++;}}
+var sel=$("f-dia");
+function fillDias(){if(!sel)return;var cf=document.getElementById("cart-form"),ci=cf?cf.elements["ciudad"].value:"",loc=/villavicencio/i.test(ci),lead=(loc?ENVIO.local:ENVIO.otros)[0],prev=sel.value;sel.innerHTML="";var o0=document.createElement("option");o0.textContent="Lo antes posible";sel.appendChild(o0);var x=addDays(lead-1),k=0;while(k<6){x.setDate(x.getDate()+1);if(x.getDay()===0)continue;var op=document.createElement("option");op.textContent=cap(new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"short"}).format(x));sel.appendChild(op);k++;}
+ for(var q=0;q<sel.options.length;q++){if(sel.options[q].textContent===prev){sel.selectedIndex=q;break;}}}
+fillDias();var cf0=document.getElementById("cart-form");if(cf0){cf0.addEventListener("input",function(e){if(e.target.name==="ciudad")fillDias();});cf0.addEventListener("change",function(e){if(e.target.name==="ciudad")fillDias();});}
 function show(id){["ok-review","ok-pay","ok-done"].forEach(function(s){$(s).hidden=s!==id;});var sc=d.querySelector("#"+id+" .sch");if(sc){sc.style.animation="none";void sc.getBoundingClientRect();sc.style.animation="";}}
 function openWA(u){var w=window.open(u,"_blank","noopener");if(!w)location.href=u;}
 function done(o,u){var e=est(o),nq=o.pago==="Nequi";$("dn-n").textContent=o.name||"";$("dn-est").textContent=e.txt;
