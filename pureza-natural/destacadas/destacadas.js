@@ -9,7 +9,7 @@
 
 window.CONFIG = {
   cuenta: '@purezanatural',
-  whatsapp: '313 269 6087',
+  whatsapp: '305 352 9366',
 };
 
 // fondo: 'niebla' (claro) · 'verde' (oscuro) · 'agua' (azul suave)
@@ -92,7 +92,7 @@ window.DESTACADAS = [
       { plantilla: 'frase', fondo: 'niebla',
         kicker: 'Ojo con esto', titulo: '¿Quieres ver los *informes completos?*',
         texto: 'Te los mandamos por WhatsApp. Son resultados de esas muestras, y cada fuente de agua es distinta.',
-        sticker: { tipo: 'Enlace', texto: 'Pedir los informes → wa.me/573132696087' } },
+        sticker: { tipo: 'Enlace', texto: 'Pedir los informes → wa.me/573053529366' } },
       { plantilla: 'siguiente', fondo: 'verde', sigue: 'clientes',
         titulo: 'Ahora, lo que cuentan *en casa.*' },
     ],
@@ -162,10 +162,10 @@ window.DESTACADAS = [
       { plantilla: 'frase', fondo: 'verde',
         kicker: 'Garantía AguaLogic', titulo: 'Si viene con defecto, *el trámite es nuestro.*',
         texto: 'Si hay un defecto de fábrica, lo gestionamos con AguaLogic por ti.' },
-      { plantilla: 'frase', fondo: 'niebla', boton: 'WhatsApp 313 269 6087',
+      { plantilla: 'frase', fondo: 'niebla', boton: 'WhatsApp 305 352 9366',
         kicker: 'Tu turno', titulo: 'Este mes, *sin botellón.*',
         texto: 'Escríbenos y hoy mismo te damos el precio.',
-        sticker: { tipo: 'Enlace', texto: 'Pedir el mío → wa.me/573132696087' } },
+        sticker: { tipo: 'Enlace', texto: 'Pedir el mío → wa.me/573053529366' } },
       { plantilla: 'siguiente', fondo: 'verde', sigue: 'cuidados',
         titulo: '¿Ya llegó? *Así lo cuidas.*' },
     ],
