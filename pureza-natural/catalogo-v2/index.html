@@ -1716,6 +1716,10 @@ function fullMsg(o,nq){
  var head=nq?"Hola Pureza Natural 👋\nAcabo de pagar mi pedido *No. "+o.num+"* por Nequi y quiero consultar el estado de envío.\n\n*Pago*\nReferencia Nequi: "+S.ref+"\nValor pagado: "+o.total
   :"Hola Pureza Natural 👋\nQuiero confirmar mi pedido *No. "+o.num+"* con pago contraentrega.\n\n*Pago*\nTotal a pagar al recibir: "+o.total;
  return head+"\n\n*Pedido*\n"+items(o)+"\nEnvío: "+window.pnShipTxt(o.ciudad)+"\n\n*Entrega*\nNombre: "+o.full+"\nCelular: "+o.tel+"\nCiudad: "+o.ciudad+"\nMunicipio: "+o.municipio+"\nDirección: "+o.dir+"\nPunto de referencia: "+o.ref+"\nDía preferido: "+o.dia+" ("+o.franja+")"+(nq?"\n\nAdjunto la captura del comprobante.":"")+"\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";}
+/* Registro de pedidos: pega aquí la URL de tu Apps Script (termina en /exec). Vacío = el mensaje sale completo. */
+var ORDER_HOOK="";
+function saveOrder(o,nq){if(!ORDER_HOOK)return false;try{fetch(ORDER_HOOK,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({numero:o.num,fecha:S.date,pago:nq?"Nequi":"Contraentrega",referencia_pago:S.ref||"",total:o.total,subtotal:money(o.sub),envio:window.pnShipTxt(o.ciudad),nombre:o.full,celular:o.tel,ciudad:o.ciudad,municipio:o.municipio,direccion:o.dir,punto_referencia:o.ref,dia:o.dia,franja:o.franja,llegada_estimada:window.pnEst(o).txt,productos:items(o),acepta_terminos:"Sí"})});return true;}catch(e){return false;}}
+function briefMsg(o,nq){return (nq?"Hola Pureza Natural 👋\nAcabo de pagar mi pedido *No. "+o.num+"* por Nequi (ref. "+S.ref+") y quiero consultar el estado de envío.":"Hola Pureza Natural 👋\nQuiero confirmar mi pedido *No. "+o.num+"* con pago contraentrega.")+"\n\n"+o.full+" · "+o.ciudad+" · "+o.total+"\nAcepté los términos de venta.";}
 function shortMsg(o,nq){return nq?"Hola Pureza Natural 👋 Acabo de pagar mi pedido *No. "+o.num+"* por Nequi (ref. "+S.ref+") y quiero consultar el estado de envío.":"Hola Pureza Natural 👋 Tengo el pedido *No. "+o.num+"* (contraentrega) y necesito ayuda o cambiar el horario de entrega.";}
 
 function steps(o,nq,e){
@@ -1753,7 +1757,7 @@ window.pnShowConf=function(o,ref){
  if(!c.open)c.showModal();var bd=$("cf-body");bd.setAttribute("tabindex","-1");bd.focus({preventScroll:true});bd.scrollTop=0;};
 function finish(){c.close();var d=window.pnOkd;if(d&&d.open)d.close();var cl=$("cart-clear");if(cl)cl.click();var x=$("cart-x");if(x&&$("cartd").open)x.click();}
 c.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.getAttribute("data-a"),o=S.o,nq=o.pago==="Nequi";
- if(a==="send"){openWA(wa(fullMsg(o,nq)));S.sent=true;render();$("cf-body").scrollTop=0;}
+ if(a==="send"){var sv=saveOrder(o,nq);openWA(wa(sv?briefMsg(o,nq):fullMsg(o,nq)));S.sent=true;render();$("cf-body").scrollTop=0;}
  else if(a==="wa"){openWA(wa(shortMsg(o,nq)));}
  else if(a==="pdf"){pdf(o,nq,b);}
  else if(a==="end"){finish();}});
