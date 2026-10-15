@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/favicon-48.png">
+<title>Carrusel checklist Pureza Natural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F4F1E9;--panel:#FBF9F4;--deep:#174C46;--accent:#C66F45;--water:#007585;--text:#24302E;--text-2:#4E5D58;--line:#DDD6C6;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--text);font:16px/1.55 var(--body)}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto;padding-block:32px 72px}
+.kick{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--water);margin:0 0 8px}
+h1{font:700 clamp(2rem,4vw,3rem)/1.05 var(--display);letter-spacing:-.02em;color:var(--deep);margin:0 0 10px;text-wrap:balance}
+.lead{color:var(--text-2);max-width:66ch;margin:0}
+.lead a{color:var(--water);font-weight:600}
+.grilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px;margin-top:32px}
+.lam{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.lam video{width:100%;aspect-ratio:4/5;border-radius:14px;background:#123D38;display:block}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.meta span{font:500 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--water)}
+.lam h2{font:700 1.15rem/1.15 var(--display);color:var(--deep);margin:0}
+.dl{font:600 14px var(--body);color:var(--deep);border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.dl:focus-visible,.copiar:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.post{margin-top:40px;background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:20px;max-width:720px}
+.post h2{font:700 1.45rem/1.1 var(--display);color:var(--deep);margin:0 0 10px}
+.cap{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;font-size:15px}
+.tags{color:var(--water);font-size:14px;margin:0 0 10px}
+.copiar{font:600 14px var(--body);border:1px solid var(--line);background:#fff;color:var(--deep);border-radius:999px;padding:9px 16px;cursor:pointer;min-height:40px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kick">Pureza Natural · Carrusel de Instagram</p>
+  <h1>5 preguntas antes de comprar un purificador por gravedad.</h1>
+  <p class="lead">Ocho láminas en video, formato 4:5, con sonido de agua. Súbelas en orden, de la 01 a la 08, como un solo carrusel. Toca un video para verlo con sonido. <a href="../reels/">Ver los reels</a> · <a href="../feed/">Ver el feed</a></p>
+  <div class="grilla" id="grilla"></div>
+  <section class="post">
+    <h2>Caption y hashtags</h2>
+    <p class="cap" id="cap"></p>
+    <p class="tags" id="tags"></p>
+    <button class="copiar" id="copiar">Copiar caption</button>
+  </section>
+</div>
+<script>
+'use strict';
+const LAMINAS = ['Portada: 5 preguntas','1. ¿De dónde viene el agua?','2. ¿Cuántas personas toman agua?','3. ¿Qué retiene y quién lo respalda?','4. Cartucho y repuesto','5. Quién responde por la garantía','Tu checklist en 1 minuto','Cierre: te ayudamos a elegir'];
+const CAPTION = '5 preguntas antes de comprar un purificador por gravedad.\n\nGuárdalo y llévalo cuando compares precios: de dónde viene tu agua, cuántos litros toma tu casa, qué dice la ficha técnica, cuánto cuesta el repuesto del cartucho y quién responde por la garantía.\n\n¿Cuál no te había respondido nadie? Cuéntanos.\n\n¿Quieres ayuda para elegir el modelo? Escríbenos por WhatsApp al 305 352 9366.';
+const TAGS = '#AguaPura #Villavicencio #PurificadorDeAgua #PurificadorPorGravedad #AguaSegura #HogarConsciente';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+document.getElementById('grilla').innerHTML = LAMINAS.map((t, i) => {
+  const n = String(i + 1).padStart(2, '0');
+  return `<article class="lam">
+    <video controls playsinline preload="none" poster="laminas/lamina-${n}.jpg" src="laminas/lamina-${n}.mp4" aria-label="Lámina ${i + 1}: ${esc(t)}"></video>
+    <div class="meta"><span>Lámina ${n}</span><a class="dl" href="laminas/lamina-${n}.mp4" download>Descargar</a></div>
+    <h2>${esc(t)}</h2></article>`;
+}).join('');
+document.getElementById('cap').textContent = CAPTION;
+document.getElementById('tags').textContent = TAGS;
+document.getElementById('copiar').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(CAPTION + '\n\n' + TAGS); e.target.textContent = 'Copiado'; } catch (_) { e.target.textContent = 'Selecciona y copia el texto'; }
+  setTimeout(() => e.target.textContent = 'Copiar caption', 2000);
+});
+document.querySelectorAll('video').forEach(v => v.addEventListener('play', () => document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); })));
+</script>
+</body>
+</html>
