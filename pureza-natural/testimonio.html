@@ -53,7 +53,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,
 #resultado{display:none;margin:32px 0 64px}
 #resultado.on{display:block}
 .card{background:var(--deep);color:var(--on-deep);border-radius:28px;padding:clamp(24px,5vw,48px);box-shadow:0 30px 60px -40px rgba(23,76,70,.55)}
-.card textarea{background:transparent;border:1.5px solid rgba(227,238,234,.3);color:var(--on-deep);font-style:italic;font-weight:500;font-size:1.08rem;line-height:1.7;min-height:380px}
+.card textarea{background:transparent;border:1.5px solid rgba(227,238,234,.3);color:var(--on-deep);font-style:italic;font-weight:500;font-size:1.08rem;line-height:1.7;min-height:200px}
 .card .quote{font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;line-height:1;color:var(--on-deep-2);margin:0 0 6px}
 .who{margin:14px 0 0;font-family:'IBM Plex Mono',monospace;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-deep-2)}
 .nota{margin:14px 0 0;font-size:.92rem;color:var(--on-deep-2)}
@@ -80,7 +80,7 @@ footer a{color:var(--deep)}
     <p class="kicker">Tu experiencia</p>
     <h1>Cuéntanos cómo te ha ido con tu purificador</h1>
     <p class="lead">Completa las frases con tus propias palabras, como si se lo contaras a una amiga. Con una frase corta basta. Al final armamos tu testimonial y tú lo revisas.</p>
-    <p class="time">Tiempo estimado: 1 a 2 minutos</p>
+    <p class="time">Tiempo estimado: 1 minuto</p>
 
     <form id="form" novalidate>
       <div id="campos"></div>
@@ -141,61 +141,39 @@ var NOTA = '';
 var VARIANTES = {
   1: {
     texto:
-      '💧 Mi experiencia con mi purificador\n' +
-      'Antes {{a}}.\n' +
-      'Desde que tengo el purificador, {{b}}.\n' +
-      'Lo que más noto es {{c}}, y la calidad del producto se nota en {{d}}.\n' +
-      'Se lo recomiendo a quien {{e}}. 💚',
+      '¡Muy recomendado! Desde hace {{a}} estoy usando mi purificador. Lo que más me gusta es que {{b}}. Y {{c}}. 💧',
     campos: {
-      a:['Antes de tenerlo…','Ej. compraba botellones y cargarlos era un problema'],
-      b:['Desde que lo tengo…','Ej. mi familia toma agua en casa con tranquilidad'],
-      c:['Lo que más noto es…','Ej. que el agua sabe más limpia y fresca'],
-      d:['La calidad del producto se nota en…','Ej. el vidrio, el barro, los acabados'],
-      e:['Se lo recomiendo a quien…','Ej. quiera cuidar la salud de su familia']
+      a:['Lo uso desde hace…','Ej. un año, dos meses, unas semanas'],
+      b:['Lo que más me gusta es que…','Ej. se ve en el barro toda la suciedad que le saca al agua'],
+      c:['Y para terminar…','Ej. ya no me imagino mi día a día sin él']
     }
   },
   2: {
     texto:
-      '💧 Un cambio que se siente\n' +
-      'Buscaba {{a}}, y desde que tengo este purificador {{b}}.\n' +
-      'La calidad se nota en {{c}}.\n' +
-      'El cambio más grande para mí ha sido {{d}}.\n' +
-      'Hoy puedo decir que {{e}}. 💚',
+      'Excelente alternativa para {{a}}. Es de muy buena calidad, se nota en {{b}}. Me ha ido súper bien: {{c}}. 💚',
     campos: {
-      a:['Yo buscaba…','Ej. una forma natural de tomar mejor agua'],
-      b:['Desde que lo tengo…','Ej. el agua en mi casa es otra cosa'],
-      c:['La calidad se nota en…','Ej. cómo está hecho, los materiales'],
-      d:['El cambio más grande para mí ha sido…','Ej. dejar de depender de los botellones'],
-      e:['Hoy puedo decir que…','Ej. fue una de las mejores decisiones para mi hogar']
+      a:['Es una excelente alternativa para…','Ej. tomar agua purificada en casa'],
+      b:['La calidad se nota en…','Ej. el vidrio y los materiales ecológicos'],
+      c:['Me ha ido súper bien porque…','Ej. lo armé en minutos y el agua sabe distinto']
     }
   },
   3: {
     texto:
-      '💧 Mi agua cambió\n' +
-      'Antes {{a}}. Ahora {{b}}.\n' +
-      'Lo que más me gusta del purificador es {{c}}, porque {{d}}.\n' +
-      'Su calidad se nota porque {{e}}. 💚',
+      'Llevo {{a}} con mi purificador y ya noto {{b}}. ¡{{^c}}! 💧',
     campos: {
-      a:['Antes…','Ej. el agua tenía un sabor que no me gustaba'],
-      b:['Ahora…','Ej. tomo agua con otro sabor y más ganas'],
-      c:['Lo que más me gusta del purificador es…','Ej. su diseño en vidrio'],
-      d:['…porque…','Ej. se ve bonito y es muy sencillo de usar'],
-      e:['Su calidad se nota porque…','Ej. se siente sólido y bien hecho']
+      a:['Llevo…','Ej. unas semanas, un mes, medio año'],
+      b:['Ya noto…','Ej. que el agua sabe más limpia y fresca'],
+      c:['Mi opinión en una frase…','Ej. fue una muy buena decisión, estoy feliz']
     }
   },
   4: {
     texto:
-      '🌿 Así ha sido el cambio en mi hogar\n' +
-      'Lo que me llevó a buscar un purificador fue {{a}}.\n' +
-      'Hoy, en mi casa, {{b}}. Lo que más valoro es {{c}}.\n' +
-      'La calidad del producto se ve en {{d}}.\n' +
-      'Si estás dudando, te diría que {{e}}. 💧',
+      'Antes {{a}}. Ahora {{b}}. Se nota la calidad en {{c}}, y {{d}}. 💚',
     campos: {
-      a:['Lo que me llevó a buscar un purificador fue…','Ej. querer cuidar mejor a mi familia'],
-      b:['Hoy, en mi casa…','Ej. todos tomamos más agua'],
-      c:['Lo que más valoro es…','Ej. la tranquilidad de saber qué estamos tomando'],
-      d:['La calidad del producto se ve en…','Ej. los materiales naturales y los detalles'],
-      e:['Si alguien está dudando, le diría que…','Ej. lo pruebe, el cambio se nota']
+      a:['Antes…','Ej. compraba botellones cada semana'],
+      b:['Ahora…','Ej. tengo agua purificada en casa todo el día'],
+      c:['Se nota la calidad en…','Ej. el vidrio, el barro, los acabados'],
+      d:['Para terminar…','Ej. se lo recomiendo a todo el que me pregunta']
     }
   }
 };
@@ -220,7 +198,10 @@ function sinPunto(s){ return s.replace(/[\s.!?…,;:]+$/,''); }
 function minus(s){ return s.charAt(0).toLowerCase() + s.slice(1); }
 
 function armar(v){
-  return DEF.texto.replace(/\{\{(\w+)\}\}/g, function(_, k){ return minus(sinPunto(v[k])); }).replace(/\n/g, '\n\n');
+  return DEF.texto.replace(/\{\{(\^?)(\w+)\}\}/g, function(_, up, k){
+    var t = sinPunto(v[k]);
+    return up ? t.charAt(0).toUpperCase() + t.slice(1) : minus(t);
+  });
 }
 
 var enviado = false;
