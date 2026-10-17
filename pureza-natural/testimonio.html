@@ -80,7 +80,7 @@ footer a{color:var(--deep)}
     <p class="kicker">Tu experiencia</p>
     <h1>Cuéntanos cómo te ha ido con tu purificador</h1>
     <p class="lead">Completa las frases con tus propias palabras, como si se lo contaras a una amiga. Con una frase corta basta. Al final armamos tu testimonial y tú lo revisas.</p>
-    <p class="time">Tiempo estimado: 2 a 3 minutos</p>
+    <p class="time">Tiempo estimado: 1 a 2 minutos</p>
 
     <form id="form" novalidate>
       <div id="campos"></div>
@@ -143,83 +143,59 @@ var VARIANTES = {
   1: {
     texto:
       'Mi experiencia con mi purificador AguaLogic 💧\n' +
-      'Hola, quiero compartir mi experiencia con el purificador AguaLogic que adquirí a través de Pureza Natural.\n' +
-      'Conocí este purificador porque {{a}}. Lo que me motivó a elegirlo fue {{b}}.\n' +
-      'Cuando lo recibí y empecé a utilizarlo, mi experiencia ha sido {{c}}. Una de las cosas que más me ha gustado es {{d}}, porque {{e}}.\n' +
-      'También quiero destacar que mi experiencia con la atención de Pureza Natural ha sido {{f}}.\n' +
-      'En general, lo que más valoro de tener este purificador en mi hogar es {{g}}.\n' +
-      'Si alguien está pensando en adquirir uno, me gustaría compartirle que {{h}}.\n' +
-      'Esta ha sido mi experiencia personal y me alegra poder compartirla con quienes desean conocer más sobre este producto. ¡Gracias a Pureza Natural por permitirme compartir mi experiencia! 💚',
+      'Adquirí el purificador AguaLogic a través de Pureza Natural. Lo elegí porque {{a}}.\n' +
+      'Desde que lo uso, mi experiencia ha sido {{b}}. Lo que más me gusta es {{c}}.\n' +
+      'La atención de Pureza Natural fue {{d}}.\n' +
+      'Si estás pensando en comprar uno, te diría que {{e}}. 💚',
     campos: {
-      a:['Conocí este purificador porque…','Ej. una amiga me lo recomendó, lo vi en Instagram'],
-      b:['Lo que me motivó a elegirlo fue…','Ej. que es de barro y no necesita luz'],
-      c:['Cuando lo recibí y empecé a usarlo, mi experiencia ha sido…','Ej. muy sencilla, lo armé en minutos'],
-      d:['Una de las cosas que más me ha gustado es…','Ej. el sabor del agua'],
-      e:['…porque…','Ej. se siente más fresca y ligera'],
-      f:['La atención de Pureza Natural ha sido…','Ej. cercana y muy clara'],
-      g:['Lo que más valoro de tenerlo en mi hogar es…','Ej. la tranquilidad de dar agua buena a mi familia'],
-      h:['Si alguien está pensando en adquirir uno, le diría que…','Ej. lo pruebe, no se arrepiente']
+      a:['Lo elegí porque…','Ej. es de barro y no necesita luz'],
+      b:['Desde que lo uso, mi experiencia ha sido…','Ej. muy sencilla, lo armé en minutos'],
+      c:['Lo que más me gusta es…','Ej. el sabor del agua'],
+      d:['La atención de Pureza Natural fue…','Ej. cercana y muy clara'],
+      e:['A quien esté pensando en comprarlo le diría que…','Ej. lo pruebe, no se arrepiente']
     }
   },
   2: {
     texto:
-      '💧 Quiero compartir mi experiencia con AguaLogic\n' +
-      'Quiero contarles un poquito sobre mi experiencia con el purificador AguaLogic de Pureza Natural.\n' +
-      'Todo comenzó cuando {{a}}. En ese momento, estaba buscando {{b}} y este purificador llamó mi atención por {{c}}.\n' +
-      'Después de decidirme a adquirirlo, llegó el momento de incorporarlo a mi hogar. Hasta ahora, mi experiencia ha sido {{d}}.\n' +
-      'Algo que me ha gustado especialmente es {{e}}, porque {{f}}. También me parece importante destacar {{g}}.\n' +
-      'En cuanto a la atención que recibí de Pureza Natural, puedo decir que {{h}}.\n' +
-      'Hoy, cuando pienso en mi decisión de adquirirlo, considero que {{i}}.\n' +
-      'Quise compartir mi experiencia porque creo que conocer las vivencias de otras personas puede ayudar a quienes están buscando información antes de elegir un purificador para su hogar. Esta es mi experiencia personal y espero que les sea útil. 💚',
+      '💧 Mi experiencia con AguaLogic\n' +
+      'Todo comenzó cuando {{a}}. Buscaba {{b}} y el purificador AguaLogic de Pureza Natural llamó mi atención por {{c}}.\n' +
+      'Hasta ahora, mi experiencia ha sido {{d}}. La atención de Pureza Natural fue {{e}}.\n' +
+      'Hoy considero que {{f}}. 💚',
     campos: {
-      a:['Todo comenzó cuando…','Ej. me enteré de que el agua del grifo no era tan buena'],
-      b:['En ese momento estaba buscando…','Ej. una opción natural para mi familia'],
-      c:['Este purificador llamó mi atención por…','Ej. su diseño y los materiales'],
+      a:['Todo comenzó cuando…','Ej. me enteré de que podía purificar el agua en casa'],
+      b:['Buscaba…','Ej. una opción natural para mi familia'],
+      c:['Me llamó la atención por…','Ej. su diseño y los materiales'],
       d:['Hasta ahora, mi experiencia ha sido…','Ej. muy buena'],
-      e:['Algo que me ha gustado especialmente es…','Ej. que no necesita instalación'],
-      f:['…porque…','Ej. lo puse en la cocina y ya'],
-      g:['También me parece importante destacar…','Ej. que no gasta energía'],
-      h:['La atención de Pureza Natural fue…','Ej. amable y siempre estuvieron pendientes'],
-      i:['Hoy, pensando en mi decisión, considero que…','Ej. fue un acierto']
+      e:['La atención de Pureza Natural fue…','Ej. amable y siempre estuvieron pendientes'],
+      f:['Hoy, pensando en mi decisión, considero que…','Ej. fue un acierto']
     }
   },
   3: {
     texto:
       '💧 Mi experiencia con AguaLogic\n' +
-      'Hoy quiero compartirles mi experiencia con el purificador AguaLogic que adquirí con Pureza Natural.\n' +
-      'Conocí este producto a través de {{a}} y lo que despertó mi interés fue {{b}}.\n' +
-      'Cuando tomé la decisión de adquirirlo, buscaba {{c}} y me pareció que esta opción podía ajustarse a lo que necesitaba.\n' +
-      'Desde que llegó a mi hogar, he vivido la experiencia de {{d}}. Lo que más me ha gustado hasta ahora es {{e}}, especialmente porque {{f}}.\n' +
-      'En este proceso, también quiero destacar la atención que recibí de Pureza Natural, que fue {{g}}.\n' +
-      'Me parece bonito poder compartir mi experiencia porque, cuando estamos buscando algo para nuestro hogar, conocer la opinión de otras personas puede ayudarnos a tomar decisiones con más confianza.\n' +
-      'Si tú también estás conociendo este purificador, te comparto mi experiencia para que tengas otra perspectiva. 💚',
+      'Conocí el purificador AguaLogic de Pureza Natural a través de {{a}} y me interesó por {{b}}.\n' +
+      'Desde que llegó a mi hogar, lo que más me ha gustado es {{c}}, especialmente porque {{d}}.\n' +
+      'La atención de Pureza Natural fue {{e}}. Si estás conociendo este purificador, te comparto mi experiencia para que tengas otra perspectiva. 💚',
     campos: {
-      a:['Conocí este producto a través de…','Ej. una recomendación, redes sociales'],
-      b:['Lo que despertó mi interés fue…','Ej. que es artesanal'],
-      c:['Cuando decidí adquirirlo, buscaba…','Ej. algo sencillo y duradero'],
-      d:['Desde que llegó a mi hogar, he vivido la experiencia de…','Ej. tomar agua con otro sabor'],
-      e:['Lo que más me ha gustado hasta ahora es…','Ej. su diseño en vidrio'],
-      f:['…especialmente porque…','Ej. se ve bonito en la cocina'],
-      g:['La atención de Pureza Natural fue…','Ej. muy atenta y paciente']
+      a:['Lo conocí a través de…','Ej. una recomendación, redes sociales'],
+      b:['Me interesó por…','Ej. que es artesanal'],
+      c:['Lo que más me ha gustado es…','Ej. su diseño en vidrio'],
+      d:['…especialmente porque…','Ej. se ve bonito en la cocina'],
+      e:['La atención de Pureza Natural fue…','Ej. muy atenta y paciente']
     }
   },
   4: {
     texto:
       '🌿 Les cuento cómo ha sido mi experiencia\n' +
-      'A veces, cuando buscamos algo para nuestro hogar, queremos conocer diferentes opciones antes de tomar una decisión. Así fue como llegué a conocer el purificador AguaLogic de Pureza Natural.\n' +
-      'Lo que me llevó a interesarme por él fue {{a}} y finalmente decidí adquirirlo porque {{b}}.\n' +
-      'Una vez lo tuve en casa, mi experiencia ha sido {{c}}. Hay algo que particularmente me ha gustado y es {{d}}, porque {{e}}.\n' +
-      'También me gustaría mencionar que el acompañamiento que recibí por parte de Pureza Natural fue {{f}}.\n' +
-      'Al mirar mi experiencia hasta el momento, puedo decir que lo que más valoro de esta elección es {{g}}.\n' +
-      'Quise contarles mi historia porque cada persona tiene necesidades y expectativas diferentes, y considero que compartir experiencias reales puede ser útil para quienes están evaluando esta alternativa. Esta es mi vivencia personal con AguaLogic y me alegra poder compartirla con ustedes. 💧',
+      'Me interesé en el purificador AguaLogic de Pureza Natural por {{a}} y lo adquirí porque {{b}}.\n' +
+      'Ya en casa, mi experiencia ha sido {{c}}, y lo que más valoro es {{d}}.\n' +
+      'El acompañamiento de Pureza Natural fue {{e}}. 💧',
     campos: {
-      a:['Lo que me llevó a interesarme por él fue…','Ej. que quería tomar mejor agua'],
-      b:['Finalmente decidí adquirirlo porque…','Ej. me dio confianza cómo lo explicaron'],
-      c:['Una vez lo tuve en casa, mi experiencia ha sido…','Ej. tranquila y sin complicaciones'],
-      d:['Lo que particularmente me ha gustado es…','Ej. que el agua sale fresca'],
-      e:['…porque…','Ej. la toma toda la familia'],
-      f:['El acompañamiento de Pureza Natural fue…','Ej. cálido y rápido'],
-      g:['Lo que más valoro de esta elección es…','Ej. cuidar a mi familia con algo natural']
+      a:['Me interesé por…','Ej. quería tomar mejor agua'],
+      b:['Lo adquirí porque…','Ej. me dio confianza cómo lo explicaron'],
+      c:['Ya en casa, mi experiencia ha sido…','Ej. tranquila y sin complicaciones'],
+      d:['Lo que más valoro es…','Ej. cuidar a mi familia con algo natural'],
+      e:['El acompañamiento de Pureza Natural fue…','Ej. cálido y rápido']
     }
   }
 };
