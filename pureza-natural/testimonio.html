@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cuéntanos tu experiencia | Pureza Natural</title>
-<meta name="description" content="Cuéntanos cómo te ha ido con tu purificador AguaLogic. Completa unas frases y armamos tu testimonial.">
+<meta name="description" content="Cuéntanos cómo te ha ido con tu purificador. Completa unas frases y armamos tu testimonial.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -141,60 +141,61 @@ var NOTA = '';
 var VARIANTES = {
   1: {
     texto:
-      'Mi experiencia con mi purificador AguaLogic 💧\n' +
-      'Adquirí el purificador AguaLogic a través de Pureza Natural. Lo elegí porque {{a}}.\n' +
-      'Desde que lo uso, mi experiencia ha sido {{b}}. Lo que más me gusta es {{c}}.\n' +
-      'La atención de Pureza Natural fue {{d}}.\n' +
-      'Si estás pensando en comprar uno, te diría que {{e}}. 💚',
+      '💧 Mi experiencia con mi purificador\n' +
+      'Antes {{a}}.\n' +
+      'Desde que tengo el purificador, {{b}}.\n' +
+      'Lo que más noto es {{c}}, y la calidad del producto se nota en {{d}}.\n' +
+      'Se lo recomiendo a quien {{e}}. 💚',
     campos: {
-      a:['Lo elegí porque…','Ej. es de barro y no necesita luz'],
-      b:['Desde que lo uso, mi experiencia ha sido…','Ej. muy sencilla, lo armé en minutos'],
-      c:['Lo que más me gusta es…','Ej. el sabor del agua'],
-      d:['La atención de Pureza Natural fue…','Ej. cercana y muy clara'],
-      e:['A quien esté pensando en comprarlo le diría que…','Ej. lo pruebe, no se arrepiente']
+      a:['Antes de tenerlo…','Ej. compraba botellones y cargarlos era un problema'],
+      b:['Desde que lo tengo…','Ej. mi familia toma agua en casa con tranquilidad'],
+      c:['Lo que más noto es…','Ej. que el agua sabe más limpia y fresca'],
+      d:['La calidad del producto se nota en…','Ej. el vidrio, el barro, los acabados'],
+      e:['Se lo recomiendo a quien…','Ej. quiera cuidar la salud de su familia']
     }
   },
   2: {
     texto:
-      '💧 Mi experiencia con AguaLogic\n' +
-      'Todo comenzó cuando {{a}}. Buscaba {{b}} y el purificador AguaLogic de Pureza Natural llamó mi atención por {{c}}.\n' +
-      'Hasta ahora, mi experiencia ha sido {{d}}. La atención de Pureza Natural fue {{e}}.\n' +
-      'Hoy considero que {{f}}. 💚',
+      '💧 Un cambio que se siente\n' +
+      'Buscaba {{a}}, y desde que tengo este purificador {{b}}.\n' +
+      'La calidad se nota en {{c}}.\n' +
+      'El cambio más grande para mí ha sido {{d}}.\n' +
+      'Hoy puedo decir que {{e}}. 💚',
     campos: {
-      a:['Todo comenzó cuando…','Ej. me enteré de que podía purificar el agua en casa'],
-      b:['Buscaba…','Ej. una opción natural para mi familia'],
-      c:['Me llamó la atención por…','Ej. su diseño y los materiales'],
-      d:['Hasta ahora, mi experiencia ha sido…','Ej. muy buena'],
-      e:['La atención de Pureza Natural fue…','Ej. amable y siempre estuvieron pendientes'],
-      f:['Hoy, pensando en mi decisión, considero que…','Ej. fue un acierto']
+      a:['Yo buscaba…','Ej. una forma natural de tomar mejor agua'],
+      b:['Desde que lo tengo…','Ej. el agua en mi casa es otra cosa'],
+      c:['La calidad se nota en…','Ej. cómo está hecho, los materiales'],
+      d:['El cambio más grande para mí ha sido…','Ej. dejar de depender de los botellones'],
+      e:['Hoy puedo decir que…','Ej. fue una de las mejores decisiones para mi hogar']
     }
   },
   3: {
     texto:
-      '💧 Mi experiencia con AguaLogic\n' +
-      'Conocí el purificador AguaLogic de Pureza Natural a través de {{a}} y me interesó por {{b}}.\n' +
-      'Desde que llegó a mi hogar, lo que más me ha gustado es {{c}}, especialmente porque {{d}}.\n' +
-      'La atención de Pureza Natural fue {{e}}. Si estás conociendo este purificador, te comparto mi experiencia para que tengas otra perspectiva. 💚',
+      '💧 Mi agua cambió\n' +
+      'Antes {{a}}. Ahora {{b}}.\n' +
+      'Lo que más me gusta del purificador es {{c}}, porque {{d}}.\n' +
+      'Su calidad se nota porque {{e}}. 💚',
     campos: {
-      a:['Lo conocí a través de…','Ej. una recomendación, redes sociales'],
-      b:['Me interesó por…','Ej. que es artesanal'],
-      c:['Lo que más me ha gustado es…','Ej. su diseño en vidrio'],
-      d:['…especialmente porque…','Ej. se ve bonito en la cocina'],
-      e:['La atención de Pureza Natural fue…','Ej. muy atenta y paciente']
+      a:['Antes…','Ej. el agua tenía un sabor que no me gustaba'],
+      b:['Ahora…','Ej. tomo agua con otro sabor y más ganas'],
+      c:['Lo que más me gusta del purificador es…','Ej. su diseño en vidrio'],
+      d:['…porque…','Ej. se ve bonito y es muy sencillo de usar'],
+      e:['Su calidad se nota porque…','Ej. se siente sólido y bien hecho']
     }
   },
   4: {
     texto:
-      '🌿 Les cuento cómo ha sido mi experiencia\n' +
-      'Me interesé en el purificador AguaLogic de Pureza Natural por {{a}} y lo adquirí porque {{b}}.\n' +
-      'Ya en casa, mi experiencia ha sido {{c}}, y lo que más valoro es {{d}}.\n' +
-      'El acompañamiento de Pureza Natural fue {{e}}. 💧',
+      '🌿 Así ha sido el cambio en mi hogar\n' +
+      'Lo que me llevó a buscar un purificador fue {{a}}.\n' +
+      'Hoy, en mi casa, {{b}}. Lo que más valoro es {{c}}.\n' +
+      'La calidad del producto se ve en {{d}}.\n' +
+      'Si estás dudando, te diría que {{e}}. 💧',
     campos: {
-      a:['Me interesé por…','Ej. quería tomar mejor agua'],
-      b:['Lo adquirí porque…','Ej. me dio confianza cómo lo explicaron'],
-      c:['Ya en casa, mi experiencia ha sido…','Ej. tranquila y sin complicaciones'],
-      d:['Lo que más valoro es…','Ej. cuidar a mi familia con algo natural'],
-      e:['El acompañamiento de Pureza Natural fue…','Ej. cálido y rápido']
+      a:['Lo que me llevó a buscar un purificador fue…','Ej. querer cuidar mejor a mi familia'],
+      b:['Hoy, en mi casa…','Ej. todos tomamos más agua'],
+      c:['Lo que más valoro es…','Ej. la tranquilidad de saber qué estamos tomando'],
+      d:['La calidad del producto se ve en…','Ej. los materiales naturales y los detalles'],
+      e:['Si alguien está dudando, le diría que…','Ej. lo pruebe, el cambio se nota']
     }
   }
 };
