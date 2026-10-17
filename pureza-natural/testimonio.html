@@ -64,7 +64,6 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,
 .preview{width:72px;height:72px;border-radius:16px;object-fit:cover;display:none;border:1px solid var(--line)}
 .preview.on{display:block}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;align-items:center}
-.sinfoto{background:none;border:0;font:inherit;color:var(--text-secondary);text-decoration:underline;cursor:pointer;padding:12px 4px;min-height:44px}
 .toast{margin-top:14px;font-size:.95rem;color:var(--water);min-height:1.4em}
 footer{padding:0 0 40px;text-align:center;color:var(--text-secondary);font-size:.9rem}
 footer a{color:var(--deep)}
@@ -106,8 +105,8 @@ footer a{color:var(--deep)}
     </div>
 
     <div class="foto">
-      <h2>¿Quieres compartir una foto?</h2>
-      <p>Si te animas, puedes enviarnos una foto tuya con tu purificador. Es totalmente opcional.</p>
+      <h2>Tu foto con tu purificador</h2>
+      <p>Para publicar tu testimonio necesitamos una foto tuya con tu purificador. Puede ser en tu cocina o en tu mesa, como te sientas más cómoda o cómodo.</p>
       <div class="pick">
         <label class="btn btn-line" for="foto" style="margin:0;cursor:pointer">Elegir mi foto</label>
         <input type="file" id="foto" accept="image/*" class="sr">
@@ -118,12 +117,11 @@ footer a{color:var(--deep)}
 
     <label class="check" style="margin-top:22px">
       <input type="checkbox" id="permiso">
-      <span>Autorizo a Pureza Natural a publicar este testimonial y mi foto en su página y redes sociales.</span>
+      <span>Autorizo a Pureza Natural a publicar mi testimonio y mi foto en su página web y redes sociales (Instagram, Facebook, TikTok y WhatsApp) para dar a conocer el producto. Puedo pedir que los retiren cuando quiera. Más información en la <a href="tratamiento-de-datos.html" target="_blank" rel="noopener">política de tratamiento de datos</a>.</span>
     </label>
     <div class="actions">
-      <button class="btn btn-cta" type="button" id="enviar">Enviar por WhatsApp</button>
-      <button class="btn btn-line" type="button" id="copiar">Copiar texto</button>
-      <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
+      <button class="btn btn-cta" type="button" id="enviar" disabled>Enviar por WhatsApp</button>
+            <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
     </div>
         <p class="toast" id="toast" role="status"></p>
   </section>
@@ -235,12 +233,16 @@ function textoFinal(){
 }
 function mensaje(conFoto){
   return 'Hola Pureza Natural, este es mi testimonial:\n\n' + textoFinal() + '\n\n' +
-    ($('permiso').checked ? 'Autorizo su publicación en la página y redes de Pureza Natural.' : 'Por ahora es solo para ustedes, no autorizo publicarlo.') +
+    'Autorizo a Pureza Natural a publicar mi testimonio y mi foto en su página web y redes sociales.' +
     (conFoto ? '' : '');
 }
 function refrescar(){
+  var ok = $('foto').files.length > 0 && $('permiso').checked;
+  $('enviar').disabled = !ok;
+  $('toast').textContent = ok ? '' : 'Para enviar, elige tu foto y marca la autorización.';
   
 }
+$('permiso').addEventListener('change', refrescar);
 $('foto').addEventListener('change', function(){
   var f = this.files[0], pv = $('preview');
   if(f){
@@ -257,7 +259,7 @@ function abrirWA(avisoFoto){
 
 $('enviar').addEventListener('click', function(){
   var f = $('foto').files[0];
-  if(!f){ abrirWA(false); $('toast').textContent = 'Se abrió WhatsApp con tu testimonial. ¡Gracias!'; return; }
+  if(!f || !$('permiso').checked) return;
   var data = { files:[f], text:mensaje() };
   if(navigator.canShare && navigator.canShare(data)){
     navigator.share(data).then(function(){ $('toast').textContent = 'Elige el chat de Pureza Natural para enviarlo. ¡Gracias!'; }).catch(function(){});
@@ -267,12 +269,6 @@ $('enviar').addEventListener('click', function(){
   }
 });
 
-$('copiar').addEventListener('click', function(){
-  var t = textoFinal(), ta = $('texto');
-  function ok(){ $('toast').textContent = 'Texto copiado.'; }
-  function viejo(){ ta.select(); document.execCommand('copy'); ok(); }
-  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, viejo); else viejo();
-});
 $('volver').addEventListener('click', function(){
   $('resultado').classList.remove('on');
   $('intro').style.display = '';
