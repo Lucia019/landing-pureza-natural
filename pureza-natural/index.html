@@ -221,7 +221,7 @@ section{position:relative}
 @keyframes ripple{0%{transform:scale(.3);opacity:0}25%{opacity:1}100%{transform:scale(1);opacity:0}}
 @media (max-width:860px){.pains-grid{grid-template-columns:1fr;gap:32px}}
 
-/* 2. Cómo filtra + momento interactivo */
+/* 2. Cómo purifica + momento interactivo */
 .how-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center;margin-top:56px}
 .filter-box{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:28px 28px 32px;box-shadow:0 30px 60px -40px rgba(23,76,70,.35)}
 .filter-box svg.fx{width:100%;height:auto;display:block}
@@ -329,7 +329,7 @@ section{position:relative}
 /* ===== Experiencia táctil en celular ===== */
 .rail,.dots{display:none}
 @media (max-width:720px){
-  /* Carruseles con el dedo: partes del filtro y testimonios */
+  /* Carruseles con el dedo: partes del purificador y testimonios */
   .parts,.quotes{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;margin-inline:-16px;padding:4px 16px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
   .parts::-webkit-scrollbar,.quotes::-webkit-scrollbar{display:none}
   .parts:focus-visible,.quotes:focus-visible{outline:3px solid var(--water);outline-offset:-3px;border-radius:24px}
@@ -503,7 +503,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
       <span><b>Pureza Natural</b><small>Distribuidor autorizado Agualogic</small></span>
     </a>
     <div class="nav-links">
-      <a href="#como-filtra">Cómo filtra</a>
+      <a href="#como-purifica">Cómo purifica</a>
       <a href="catalogo-v2/">Catálogo</a>
       <a href="#producto">El purificador</a>
       <a href="#preguntas">Preguntas</a>
@@ -576,11 +576,11 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
   </div>
 </section>
 
-<!-- ===== 2. CÓMO FILTRA ===== -->
-<section class="sec" id="como-filtra" aria-labelledby="t-how">
+<!-- ===== 2. CÓMO PURIFICA ===== -->
+<section class="sec" id="como-purifica" aria-labelledby="t-how">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker p">Gota 02 · Cómo filtra</span>
+      <span class="kicker p">Gota 02 · Cómo purifica</span>
       <h2 id="t-how" class="p">Tres capas. Cero electricidad.</h2>
       <p class="p">Llenas la vasija de barro. La gravedad hace el resto: el agua atraviesa el barro gota a gota y cae limpia al vidrio.</p>
     </div>
@@ -607,7 +607,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
           <rect x="268" y="262" width="8" height="18" rx="3" fill="#9CA3A6"/>
           <rect x="70" y="296" width="220" height="10" rx="5" fill="#D9CFBC"/>
         </svg>
-        <button class="hold p" id="hold" type="button" aria-describedby="holdNote"><i class="bar" aria-hidden="true"></i><span id="holdLabel">Mantén presionado para filtrar</span></button>
+        <button class="hold p" id="hold" type="button" aria-describedby="holdNote"><i class="bar" aria-hidden="true"></i><span id="holdLabel">Mantén presionado para purificar</span></button>
         <p class="hold-note p" id="holdNote">Así trabaja tu purificador: despacio y sin enchufe.</p>
       </div>
       <div>
@@ -654,8 +654,8 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
           <div><dt>Capacidad</dt><dd>20 litros</dd></div>
           <div><dt>Medidas</dt><dd>45 cm alto · 34,5 cm diámetro</dd></div>
           <div><dt>Peso</dt><dd>14 kg aprox.</dd></div>
-          <div><dt>Materiales</dt><dd>Vidrio, acero inoxidable, filtro cerámico</dd></div>
-          <div><dt>Filtro de barro</dt><dd>Dura 2 años</dd></div>
+          <div><dt>Materiales</dt><dd>Vidrio, acero inoxidable, vasija de barro</dd></div>
+          <div><dt>Vasija de barro</dt><dd>Dura 2 años</dd></div>
           <div><dt>Mantenimiento</dt><dd>Una vez al mes, solo con agua</dd></div>
         </dl>
         <a class="btn btn-cta wa-link p" href="#pedir">Pregunta el precio por WhatsApp</a>
@@ -663,8 +663,8 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     </div>
     <div class="parts rv">
       <figure class="part p"><div class="ph"><img src="assets/tapa.jpg" alt="Tapa de acero inoxidable cepillado" width="1400" height="1050" loading="lazy"></div><figcaption><b>Tapa</b><span>Acero inoxidable. No deja entrar polvo ni insectos.</span></figcaption></figure>
-      <figure class="part p"><div class="ph"><img src="assets/barro.jpg" alt="Primer plano de la vasija de barro poroso con gotas de agua" width="1400" height="1050" loading="lazy"></div><figcaption><b>Filtro de barro</b><span>Arcilla con carbón activado y plata coloidal.</span></figcaption></figure>
-      <figure class="part p"><div class="ph"><img src="assets/vidrio.jpg" alt="Recipiente de vidrio verde con agua filtrada" width="1400" height="1050" loading="lazy"></div><figcaption><b>Recipiente de vidrio</b><span>Guarda el agua ya filtrada. No suelta sabores.</span></figcaption></figure>
+      <figure class="part p"><div class="ph"><img src="assets/barro.jpg" alt="Primer plano de la vasija de barro poroso con gotas de agua" width="1400" height="1050" loading="lazy"></div><figcaption><b>Vasija de barro</b><span>Arcilla con carbón activado y plata coloidal.</span></figcaption></figure>
+      <figure class="part p"><div class="ph"><img src="assets/vidrio.jpg" alt="Recipiente de vidrio verde con agua purificada" width="1400" height="1050" loading="lazy"></div><figcaption><b>Recipiente de vidrio</b><span>Guarda el agua ya purificada. No suelta sabores.</span></figcaption></figure>
       <figure class="part p"><div class="ph"><img src="assets/llave.jpg" alt="Llave dispensadora de acero con una gota de agua" width="1400" height="1050" loading="lazy"></div><figcaption><b>Llave</b><span>Acero inoxidable. Sirves directo al vaso.</span></figcaption></figure>
     </div>
   </div>
@@ -750,8 +750,8 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
     <div class="faq">
       <details><summary>¿Necesita luz o instalación?<i aria-hidden="true"></i></summary><p class="ans">No. Funciona solo con la gravedad. Lo pones en el mesón, llenas la vasija de barro y listo. No se conecta a la tubería ni a un enchufe.</p></details>
       <details><summary>¿Cuánto cuesta?<i aria-hidden="true"></i></summary><p class="ans">Escríbenos por WhatsApp y te damos el precio del modelo que te sirve, con el costo del envío a tu municipio.</p></details>
-      <details><summary>¿Cada cuánto se cambia el filtro de barro?<i aria-hidden="true"></i></summary><p class="ans">Cada 2 años. Después, la vasija vieja te sirve como matera para una planta.</p></details>
-      <details><summary>¿Cómo se lava?<i aria-hidden="true"></i></summary><p class="ans">Una vez al mes. El filtro de barro se lava solo con agua limpia, sin jabón ni cloro. El vidrio, la tapa y la llave se lavan con agua y jabón. El vidrio no se pone boca abajo ni se llena con agua caliente.</p></details>
+      <details><summary>¿Cada cuánto se cambia la vasija de barro?<i aria-hidden="true"></i></summary><p class="ans">Cada 2 años. Después, la vasija vieja te sirve como matera para una planta.</p></details>
+      <details><summary>¿Cómo se lava?<i aria-hidden="true"></i></summary><p class="ans">Una vez al mes. La vasija de barro se lava solo con agua limpia, sin jabón ni cloro. El vidrio, la tapa y la llave se lavan con agua y jabón. El vidrio no se pone boca abajo ni se llena con agua caliente.</p></details>
       <details><summary>¿Hacen envíos fuera de Villavicencio?<i aria-hidden="true"></i></summary><p class="ans">Sí, a municipios del Meta como Acacías, Restrepo y Cumaral. Para estos el envío tiene un costo adicional.</p></details>
       <details><summary>¿Tiene garantía?<i aria-hidden="true"></i></summary><p class="ans">Sí. Si hay un defecto de fábrica, Pureza Natural hace el trámite de la garantía ante Agualogic en tu nombre.</p></details>
     </div>
@@ -806,7 +806,7 @@ body.rm .pain-list li span::after{transform:scaleX(1);transition:none}
       </div>
       <div>
         <h3>La página</h3>
-        <ul><li><a href="#como-filtra">Cómo filtra</a></li><li><a href="catalogo-v2/">Catálogo</a></li><li><a href="#producto">El purificador</a></li><li><a href="#preguntas">Preguntas</a></li><li><a href="#pedir">Pedir el tuyo</a></li></ul>
+        <ul><li><a href="#como-purifica">Cómo purifica</a></li><li><a href="catalogo-v2/">Catálogo</a></li><li><a href="#producto">El purificador</a></li><li><a href="#preguntas">Preguntas</a></li><li><a href="#pedir">Pedir el tuyo</a></li></ul>
       </div>
       <div>
         <h3>Contacto</h3>
@@ -1078,7 +1078,7 @@ function pageFrame(){
   var heroEl = scrubOn ? heroSec : document.querySelector('.static-hero');
   var heroEnd = heroEl.offsetTop + heroEl.offsetHeight;
   var y = scrollY;
-  /* El menú se vuelve sólido apenas el video empieza a subir, para que el logo no quede sobre el filtro */
+  /* El menú se vuelve sólido apenas el video empieza a subir, para que el logo no quede sobre el purificador */
   var solid = y > heroEnd - innerHeight - 4 || !scrubOn;
   if (solid !== pageState.solid){ pageState.solid = solid; nav.classList.toggle('solid', solid); }
   var past = y > heroEnd - innerHeight * 0.5;
@@ -1192,7 +1192,7 @@ function runCounters(){
   })(t0);
 }
 
-/* ===== Momento interactivo: mantener presionado para filtrar ===== */
+/* ===== Momento interactivo: mantener presionado para purificar ===== */
 var holdBtn = document.getElementById('hold');
 var holdLabel = document.getElementById('holdLabel');
 var fxBox = document.querySelector('.filter-box');
@@ -1216,7 +1216,7 @@ function holdTick(now){
 function completeHold(){
   holdDone = true; holding = false;
   holdBtn.classList.add('done');
-  holdLabel.textContent = 'Listo: agua filtrada';
+  holdLabel.textContent = 'Listo: agua purificada';
   fxBox.classList.remove('filtering');
   layers.classList.add('lit');
 }
@@ -1251,7 +1251,7 @@ function unpinFinalStates(){
   document.body.classList.remove('rm');
   if (holdPinned){
     holdPinned = false; holdDone = false; setHP(0);
-    holdBtn.classList.remove('done'); holdLabel.textContent = 'Mantén presionado para filtrar';
+    holdBtn.classList.remove('done'); holdLabel.textContent = 'Mantén presionado para purificar';
     layers.classList.remove('lit');
   }
 }
