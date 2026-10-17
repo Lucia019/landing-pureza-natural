@@ -78,7 +78,7 @@ footer a{color:var(--deep)}
   <section id="intro">
     <p class="kicker">Tu experiencia</p>
     <h1>Cuéntanos cómo te ha ido con tu purificador</h1>
-    <p class="lead">Completa las frases con tus propias palabras, como si se lo contaras a una amiga. Con una frase corta basta. Al final armamos tu testimonial y tú lo revisas.</p>
+    <p class="lead">Completa las frases con tus propias palabras, como si se lo contaras a una amiga. Con una frase corta basta. Al final te pedimos tu foto, armamos tu testimonial y tú lo revisas.</p>
     <p class="time">Tiempo estimado: 1 minuto</p>
 
     <form id="form" novalidate>
@@ -87,6 +87,22 @@ footer a{color:var(--deep)}
         <label for="nombre">Nombre para identificar el testimonio <span class="opt">(opcional)</span></label>
         <input type="text" id="nombre" placeholder="Nombre o iniciales" autocomplete="given-name">
       </div>
+    <div class="foto">
+      <h2>Tu foto</h2>
+      <p>Para publicar tu testimonio necesitamos una foto tuya. Lo ideal es una con tu purificador, en tu cocina o en tu mesa. Si prefieres, puede ser solo tu foto de perfil.</p>
+      <div class="pick">
+        <label class="btn btn-line" for="foto" style="margin:0;cursor:pointer">Elegir mi foto</label>
+        <input type="file" id="foto" accept="image/*" class="sr">
+        <img class="preview" id="preview" alt="Vista previa de tu foto">
+        <span id="fotoNombre" style="color:var(--text-secondary);font-size:.95rem"></span>
+      </div>
+    </div>
+
+    <label class="check" style="margin-top:22px">
+      <input type="checkbox" id="permiso">
+      <span>Autorizo a Pureza Natural a publicar mi testimonio y mi foto en su página web y redes sociales (Instagram, Facebook, TikTok y WhatsApp) para dar a conocer el producto. Puedo pedir que los retiren cuando quiera. Más información en la <a href="tratamiento-de-datos.html" target="_blank" rel="noopener">política de tratamiento de datos</a>.</span>
+    </label>
+
       <p class="err" id="err" role="alert">Falta completar: <span id="errq"></span>.</p>
       <button class="btn btn-cta" type="submit">Armar mi testimonial</button>
     </form>
@@ -104,22 +120,6 @@ footer a{color:var(--deep)}
       <p class="nota" id="nota"></p>
     </div>
 
-    <div class="foto">
-      <h2>Tu foto</h2>
-      <p>Para publicar tu testimonio necesitamos una foto tuya. Lo ideal es una con tu purificador, en tu cocina o en tu mesa. Si prefieres, puede ser solo tu foto de perfil.</p>
-      <div class="pick">
-        <label class="btn btn-line" for="foto" style="margin:0;cursor:pointer">Elegir mi foto</label>
-        <input type="file" id="foto" accept="image/*" class="sr">
-        <img class="preview" id="preview" alt="Vista previa de tu foto">
-        <span id="fotoNombre" style="color:var(--text-secondary);font-size:.95rem"></span>
-      </div>
-    </div>
-
-    <label class="check" style="margin-top:22px">
-      <input type="checkbox" id="permiso">
-      <span>Autorizo a Pureza Natural a publicar mi testimonio y mi foto en su página web y redes sociales (Instagram, Facebook, TikTok y WhatsApp) para dar a conocer el producto. Puedo pedir que los retiren cuando quiera. Más información en la <a href="tratamiento-de-datos.html" target="_blank" rel="noopener">política de tratamiento de datos</a>.</span>
-    </label>
-    <div class="actions">
       <button class="btn btn-cta" type="button" id="enviar" disabled>Enviar por WhatsApp</button>
             <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
     </div>
@@ -139,39 +139,46 @@ var NOTA = '';
 var VARIANTES = {
   1: {
     texto:
-      '¡Muy recomendado! Desde hace {{a}} estoy usando mi purificador. Lo que más me gusta es que {{b}}. Y {{c}}. 💧',
+      'Antes {{a}}. Ahora {{b}}. Lo que más me gusta del purificador es {{c}}, porque {{d}}. Su calidad se nota porque {{e}}.',
     campos: {
-      a:['Lo uso desde hace…','Ej. un año, dos meses, unas semanas'],
-      b:['Lo que más me gusta es que…','Ej. se ve en el barro toda la suciedad que le saca al agua'],
-      c:['Y para terminar…','Ej. ya no me imagino mi día a día sin él']
+      a:['Antes…','Ej. el agua tenía un sabor que no me gustaba'],
+      b:['Ahora…','Ej. tomo agua con otro sabor y más ganas'],
+      c:['Lo que más me gusta del purificador es…','Ej. su diseño en vidrio'],
+      d:['…porque…','Ej. se ve bonito en mi cocina'],
+      e:['Su calidad se nota porque…','Ej. se siente sólido y bien hecho']
     }
   },
   2: {
     texto:
-      'Excelente alternativa para {{a}}. Es de muy buena calidad, se nota en {{b}}. Me ha ido súper bien: {{c}}. 💚',
+      'Antes {{a}}. Desde que tengo el purificador, {{b}}. Lo que más disfruto es {{c}}, porque {{d}}. Se nota que es de buena calidad porque {{e}}.',
     campos: {
-      a:['Es una excelente alternativa para…','Ej. tomar agua purificada en casa'],
-      b:['La calidad se nota en…','Ej. el vidrio y los materiales ecológicos'],
-      c:['Me ha ido súper bien porque…','Ej. lo armé en minutos y el agua sabe distinto']
+      a:['Antes…','Ej. compraba botellones cada semana'],
+      b:['Desde que tengo el purificador…','Ej. tengo agua purificada en casa todo el día'],
+      c:['Lo que más disfruto es…','Ej. el sabor limpio del agua'],
+      d:['…porque…','Ej. toda mi familia toma más agua'],
+      e:['Se nota que es de buena calidad porque…','Ej. el vidrio y el barro son muy buenos']
     }
   },
   3: {
     texto:
-      'Llevo {{a}} con mi purificador y ya noto {{b}}. ¡{{^c}}! 💧',
+      'Mi agua cambió. Antes {{a}}, y hoy {{b}}. Lo que más valoro del purificador es {{c}}, porque {{d}}. Y se siente de calidad: {{e}}.',
     campos: {
-      a:['Llevo…','Ej. unas semanas, un mes, medio año'],
-      b:['Ya noto…','Ej. que el agua sabe más limpia y fresca'],
-      c:['Mi opinión en una frase…','Ej. fue una muy buena decisión, estoy feliz']
+      a:['Antes…','Ej. dudaba de lo que tomaba'],
+      b:['Hoy…','Ej. tomo agua con tranquilidad'],
+      c:['Lo que más valoro del purificador es…','Ej. que es natural y no necesita luz'],
+      d:['…porque…','Ej. cuido a mi familia sin complicarme'],
+      e:['Se siente de calidad por…','Ej. los materiales y los acabados']
     }
   },
   4: {
     texto:
-      'Antes {{a}}. Ahora {{b}}. Se nota la calidad en {{c}}, y {{d}}. 💚',
+      'Antes {{a}}. Ahora {{b}}. Me encanta {{c}}, porque {{d}}. Lo recomiendo: su calidad se nota porque {{e}}.',
     campos: {
-      a:['Antes…','Ej. compraba botellones cada semana'],
-      b:['Ahora…','Ej. tengo agua purificada en casa todo el día'],
-      c:['Se nota la calidad en…','Ej. el vidrio, el barro, los acabados'],
-      d:['Para terminar…','Ej. se lo recomiendo a todo el que me pregunta']
+      a:['Antes…','Ej. tomaba poca agua porque no me gustaba el sabor'],
+      b:['Ahora…','Ej. tomo agua todo el día'],
+      c:['Me encanta…','Ej. el diseño del purificador'],
+      d:['…porque…','Ej. combina con mi cocina y es muy práctico'],
+      e:['Su calidad se nota porque…','Ej. está hecho con materiales naturales y se ve duradero']
     }
   }
 };
@@ -205,15 +212,19 @@ function armar(v){
 var enviado = false;
 $('form').addEventListener('submit', function(e){
   e.preventDefault();
-  var v = {}, falta = [];
+  var v = {}, nums = [], falta = [];
   claves.forEach(function(k, i){
     v[k] = limpio($('c_' + k).value);
-    if(!v[k]) falta.push(i + 1);
+    if(!v[k]) nums.push(i + 1);
   });
+  if(nums.length) falta.push((nums.length > 1 ? 'las preguntas ' : 'la pregunta ') + nums.join(', '));
+  if(!$('foto').files.length) falta.push('tu foto');
+  if(!$('permiso').checked) falta.push('la autorización de publicación');
   if(falta.length){
-    $('errq').textContent = (falta.length > 1 ? 'las preguntas ' : 'la pregunta ') + falta.join(', ');
+    $('errq').textContent = falta.join(' y ');
     $('err').classList.add('on');
-    $('c_' + claves.filter(function(k){return !v[k];})[0]).focus();
+    var primero = claves.filter(function(k){return !v[k];})[0];
+    ($(primero ? 'c_' + primero : (!$('foto').files.length ? 'foto' : 'permiso'))).focus();
     return;
   }
   $('err').classList.remove('on');
