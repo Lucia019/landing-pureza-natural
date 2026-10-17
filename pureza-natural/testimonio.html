@@ -106,8 +106,8 @@ footer a{color:var(--deep)}
     </div>
 
     <div class="foto">
-      <h2>En Pureza Natural hacemos bien. Haznos bien tú también</h2>
-      <p>Comparte una foto tuya con tu purificador. Tu testimonial se ve mucho más real con tu cara y tu hogar, y ayuda a otras familias a decidirse con confianza. Con tu foto, nos haces bien.</p>
+      <h2>¿Quieres compartir una foto?</h2>
+      <p>Si te animas, puedes enviarnos una foto tuya con tu purificador. Es totalmente opcional.</p>
       <div class="pick">
         <label class="btn btn-line" for="foto" style="margin:0;cursor:pointer">Elegir mi foto</label>
         <input type="file" id="foto" accept="image/*" class="sr">
@@ -121,12 +121,11 @@ footer a{color:var(--deep)}
       <span>Autorizo a Pureza Natural a publicar este testimonial y mi foto en su página y redes sociales.</span>
     </label>
     <div class="actions">
-      <button class="btn btn-cta" type="button" id="enviar" disabled>Enviar mi testimonial y mi foto</button>
+      <button class="btn btn-cta" type="button" id="enviar">Enviar por WhatsApp</button>
       <button class="btn btn-line" type="button" id="copiar">Copiar texto</button>
       <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
     </div>
-    <p class="actions" style="margin-top:4px"><button class="sinfoto" type="button" id="sinfoto">Prefiero enviarlo sin foto por ahora</button></p>
-    <p class="toast" id="toast" role="status"></p>
+        <p class="toast" id="toast" role="status"></p>
   </section>
 </div>
 <footer><p>Gracias por confiar en <a href="index.html">Pureza Natural</a>. Claridad que cuida.</p></footer>
@@ -135,7 +134,7 @@ footer a{color:var(--deep)}
 var WA_NUMBER = '573132696087';
 var $ = function(id){ return document.getElementById(id); };
 
-var NOTA = 'Transparencia: recibí este purificador como obsequio de Pureza Natural. Esta es mi experiencia personal y sincera.';
+var NOTA = '';
 
 /* Cada variación: título, frases con {{campo}} y las etiquetas que ve el cliente.
    Los párrafos se separan con \n. */
@@ -250,7 +249,7 @@ $('form').addEventListener('submit', function(e){
 
 function textoFinal(){
   var nombre = limpio($('nombre').value);
-  return $('texto').value.trim() + '\n\n' + NOTA + (nombre ? '\n— ' + nombre : '');
+  return $('texto').value.trim() + (nombre ? '\n— ' + nombre : '');
 }
 function mensaje(conFoto){
   return 'Hola Pureza Natural, este es mi testimonial:\n\n' + textoFinal() + '\n\n' +
@@ -258,13 +257,13 @@ function mensaje(conFoto){
     (conFoto ? '' : '');
 }
 function refrescar(){
-  $('enviar').disabled = !$('foto').files.length;
+  
 }
 $('foto').addEventListener('change', function(){
   var f = this.files[0], pv = $('preview');
   if(f){
     pv.src = URL.createObjectURL(f); pv.classList.add('on');
-    $('fotoNombre').textContent = '¡Gracias! Tu foto nos hace bien.';
+    $('fotoNombre').textContent = '¡Gracias por tu foto!';
   } else { pv.classList.remove('on'); $('fotoNombre').textContent = ''; }
   refrescar();
 });
@@ -276,7 +275,7 @@ function abrirWA(avisoFoto){
 
 $('enviar').addEventListener('click', function(){
   var f = $('foto').files[0];
-  if(!f) return;
+  if(!f){ abrirWA(false); $('toast').textContent = 'Se abrió WhatsApp con tu testimonial. ¡Gracias!'; return; }
   var data = { files:[f], text:mensaje() };
   if(navigator.canShare && navigator.canShare(data)){
     navigator.share(data).then(function(){ $('toast').textContent = 'Elige el chat de Pureza Natural para enviarlo. ¡Gracias!'; }).catch(function(){});
@@ -284,10 +283,6 @@ $('enviar').addEventListener('click', function(){
     abrirWA(true);
     $('toast').textContent = 'Se abrió WhatsApp con tu testimonial. Ahora adjunta tu foto en ese chat. ¡Gracias!';
   }
-});
-$('sinfoto').addEventListener('click', function(){
-  abrirWA(false);
-  $('toast').textContent = 'Si más adelante quieres enviarnos tu foto, escríbenos por el mismo chat. ¡Gracias!';
 });
 
 $('copiar').addEventListener('click', function(){
