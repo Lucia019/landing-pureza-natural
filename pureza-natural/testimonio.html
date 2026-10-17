@@ -121,7 +121,8 @@ footer a{color:var(--deep)}
     </div>
 
       <button class="btn btn-cta" type="button" id="enviar" disabled>Enviar por WhatsApp</button>
-            <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
+            <button class="btn btn-line" type="button" id="otra">Probar otra redacción</button>
+      <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
     </div>
         <p class="toast" id="toast" role="status"></p>
   </section>
@@ -134,78 +135,45 @@ var $ = function(id){ return document.getElementById(id); };
 
 var NOTA = '';
 
-/* Cada variación: título, frases con {{campo}} y las etiquetas que ve el cliente.
-   Los párrafos se separan con \n. */
-var TIEMPO = ['¿Cuánto tiempo llevas usándolo?','Ej. unas semanas, dos meses, un año'];
-var PARA = ['¿Para quién es el agua en tu casa?','Ej. mi familia, mis hijos y yo'];
-var EXTRA = ['¿Algo más que quieras contar?','Ej. una anécdota o lo que le dirías a otra persona', true];
-var VARIANTES = {
-  1: {
-    texto:
-      'Llevo {{f}} con mi purificador y lo tengo para {{g}}. Antes {{a}}. Ahora {{b}}. Lo que más me gusta del purificador es {{c}}, porque {{d}}. Su calidad se nota porque {{e}}.{{?h}}',
-    campos: {
-      f:TIEMPO, g:PARA,
-      a:['Antes…','Ej. el agua tenía un sabor que no me gustaba'],
-      b:['Ahora…','Ej. tomo agua con otro sabor y más ganas'],
-      c:['¿Qué es lo que más te gusta del purificador?','Ej. su diseño en vidrio'],
-      d:['¿Por qué te gusta?','Ej. se ve bonito en mi cocina'],
-      e:['¿Por qué dirías que es de buena calidad?','Ej. se siente sólido y bien hecho'],
-      h:EXTRA
-    }
-  },
-  2: {
-    texto:
-      'Lo uso desde hace {{f}} para {{g}}. Antes {{a}}. Desde que tengo el purificador, {{b}}. Lo que más disfruto es {{c}}, porque {{d}}. Se nota que es de buena calidad porque {{e}}.{{?h}}',
-    campos: {
-      f:TIEMPO, g:PARA,
-      a:['Antes…','Ej. compraba botellones cada semana'],
-      b:['Desde que tengo el purificador…','Ej. tengo agua purificada en casa todo el día'],
-      c:['¿Qué es lo que más disfrutas?','Ej. el sabor limpio del agua'],
-      d:['¿Por qué lo disfrutas?','Ej. toda mi familia toma más agua'],
-      e:['¿Por qué dirías que es de buena calidad?','Ej. el vidrio y el barro son muy buenos'],
-      h:EXTRA
-    }
-  },
-  3: {
-    texto:
-      'Mi agua cambió. Llevo {{f}} con el purificador, para {{g}}. Antes {{a}}, y hoy {{b}}. Lo que más valoro del purificador es {{c}}, porque {{d}}. Su calidad se nota en {{e}}.{{?h}}',
-    campos: {
-      f:TIEMPO, g:PARA,
-      a:['Antes…','Ej. dudaba de lo que tomaba'],
-      b:['Hoy…','Ej. tomo agua con tranquilidad'],
-      c:['¿Qué es lo que más valoras del purificador?','Ej. que es natural y no necesita luz'],
-      d:['¿Por qué lo valoras?','Ej. cuido a mi familia sin complicarme'],
-      e:['¿En qué notas que es de buena calidad?','Ej. los materiales y los acabados'],
-      h:EXTRA
-    }
-  },
-  4: {
-    texto:
-      'Tengo el purificador desde hace {{f}}, para {{g}}. Antes {{a}}. Ahora {{b}}. Me encanta {{c}}, porque {{d}}. Lo recomiendo: su calidad se nota porque {{e}}.{{?h}}',
-    campos: {
-      f:TIEMPO, g:PARA,
-      a:['Antes…','Ej. tomaba poca agua porque no me gustaba el sabor'],
-      b:['Ahora…','Ej. tomo agua todo el día'],
-      c:['¿Qué es lo que más te encanta?','Ej. el diseño del purificador'],
-      d:['¿Por qué te encanta?','Ej. combina con mi cocina y es muy práctico'],
-      e:['¿Por qué dirías que es de buena calidad?','Ej. está hecho con materiales naturales y se ve duradero'],
-      h:EXTRA
-    }
-  }
+/* Preguntas del formulario: [pregunta, ejemplo, opcional] */
+var CAMPOS = {
+  f:['¿Cuánto tiempo llevas usándolo?','Ej. unas semanas, dos meses, un año'],
+  g:['¿Para quién es el agua en tu casa?','Ej. mi familia, mis hijos y yo'],
+  a:['Antes…','Ej. compraba botellones y cargarlos era un problema'],
+  b:['Ahora…','Ej. tengo agua purificada en casa todo el día'],
+  c:['¿Qué es lo que más te gusta del purificador?','Ej. su diseño en vidrio'],
+  d:['¿Por qué te gusta?','Ej. se ve bonito en mi cocina'],
+  e:['¿Por qué dirías que es de buena calidad?','Ej. se siente sólido y bien hecho'],
+  h:['¿Algo más que quieras contar?','Ej. una anécdota o lo que le dirías a otra persona', true]
 };
 
-var qs = new URLSearchParams(location.search);
-var V = parseInt(qs.get('v'), 10);
-if(!VARIANTES[V]) V = 1 + Math.floor(Math.random() * 4);
-var DEF = VARIANTES[V];
+/* Cada frase tiene varias redacciones. Cada vez se elige una al azar,
+   así los testimonios no suenan todos iguales. */
+var FRASES = [
+  ['Llevo {{f}} con mi purificador y lo tengo para {{g}}.',
+   'Lo uso desde hace {{f}} para {{g}}.',
+   'Tengo el purificador desde hace {{f}}, para {{g}}.',
+   'Hace {{f}} que tengo el purificador en casa, para {{g}}.'],
+  ['Antes {{a}}. Ahora {{b}}.',
+   'Antes {{a}}, y hoy {{b}}.',
+   'Antes {{a}}. Hoy, {{b}}.',
+   'Mi agua cambió: antes {{a}} y ahora {{b}}.'],
+  ['Lo que más me gusta del purificador es {{c}}, porque {{d}}.',
+   'Lo que más disfruto es {{c}}, porque {{d}}.',
+   'Me encanta {{c}}, porque {{d}}.',
+   'Lo que más valoro es {{c}}, porque {{d}}.'],
+  ['Su calidad se nota porque {{e}}.',
+   'Se nota que es de buena calidad porque {{e}}.',
+   'Para mí, su calidad se nota porque {{e}}.',
+   'Es un producto de calidad, porque {{e}}.']
+];
 
-/* campos del formulario */
-var cont = $('campos'), claves = Object.keys(DEF.campos);
+var cont = $('campos'), claves = Object.keys(CAMPOS);
 claves.forEach(function(k){
   var d = document.createElement('div'); d.className = 'field';
   d.innerHTML = '<label for="c_' + k + '"></label><textarea id="c_' + k + '"></textarea>';
-  d.querySelector('label').textContent = (claves.indexOf(k) + 1) + '. ' + DEF.campos[k][0] + (DEF.campos[k][2] ? ' (opcional)' : '');
-  d.querySelector('textarea').placeholder = DEF.campos[k][1];
+  d.querySelector('label').textContent = (claves.indexOf(k) + 1) + '. ' + CAMPOS[k][0] + (CAMPOS[k][2] ? ' (opcional)' : '');
+  d.querySelector('textarea').placeholder = CAMPOS[k][1];
   cont.appendChild(d);
 });
 
@@ -213,14 +181,17 @@ function limpio(s){ return (s||'').replace(/\s+/g,' ').trim(); }
 function sinPunto(s){ return s.replace(/[\s.!?…,;:]+$/,''); }
 function minus(s){ return s.charAt(0).toLowerCase() + s.slice(1); }
 
-function armar(v){
-  return DEF.texto.replace(/\{\{\?(\w+)\}\}/g, function(_, k){
-    var t = sinPunto(v[k]);
-    return t ? ' ' + t.charAt(0).toUpperCase() + t.slice(1) + '.' : '';
-  }).replace(/\{\{(\^?)(\w+)\}\}/g, function(_, up, k){
-    var t = sinPunto(v[k]);
-    return up ? t.charAt(0).toUpperCase() + t.slice(1) : minus(t);
+var ultimo = null, elegidas = [];
+function armar(v, otra){
+  var partes = FRASES.map(function(opts, i){
+    var n;
+    do { n = Math.floor(Math.random() * opts.length); } while(otra && opts.length > 1 && n === elegidas[i]);
+    elegidas[i] = n;
+    return opts[n].replace(/\{\{(\w+)\}\}/g, function(_, k){ return minus(sinPunto(v[k])); });
   });
+  var extra = sinPunto(v.h);
+  if(extra) partes.push(extra.charAt(0).toUpperCase() + extra.slice(1) + '.');
+  return partes.join(' ');
 }
 
 var enviado = false;
@@ -229,7 +200,7 @@ $('form').addEventListener('submit', function(e){
   var v = {}, nums = [], falta = [];
   claves.forEach(function(k, i){
     v[k] = limpio($('c_' + k).value);
-    if(!v[k] && !DEF.campos[k][2]) nums.push(i + 1);
+    if(!v[k] && !CAMPOS[k][2]) nums.push(i + 1);
   });
   if(nums.length) falta.push((nums.length > 1 ? 'las preguntas ' : 'la pregunta ') + nums.join(', '));
   if(!$('foto').files.length) falta.push('tu foto');
@@ -237,13 +208,14 @@ $('form').addEventListener('submit', function(e){
   if(falta.length){
     $('errq').textContent = falta.join(' y ');
     $('err').classList.add('on');
-    var primero = claves.filter(function(k){return !v[k] && !DEF.campos[k][2];})[0];
+    var primero = claves.filter(function(k){return !v[k] && !CAMPOS[k][2];})[0];
     ($(primero ? 'c_' + primero : (!$('foto').files.length ? 'foto' : 'permiso'))).focus();
     return;
   }
   $('err').classList.remove('on');
   var nombre = limpio($('nombre').value);
-  $('texto').value = armar(v);
+  ultimo = v;
+  $('texto').value = armar(v, false);
   $('who').textContent = nombre ? '— ' + nombre : '';
   $('nota').textContent = NOTA;
   $('intro').style.display = 'none';
@@ -294,6 +266,9 @@ $('enviar').addEventListener('click', function(){
   }
 });
 
+$('otra').addEventListener('click', function(){
+  if(ultimo) $('texto').value = armar(ultimo, true);
+});
 $('volver').addEventListener('click', function(){
   $('resultado').classList.remove('on');
   $('intro').style.display = '';
