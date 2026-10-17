@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cuéntanos tu experiencia | Pureza Natural</title>
-<meta name="description" content="Cuéntanos cómo te ha ido con tu purificador Agualogic. Responde 6 preguntas y armamos tu testimonial.">
+<meta name="description" content="Cuéntanos cómo te ha ido con tu purificador AguaLogic. Completa unas frases y armamos tu testimonial.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -33,11 +33,11 @@ h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--deep
 .lead{color:var(--text-secondary);margin:0 0 8px}
 .time{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:.8rem;letter-spacing:.08em;color:var(--water)}
 form{margin:32px 0 64px;background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:clamp(20px,4vw,40px);box-shadow:0 30px 60px -40px rgba(23,76,70,.35)}
-.field{margin-bottom:26px}
+.field{margin-bottom:24px}
 label,.lbl{display:block;font-weight:600;margin-bottom:8px;color:var(--text-primary)}
 .opt{font-weight:400;color:var(--text-secondary)}
 input[type=text],textarea{width:100%;font:inherit;color:var(--text-primary);background:#fff;border:1.5px solid #B9B09D;border-radius:14px;padding:12px 16px;min-height:48px;transition:border-color .3s var(--ease-out)}
-textarea{min-height:104px;resize:vertical}
+textarea{min-height:88px;resize:vertical}
 input::placeholder,textarea::placeholder{color:#6B7873}
 input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,.check input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .check{display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--text-secondary);margin:6px 0 26px}
@@ -45,25 +45,30 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible,
 .btn{font:inherit;font-weight:600;border-radius:999px;padding:14px 26px;min-height:48px;cursor:pointer;border:0;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;transition:transform .3s var(--ease-out),background .3s}
 .btn-cta{background:var(--accent);color:#fff;box-shadow:0 14px 28px -14px rgba(198,111,69,.7)}
 .btn-cta:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-cta[disabled]{background:#B9B09D;box-shadow:none;cursor:not-allowed;transform:none}
 .btn-line{background:transparent;color:var(--deep);border:1.5px solid var(--deep)}
 .btn-line:hover{transform:translateY(-2px)}
-.err{color:#9B2C1D;font-size:.95rem;margin:-10px 0 18px;display:none}
+.err{color:#9B2C1D;font-size:.95rem;margin:-6px 0 18px;display:none}
 .err.on{display:block}
-/* resultado */
 #resultado{display:none;margin:32px 0 64px}
 #resultado.on{display:block}
 .card{background:var(--deep);color:var(--on-deep);border-radius:28px;padding:clamp(24px,5vw,48px);box-shadow:0 30px 60px -40px rgba(23,76,70,.55)}
-.card .kicker{margin-top:0;color:var(--on-deep-2)}
-.card .kicker::before{background:var(--on-deep-2)}
-.card textarea{background:transparent;border:1.5px solid rgba(227,238,234,.3);color:var(--on-deep);font-style:italic;font-weight:500;font-size:1.12rem;line-height:1.7;min-height:300px}
+.card textarea{background:transparent;border:1.5px solid rgba(227,238,234,.3);color:var(--on-deep);font-style:italic;font-weight:500;font-size:1.08rem;line-height:1.7;min-height:380px}
 .card .quote{font-family:'Bricolage Grotesque',sans-serif;font-size:3rem;line-height:1;color:var(--on-deep-2);margin:0 0 6px}
 .who{margin:14px 0 0;font-family:'IBM Plex Mono',monospace;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-deep-2)}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.hint{color:var(--text-secondary);font-size:.97rem;margin:18px 0 0}
+.nota{margin:14px 0 0;font-size:.92rem;color:var(--on-deep-2)}
+.foto{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,32px);box-shadow:0 30px 60px -40px rgba(23,76,70,.35)}
+.foto h2{font-family:'Bricolage Grotesque',sans-serif;color:var(--deep);font-size:1.6rem;line-height:1.1;letter-spacing:-.02em;margin:0 0 10px}
+.foto p{margin:0 0 16px;color:var(--text-secondary)}
+.foto .pick{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.preview{width:72px;height:72px;border-radius:16px;object-fit:cover;display:none;border:1px solid var(--line)}
+.preview.on{display:block}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;align-items:center}
+.sinfoto{background:none;border:0;font:inherit;color:var(--text-secondary);text-decoration:underline;cursor:pointer;padding:12px 4px;min-height:44px}
 .toast{margin-top:14px;font-size:.95rem;color:var(--water);min-height:1.4em}
-.card .toast{color:var(--on-deep-2)}
 footer{padding:0 0 40px;text-align:center;color:var(--text-secondary);font-size:.9rem}
 footer a{color:var(--deep)}
+.sr{position:absolute;left:-9999px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -73,40 +78,17 @@ footer a{color:var(--deep)}
 
   <section id="intro">
     <p class="kicker">Tu experiencia</p>
-    <h1>Cuéntanos cómo te ha ido</h1>
-    <p class="lead">Responde con tus propias palabras. Al final armamos tu testimonial y tú decides si lo compartes.</p>
+    <h1>Cuéntanos cómo te ha ido con tu purificador</h1>
+    <p class="lead">Completa las frases con tus propias palabras, como si se lo contaras a una amiga. Con una frase corta basta. Al final armamos tu testimonial y tú lo revisas.</p>
     <p class="time">Tiempo estimado: 2 a 3 minutos</p>
 
     <form id="form" novalidate>
-      <div class="field">
-        <label for="q1">1. ¿Qué producto adquiriste?</label>
-        <input type="text" id="q1" placeholder="Ej. Purificador Agualogic" autocomplete="off">
-      </div>
-      <div class="field">
-        <label for="q2">2. ¿Cómo era tu situación antes de comprarlo?</label>
-        <textarea id="q2" placeholder="¿Qué necesitabas, qué problema tenías o qué querías conseguir?"></textarea>
-      </div>
-      <div class="field">
-        <label for="q3">3. ¿Qué te motivó a elegirlo?</label>
-        <textarea id="q3" placeholder="¿Qué te convenció o te dio confianza?"></textarea>
-      </div>
-      <div class="field">
-        <label for="q4">4. ¿Cómo fue tu experiencia?</label>
-        <textarea id="q4" placeholder="¿Qué te gustó, qué te sorprendió o qué destacarías?"></textarea>
-      </div>
-      <div class="field">
-        <label for="q5">5. ¿Qué cambió o qué beneficio obtuviste?</label>
-        <textarea id="q5" placeholder="Describe resultados reales o cambios que hayas notado."></textarea>
-      </div>
-      <div class="field">
-        <label for="q6">6. ¿Qué le dirías a otra persona que esté pensando en comprarlo?</label>
-        <textarea id="q6" placeholder="Escribe tu recomendación con tus propias palabras."></textarea>
-      </div>
+      <div id="campos"></div>
       <div class="field">
         <label for="nombre">Nombre para identificar el testimonio <span class="opt">(opcional)</span></label>
         <input type="text" id="nombre" placeholder="Nombre o iniciales" autocomplete="given-name">
       </div>
-      <p class="err" id="err" role="alert">Falta responder: <span id="errq"></span>. Con una frase corta basta.</p>
+      <p class="err" id="err" role="alert">Falta completar: <span id="errq"></span>.</p>
       <button class="btn btn-cta" type="submit">Armar mi testimonial</button>
     </form>
   </section>
@@ -117,21 +99,34 @@ footer a{color:var(--deep)}
     <p class="lead">Léelo y cámbialo si algo no suena como tú. Es tuyo.</p>
     <div class="card" style="margin-top:24px">
       <p class="quote" aria-hidden="true">“</p>
-      <label class="lbl" for="texto" style="position:absolute;left:-9999px">Texto del testimonial</label>
+      <label class="sr" for="texto">Texto del testimonial</label>
       <textarea id="texto"></textarea>
       <p class="who" id="who"></p>
+      <p class="nota" id="nota"></p>
     </div>
+
+    <div class="foto">
+      <h2>En Pureza Natural hacemos bien. Haznos bien tú también</h2>
+      <p>Comparte una foto tuya con tu purificador. Tu testimonial se ve mucho más real con tu cara y tu hogar, y ayuda a otras familias a decidirse con confianza. Con tu foto, nos haces bien.</p>
+      <div class="pick">
+        <label class="btn btn-line" for="foto" style="margin:0;cursor:pointer">Elegir mi foto</label>
+        <input type="file" id="foto" accept="image/*" class="sr">
+        <img class="preview" id="preview" alt="Vista previa de tu foto">
+        <span id="fotoNombre" style="color:var(--text-secondary);font-size:.95rem"></span>
+      </div>
+    </div>
+
     <label class="check" style="margin-top:22px">
       <input type="checkbox" id="permiso">
-      <span>Autorizo a Pureza Natural a publicar este testimonial en su página y redes sociales.</span>
+      <span>Autorizo a Pureza Natural a publicar este testimonial y mi foto en su página y redes sociales.</span>
     </label>
     <div class="actions">
-      <a class="btn btn-cta" id="enviar" href="#" target="_blank" rel="noopener">Enviar a Pureza Natural por WhatsApp</a>
+      <button class="btn btn-cta" type="button" id="enviar" disabled>Enviar mi testimonial y mi foto</button>
       <button class="btn btn-line" type="button" id="copiar">Copiar texto</button>
       <button class="btn btn-line" type="button" id="volver">Editar mis respuestas</button>
     </div>
+    <p class="actions" style="margin-top:4px"><button class="sinfoto" type="button" id="sinfoto">Prefiero enviarlo sin foto por ahora</button></p>
     <p class="toast" id="toast" role="status"></p>
-    <p class="hint">Si quieres, puedes enviarnos también una foto tuya con el purificador por el mismo chat. Es opcional.</p>
   </section>
 </div>
 <footer><p>Gracias por confiar en <a href="index.html">Pureza Natural</a>. Claridad que cuida.</p></footer>
@@ -139,66 +134,191 @@ footer a{color:var(--deep)}
 <script>
 var WA_NUMBER = '573132696087';
 var $ = function(id){ return document.getElementById(id); };
-var PREGUNTAS = {q1:'el producto',q2:'cómo era tu situación antes',q3:'qué te motivó',q4:'cómo fue tu experiencia',q5:'qué cambió',q6:'tu recomendación'};
+
+var NOTA = 'Transparencia: recibí este purificador como obsequio de Pureza Natural. Esta es mi experiencia personal y sincera.';
+
+/* Cada variación: título, frases con {{campo}} y las etiquetas que ve el cliente.
+   Los párrafos se separan con \n. */
+var VARIANTES = {
+  1: {
+    texto:
+      'Mi experiencia con mi purificador AguaLogic 💧\n' +
+      'Hola, quiero compartir mi experiencia con el purificador AguaLogic que adquirí a través de Pureza Natural.\n' +
+      'Conocí este purificador porque {{a}}. Lo que me motivó a elegirlo fue {{b}}.\n' +
+      'Cuando lo recibí y empecé a utilizarlo, mi experiencia ha sido {{c}}. Una de las cosas que más me ha gustado es {{d}}, porque {{e}}.\n' +
+      'También quiero destacar que mi experiencia con la atención de Pureza Natural ha sido {{f}}.\n' +
+      'En general, lo que más valoro de tener este purificador en mi hogar es {{g}}.\n' +
+      'Si alguien está pensando en adquirir uno, me gustaría compartirle que {{h}}.\n' +
+      'Esta ha sido mi experiencia personal y me alegra poder compartirla con quienes desean conocer más sobre este producto. ¡Gracias a Pureza Natural por permitirme compartir mi experiencia! 💚',
+    campos: {
+      a:['Conocí este purificador porque…','Ej. una amiga me lo recomendó, lo vi en Instagram'],
+      b:['Lo que me motivó a elegirlo fue…','Ej. que es de barro y no necesita luz'],
+      c:['Cuando lo recibí y empecé a usarlo, mi experiencia ha sido…','Ej. muy sencilla, lo armé en minutos'],
+      d:['Una de las cosas que más me ha gustado es…','Ej. el sabor del agua'],
+      e:['…porque…','Ej. se siente más fresca y ligera'],
+      f:['La atención de Pureza Natural ha sido…','Ej. cercana y muy clara'],
+      g:['Lo que más valoro de tenerlo en mi hogar es…','Ej. la tranquilidad de dar agua buena a mi familia'],
+      h:['Si alguien está pensando en adquirir uno, le diría que…','Ej. lo pruebe, no se arrepiente']
+    }
+  },
+  2: {
+    texto:
+      '💧 Quiero compartir mi experiencia con AguaLogic\n' +
+      'Quiero contarles un poquito sobre mi experiencia con el purificador AguaLogic de Pureza Natural.\n' +
+      'Todo comenzó cuando {{a}}. En ese momento, estaba buscando {{b}} y este purificador llamó mi atención por {{c}}.\n' +
+      'Después de decidirme a adquirirlo, llegó el momento de incorporarlo a mi hogar. Hasta ahora, mi experiencia ha sido {{d}}.\n' +
+      'Algo que me ha gustado especialmente es {{e}}, porque {{f}}. También me parece importante destacar {{g}}.\n' +
+      'En cuanto a la atención que recibí de Pureza Natural, puedo decir que {{h}}.\n' +
+      'Hoy, cuando pienso en mi decisión de adquirirlo, considero que {{i}}.\n' +
+      'Quise compartir mi experiencia porque creo que conocer las vivencias de otras personas puede ayudar a quienes están buscando información antes de elegir un purificador para su hogar. Esta es mi experiencia personal y espero que les sea útil. 💚',
+    campos: {
+      a:['Todo comenzó cuando…','Ej. me enteré de que el agua del grifo no era tan buena'],
+      b:['En ese momento estaba buscando…','Ej. una opción natural para mi familia'],
+      c:['Este purificador llamó mi atención por…','Ej. su diseño y los materiales'],
+      d:['Hasta ahora, mi experiencia ha sido…','Ej. muy buena'],
+      e:['Algo que me ha gustado especialmente es…','Ej. que no necesita instalación'],
+      f:['…porque…','Ej. lo puse en la cocina y ya'],
+      g:['También me parece importante destacar…','Ej. que no gasta energía'],
+      h:['La atención de Pureza Natural fue…','Ej. amable y siempre estuvieron pendientes'],
+      i:['Hoy, pensando en mi decisión, considero que…','Ej. fue un acierto']
+    }
+  },
+  3: {
+    texto:
+      '💧 Mi experiencia con AguaLogic\n' +
+      'Hoy quiero compartirles mi experiencia con el purificador AguaLogic que adquirí con Pureza Natural.\n' +
+      'Conocí este producto a través de {{a}} y lo que despertó mi interés fue {{b}}.\n' +
+      'Cuando tomé la decisión de adquirirlo, buscaba {{c}} y me pareció que esta opción podía ajustarse a lo que necesitaba.\n' +
+      'Desde que llegó a mi hogar, he vivido la experiencia de {{d}}. Lo que más me ha gustado hasta ahora es {{e}}, especialmente porque {{f}}.\n' +
+      'En este proceso, también quiero destacar la atención que recibí de Pureza Natural, que fue {{g}}.\n' +
+      'Me parece bonito poder compartir mi experiencia porque, cuando estamos buscando algo para nuestro hogar, conocer la opinión de otras personas puede ayudarnos a tomar decisiones con más confianza.\n' +
+      'Si tú también estás conociendo este purificador, te comparto mi experiencia para que tengas otra perspectiva. 💚',
+    campos: {
+      a:['Conocí este producto a través de…','Ej. una recomendación, redes sociales'],
+      b:['Lo que despertó mi interés fue…','Ej. que es artesanal'],
+      c:['Cuando decidí adquirirlo, buscaba…','Ej. algo sencillo y duradero'],
+      d:['Desde que llegó a mi hogar, he vivido la experiencia de…','Ej. tomar agua con otro sabor'],
+      e:['Lo que más me ha gustado hasta ahora es…','Ej. su diseño en vidrio'],
+      f:['…especialmente porque…','Ej. se ve bonito en la cocina'],
+      g:['La atención de Pureza Natural fue…','Ej. muy atenta y paciente']
+    }
+  },
+  4: {
+    texto:
+      '🌿 Les cuento cómo ha sido mi experiencia\n' +
+      'A veces, cuando buscamos algo para nuestro hogar, queremos conocer diferentes opciones antes de tomar una decisión. Así fue como llegué a conocer el purificador AguaLogic de Pureza Natural.\n' +
+      'Lo que me llevó a interesarme por él fue {{a}} y finalmente decidí adquirirlo porque {{b}}.\n' +
+      'Una vez lo tuve en casa, mi experiencia ha sido {{c}}. Hay algo que particularmente me ha gustado y es {{d}}, porque {{e}}.\n' +
+      'También me gustaría mencionar que el acompañamiento que recibí por parte de Pureza Natural fue {{f}}.\n' +
+      'Al mirar mi experiencia hasta el momento, puedo decir que lo que más valoro de esta elección es {{g}}.\n' +
+      'Quise contarles mi historia porque cada persona tiene necesidades y expectativas diferentes, y considero que compartir experiencias reales puede ser útil para quienes están evaluando esta alternativa. Esta es mi vivencia personal con AguaLogic y me alegra poder compartirla con ustedes. 💧',
+    campos: {
+      a:['Lo que me llevó a interesarme por él fue…','Ej. que quería tomar mejor agua'],
+      b:['Finalmente decidí adquirirlo porque…','Ej. me dio confianza cómo lo explicaron'],
+      c:['Una vez lo tuve en casa, mi experiencia ha sido…','Ej. tranquila y sin complicaciones'],
+      d:['Lo que particularmente me ha gustado es…','Ej. que el agua sale fresca'],
+      e:['…porque…','Ej. la toma toda la familia'],
+      f:['El acompañamiento de Pureza Natural fue…','Ej. cálido y rápido'],
+      g:['Lo que más valoro de esta elección es…','Ej. cuidar a mi familia con algo natural']
+    }
+  }
+};
+
+var qs = new URLSearchParams(location.search);
+var V = parseInt(qs.get('v'), 10);
+if(!VARIANTES[V]) V = 1 + Math.floor(Math.random() * 4);
+var DEF = VARIANTES[V];
+
+/* campos del formulario */
+var cont = $('campos'), claves = Object.keys(DEF.campos);
+claves.forEach(function(k){
+  var d = document.createElement('div'); d.className = 'field';
+  d.innerHTML = '<label for="c_' + k + '"></label><textarea id="c_' + k + '"></textarea>';
+  d.querySelector('label').textContent = (claves.indexOf(k) + 1) + '. ' + DEF.campos[k][0];
+  d.querySelector('textarea').placeholder = DEF.campos[k][1];
+  cont.appendChild(d);
+});
 
 function limpio(s){ return (s||'').replace(/\s+/g,' ').trim(); }
-function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+function sinPunto(s){ return s.replace(/[\s.!?…,;:]+$/,''); }
 function minus(s){ return s.charAt(0).toLowerCase() + s.slice(1); }
-function punto(s){ return /[.!?…]$/.test(s) ? s : s + '.'; }
-function sinPunto(s){ return s.replace(/[.!?…]+$/,''); }
 
 function armar(v){
-  var p = [];
-  p.push(cap(punto('Antes de comprar ' + (v.q1 ? 'mi ' + minus(sinPunto(v.q1)) : 'el purificador') + ', ' + minus(sinPunto(v.q2)))));
-  p.push(cap(punto('Lo que me convenció: ' + minus(sinPunto(v.q3)))));
-  p.push(cap(punto(sinPunto(v.q4))));
-  p.push(cap(punto('Lo que cambió para mí: ' + minus(sinPunto(v.q5)))));
-  p.push(cap(punto('Si estás pensando en comprarlo, te digo esto: ' + minus(sinPunto(v.q6)))));
-  return p.join(' ');
+  return DEF.texto.replace(/\{\{(\w+)\}\}/g, function(_, k){ return minus(sinPunto(v[k])); }).replace(/\n/g, '\n\n');
 }
 
+var enviado = false;
 $('form').addEventListener('submit', function(e){
   e.preventDefault();
   var v = {}, falta = [];
-  Object.keys(PREGUNTAS).forEach(function(k){
-    v[k] = limpio($(k).value);
-    if(!v[k]) falta.push(PREGUNTAS[k]);
+  claves.forEach(function(k, i){
+    v[k] = limpio($('c_' + k).value);
+    if(!v[k]) falta.push(i + 1);
   });
   if(falta.length){
-    $('errq').textContent = falta.join(', ');
+    $('errq').textContent = (falta.length > 1 ? 'las preguntas ' : 'la pregunta ') + falta.join(', ');
     $('err').classList.add('on');
-    $(Object.keys(PREGUNTAS).filter(function(k){return !v[k];})[0]).focus();
+    $('c_' + claves.filter(function(k){return !v[k];})[0]).focus();
     return;
   }
   $('err').classList.remove('on');
   var nombre = limpio($('nombre').value);
   $('texto').value = armar(v);
   $('who').textContent = nombre ? '— ' + nombre : '';
+  $('nota').textContent = NOTA;
   $('intro').style.display = 'none';
   $('resultado').classList.add('on');
   window.scrollTo({top:0,behavior:'smooth'});
-  actualizarWA();
+  refrescar();
 });
 
-function mensaje(){
+function textoFinal(){
   var nombre = limpio($('nombre').value);
-  var t = limpio($('texto').value);
-  return 'Hola Pureza Natural, este es mi testimonial' + (nombre ? ' (' + nombre + ')' : '') + ':\n\n“' + t + '”\n\n' +
-    ($('permiso').checked ? 'Autorizo su publicación en la página y redes de Pureza Natural.' : 'Por ahora es solo para ustedes, no autorizo publicarlo.');
+  return $('texto').value.trim() + '\n\n' + NOTA + (nombre ? '\n— ' + nombre : '');
 }
-function actualizarWA(){
-  $('enviar').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(mensaje());
+function mensaje(conFoto){
+  return 'Hola Pureza Natural, este es mi testimonial:\n\n' + textoFinal() + '\n\n' +
+    ($('permiso').checked ? 'Autorizo su publicación en la página y redes de Pureza Natural.' : 'Por ahora es solo para ustedes, no autorizo publicarlo.') +
+    (conFoto ? '' : '');
 }
-$('texto').addEventListener('input', actualizarWA);
-$('permiso').addEventListener('change', actualizarWA);
-$('enviar').addEventListener('click', actualizarWA);
+function refrescar(){
+  $('enviar').disabled = !$('foto').files.length;
+}
+$('foto').addEventListener('change', function(){
+  var f = this.files[0], pv = $('preview');
+  if(f){
+    pv.src = URL.createObjectURL(f); pv.classList.add('on');
+    $('fotoNombre').textContent = '¡Gracias! Tu foto nos hace bien.';
+  } else { pv.classList.remove('on'); $('fotoNombre').textContent = ''; }
+  refrescar();
+});
+
+function abrirWA(avisoFoto){
+  var m = mensaje() + (avisoFoto ? '\n\n(Te envío mi foto en el siguiente mensaje 📷)' : '');
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(m), '_blank', 'noopener');
+}
+
+$('enviar').addEventListener('click', function(){
+  var f = $('foto').files[0];
+  if(!f) return;
+  var data = { files:[f], text:mensaje() };
+  if(navigator.canShare && navigator.canShare(data)){
+    navigator.share(data).then(function(){ $('toast').textContent = 'Elige el chat de Pureza Natural para enviarlo. ¡Gracias!'; }).catch(function(){});
+  } else {
+    abrirWA(true);
+    $('toast').textContent = 'Se abrió WhatsApp con tu testimonial. Ahora adjunta tu foto en ese chat. ¡Gracias!';
+  }
+});
+$('sinfoto').addEventListener('click', function(){
+  abrirWA(false);
+  $('toast').textContent = 'Si más adelante quieres enviarnos tu foto, escríbenos por el mismo chat. ¡Gracias!';
+});
 
 $('copiar').addEventListener('click', function(){
-  var t = $('texto').value;
+  var t = textoFinal(), ta = $('texto');
   function ok(){ $('toast').textContent = 'Texto copiado.'; }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(t).then(ok, function(){ $('texto').select(); document.execCommand('copy'); ok(); });
-  } else { $('texto').select(); document.execCommand('copy'); ok(); }
+  function viejo(){ ta.select(); document.execCommand('copy'); ok(); }
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, viejo); else viejo();
 });
 $('volver').addEventListener('click', function(){
   $('resultado').classList.remove('on');
