@@ -8,7 +8,7 @@
 window.CONFIG = {
   cuenta: '@purezanatural',
   distribuidor: 'Distribuidor autorizado de Agualogic',   // sale en el pie de todas
-  whatsapp: '313 269 6087',
+  whatsapp: '305 352 9366',
   duracion: 8,        // segundos de cada bucle
 };
 

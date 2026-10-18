@@ -39,8 +39,8 @@ summary:focus-visible,.copiar:focus-visible{outline:3px solid var(--accent);outl
 <body>
 <div class="wrap">
   <p class="kick">Pureza Natural · Reels de Instagram</p>
-  <h1>Seis reels que enseñan algo del agua.</h1>
-  <p class="lead">Videos cortos de 7 a 10 segundos, sin rostro, con música y sonido propios: cada movimiento suena en el momento exacto. Cada uno enseña una sola cosa e invita a guardar, compartir o comentar. Toca un video para verlo con sonido. <a href="../feed/">Ver el feed</a> · <a href="../destacadas/">Ver las historias destacadas</a> · <a href="../marca/">Ver la marca</a></p>
+  <h1>Siete reels que enseñan algo del agua.</h1>
+  <p class="lead">Videos cortos de 7 a 17 segundos, sin rostro, con música y sonido propios: cada movimiento suena en el momento exacto. Cada uno enseña una sola cosa e invita a guardar, compartir o comentar. Toca un video para verlo con sonido. <a href="../feed/">Ver el feed</a> · <a href="../destacadas/">Ver las historias destacadas</a> · <a href="../marca/">Ver la marca</a></p>
   <div class="grilla" id="grilla"></div>
 </div>
 <script>
@@ -64,6 +64,9 @@ const REELS = [
   { id: 'reel-06-hervir', titulo: 'Hervir no basta', gancho: 'Dato', ensena: 'la diferencia entre hervir y purificar.', cta: 'Compartir',
     caption: 'Hervir ayuda con algunos microbios, pero el sedimento, el cloro y el sabor siguen ahí. La arcilla, el carbón activado y la plata coloidal trabajan juntos en la vasija de barro. Mándaselo a quien todavía hierve el agua.',
     tags: '#AguaPura #Villavicencio #PurificadorDeAgua #AguaSegura #Meta' },
+  { id: 'reel-07-curacion', titulo: 'Así se cura tu purificador', gancho: 'Dato', ensena: 'por qué las primeras 4 cargas saben a arcilla y desde cuándo se puede tomar.', cta: 'Comentar',
+    caption: 'Las primeras 4 cargas de tu purificador saben a arcilla. Es normal. Desde la quinta carga ya se puede tomar. Comenta AGUA y te envío el checklist de 5 preguntas antes de comprar.',
+    tags: '#AguaPura #Villavicencio #PurificadorDeAgua #PurificadorPorGravedad #ComoFunciona' },
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 document.getElementById('grilla').innerHTML = REELS.map((r, i) => `
