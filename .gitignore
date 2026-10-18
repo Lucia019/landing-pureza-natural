@@ -18,3 +18,10 @@ pureza-natural/assets/corte.jpg
 
 # Documentos privados del negocio (no se publican)
 documentos/
+
+# Contenido personal de Instagram: no se publica en el dominio
+pureza-natural/destacadas/
+pureza-natural/feed/
+pureza-natural/reels/
+pureza-natural/marca/
+pureza-natural/carrusel-checklist/
