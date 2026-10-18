@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Tamaños</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="card.css">
+<style>
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.model{background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:28px 28px 22px;box-shadow:0 30px 60px -48px rgba(23,76,70,.4)}
+.model h3{font-size:38px}
+.model .spec{font-family:var(--mono);font-weight:500;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--water);margin-top:8px}
+.fig{display:grid;grid-template-columns:1fr auto;grid-template-rows:380px auto;gap:0 14px;margin-top:14px}
+.pic{display:flex;align-items:flex-end;justify-content:center}
+.pic img{display:block;mix-blend-mode:multiply}
+.vd{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;height:100%;width:36px;align-self:end}
+.vd i{position:absolute;left:50%;top:0;bottom:0;width:0;border-left:2px solid var(--deep)}
+.vd i:before,.vd i:after{content:"";position:absolute;left:-7px;width:12px;border-top:2px solid var(--deep)}
+.vd i:before{top:0}.vd i:after{bottom:0}
+.vd b{position:relative;background:var(--panel);padding:8px 0;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-weight:700;font-size:24px;color:var(--deep)}
+.hd{grid-column:1;display:flex;align-items:center;justify-content:center;position:relative;height:50px;margin-top:6px}
+.hd i{position:absolute;left:8%;right:8%;top:50%;border-top:2px solid var(--deep)}
+.hd i:before,.hd i:after{content:"";position:absolute;top:-7px;height:12px;border-left:2px solid var(--deep)}
+.hd i:before{left:0}.hd i:after{right:0}
+.hd b{position:relative;background:var(--panel);padding:0 12px;font-family:var(--display);font-weight:700;font-size:24px;color:var(--deep)}
+</style></head>
+<body><div class="card" id="card">
+  <div class="head"><img src="fotos/logo-mark.png" alt="">
+    <div><div class="kicker">Guía del purificador · 04</div><h1>Elige el tamaño<br>para tu hogar</h1><p class="sub">Medidas reales, a la misma escala</p></div></div>
+  <div class="grid">
+    <div class="model"><h3>Mini peltre</h3><div class="spec">5,5 L · 3,4 kg</div>
+      <div class="fig"><div class="pic"><img src="fotos/m-mini.png" style="height:165px" alt="Mini peltre"></div><div class="vd" style="height:165px"><i></i><b>22 cm</b></div><div class="hd"><i></i><b>18 cm</b></div></div></div>
+    <div class="model"><h3>Peltre</h3><div class="spec">20 L · 7 kg</div>
+      <div class="fig"><div class="pic"><img src="fotos/m-peltre.png" style="height:315px" alt="Peltre"></div><div class="vd" style="height:315px"><i></i><b>42 cm</b></div><div class="hd"><i></i><b>32,5 cm</b></div></div></div>
+    <div class="model"><h3>Acero inox</h3><div class="spec">20 L · 6,5 kg</div>
+      <div class="fig"><div class="pic"><img src="fotos/m-acero.png" style="height:345px" alt="Acero inoxidable"></div><div class="vd" style="height:345px"><i></i><b>46 cm</b></div><div class="hd"><i></i><b>31 cm</b></div></div></div>
+    <div class="model"><h3>Vidrio</h3><div class="spec">20 L · ≈14 kg</div>
+      <div class="fig"><div class="pic"><img src="fotos/m-vidrio.png" style="height:337px" alt="Vidrio"></div><div class="vd" style="height:337px"><i></i><b>45 cm</b></div><div class="hd"><i></i><b>34,5 cm</b></div></div></div>
+  </div>
+  <div class="note plain" style="margin-top:28px">Antes de decidir, mide tu mesón: necesitas el diámetro de la base y el alto libre del modelo (hasta 46 cm) para llenarlo y servir.</div>
+  <div class="note key">El vidrio es soplado a mano: cada pieza es única y pide más cuidado. No lo pongas boca abajo ni uses agua caliente.</div>
+  <p class="legal">Medidas aproximadas según las fichas de AguaLogic (alto y diámetro). Incluyen tapa. Todos incluyen cerámica y grifo de acero inoxidable. La escala de las fotos es aproximada.</p>
+  <div class="foot"><i></i>Pureza Natural · Distribuidor autorizado AguaLogic</div>
+</div></body></html>

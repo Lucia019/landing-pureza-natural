@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Envío y pago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Figtree:wght@500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="card.css">
+<style>.e{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:26px 30px;box-shadow:0 30px 60px -48px rgba(23,76,70,.4)}
+.e .k{font-family:var(--mono);font-weight:500;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--water)}
+.e .v{font-family:var(--display);font-weight:700;font-size:56px;line-height:1.05;letter-spacing:-.03em;color:var(--deep);margin-top:8px}
+.e p{font-size:22px;color:var(--text-2);margin-top:6px}
+.pay{display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:center;background:var(--deep);color:var(--on-deep);border-radius:24px;padding:22px 26px}
+.pay .num{background:var(--canvas);color:var(--deep)}.pay strong{display:block;font-family:var(--display);font-weight:700;font-size:30px;color:var(--canvas)}.pay span{font-size:21px;line-height:1.35}
+.dot{display:flex;gap:14px;align-items:center}.dot i{width:12px;height:12px;background:var(--water);border-radius:50% 50% 50% 0;transform:rotate(-45deg);flex:none}</style></head>
+<body><div class="card" id="card">
+  <div class="head"><img src="fotos/logo-mark.png" alt="">
+    <div><div class="kicker">Guía del purificador · 07</div><h1>Cómo lo recibes<br>y cómo pagas</h1><p class="sub">Villavicencio y municipios cercanos</p></div></div>
+  <div class="split" style="grid-template-columns:1fr 360px">
+    <div class="stack">
+      <div class="e"><div class="k">Villavicencio</div><div class="v">Envío gratis</div><p>Llega en 5 días hábiles</p></div>
+      <div class="e"><div class="k">Otros municipios</div><div class="v">$13.000</div><p>Llega en 10 días hábiles</p></div>
+      <div class="label" style="margin:12px 0 0">Cómo pagas</div>
+      <div class="pay"><div class="num">1</div><div><strong>Contraentrega</strong><span>Pagas cuando recibes tu pedido.</span></div></div>
+      <div class="pay"><div class="num">2</div><div><strong>Nequi</strong><span>Envías el comprobante con la referencia.</span></div></div>
+    </div>
+    <div class="photo"><img src="fotos/armado.jpg" alt="Purificador de vidrio AguaLogic" style="object-position:50% 55%"></div>
+  </div>
+  <div class="label">Para el envío te pedimos</div>
+  <div class="chips">
+    <div class="chip"><div class="dot"><i></i>Nombre y apellido</div></div>
+    <div class="chip"><div class="dot"><i></i>Dirección de entrega</div></div>
+    <div class="chip"><div class="dot"><i></i>Ciudad y municipio</div></div>
+  </div>
+  <div class="note key" style="margin-top:26px">La garantía va incluida: la gestionamos nosotros ante AguaLogic si llegas a necesitarla.</div>
+  <p class="legal">Los tiempos de entrega son promedio y se cuentan en días hábiles. El envío de $13.000 aplica fuera de Villavicencio. Pureza Natural es distribuidor de AguaLogic.</p>
+  <div class="foot"><i></i>Pureza Natural · Distribuidor autorizado AguaLogic</div>
+</div></body></html>
