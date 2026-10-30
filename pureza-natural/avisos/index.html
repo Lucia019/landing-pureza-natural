@@ -10,21 +10,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-:root{--canvas:#F4F1E9;--panel:#FBF9F4;--deep:#174C46;--water:#007585;--text:#24302E;--text-2:#4E5D58;--line:#DDD6C6;
+:root{--canvas:#F4F1E9;--panel:#FBF9F4;--deep:#174C46;--water:#007585;--accent:#C66F45;--text:#24302E;--text-2:#4E5D58;--line:#DDD6C6;
 --display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:var(--canvas);color:var(--text);font:16px/1.5 var(--body)}
-.wrap{width:min(900px,100% - 32px);margin:0 auto;padding:40px 0 72px}
+.wrap{width:min(1100px,100% - 32px);margin:0 auto;padding:40px 0 72px}
 .kick{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--water)}
 h1{font:700 clamp(1.9rem,4vw,2.8rem)/1.05 var(--display);letter-spacing:-.02em;color:var(--deep);margin:6px 0 10px}
-.lead{color:var(--text-2);max-width:60ch;margin:0 0 32px}
-.par{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:720px){.par{grid-template-columns:1fr}}
-.tarjeta{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.tarjeta video{display:block;width:100%;height:auto;background:#123D38}
-.cuerpo{padding:16px 18px 20px}
-.estado{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--water);margin:0 0 8px}
-.msg{background:#E7F3EC;border-radius:12px;padding:12px 14px;font-size:15px;white-space:pre-line;margin:0}
+.lead{color:var(--text-2);max-width:62ch;margin:0 0 32px}
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.tarjeta{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.tarjeta video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#123D38}
+.cuerpo{padding:14px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.estado{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--water);margin:0}
+.msg{background:#E7F3EC;border-radius:12px;padding:12px 14px;font-size:14.5px;white-space:pre-line;margin:0;flex:1}
+.acc{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.acc button{background:var(--deep);color:#fff;border:0;border-radius:10px;padding:9px 14px;font:600 14px var(--body);cursor:pointer}
+.acc a{color:var(--accent);font-weight:600;font-size:14px}
 .nota{margin-top:28px;font-size:14px;color:var(--text-2)}
 </style>
 </head>
@@ -32,27 +34,89 @@ h1{font:700 clamp(1.9rem,4vw,2.8rem)/1.05 var(--display);letter-spacing:-.02em;c
 <main class="wrap">
   <div class="kick">Pureza Natural</div>
   <h1>Así te avisamos de tu pedido</h1>
-  <p class="lead">Estos son dos de los mensajes de WhatsApp que recibe tu cliente: cuando confirmamos su pago y cuando le entregamos su purificador. Cada uno trae un video corto.</p>
-
-  <section class="par">
+  <p class="lead">Estos son los mensajes de WhatsApp que recibe tu cliente en cada etapa, con una imagen animada corta que los refuerza.</p>
+  <section class="rejilla">
     <article class="tarjeta">
-      <video controls playsinline preload="metadata" poster="confirmado.jpg" src="confirmado.mp4"></video>
+      <video controls playsinline preload="metadata" poster="01-pedido-recibido.jpg" src="01-pedido-recibido.mp4"></video>
       <div class="cuerpo">
-        <p class="estado">Confirmado</p>
-        <p class="msg">Hola, Lucía. Ya recibimos tu pago ✅ Tu pedido PN-20261030-S2LP por $810.000 quedó reservado.
-Despacho estimado: del 12 al 23 de noviembre de 2026. Puedes ver cómo va en "Consulta tu pedido", en nuestra página, con tu número de pedido y tu celular.</p>
+        <p class="estado">Pedido recibido</p>
+        <p class="msg">Hola, Lucía 😊 Recibimos tu pedido PN-20261030-S2LP. Gracias por confiar en Pureza Natural.
+Despacho estimado (bajo reserva): del 12 al 23 de noviembre de 2026. Antes de enviarlo te escribimos para coordinar el día y la hora.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="01-pedido-recibido.mp4" download>Descargar video</a></div>
       </div>
     </article>
     <article class="tarjeta">
-      <video controls playsinline preload="metadata" poster="entregado.jpg" src="entregado.mp4"></video>
+      <video controls playsinline preload="metadata" poster="02-esperando-pago.jpg" src="02-esperando-pago.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">Esperando pago</p>
+        <p class="msg">Hola, Lucía. Para reservar tu pedido PN-20261030-S2LP, haz la transferencia por $810.000 a la llave de Ferrecubiertas. Al confirmar debe aparecer el nombre FERRECUBIERTAS S.A.S.
+En la descripción escribe tu número de pedido y envíanos aquí la captura del comprobante.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="02-esperando-pago.mp4" download>Descargar video</a></div>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="03-pago-confirmado.jpg" src="03-pago-confirmado.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">Confirmado</p>
+        <p class="msg">Hola, Lucía. Ya recibimos tu pago ✅ Tu pedido PN-20261030-S2LP por $810.000 quedó reservado.
+Despacho estimado: del 12 al 23 de noviembre de 2026. Puedes ver cómo va en &quot;Consulta tu pedido&quot;, en nuestra página, con tu número de pedido y tu celular.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="03-pago-confirmado.mp4" download>Descargar video</a></div>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="04-en-preparacion.jpg" src="04-en-preparacion.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">En preparación</p>
+        <p class="msg">Hola, Lucía. Ya estamos alistando tu purificador PN-20261030-S2LP. Te avisamos apenas salga hacia ti.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="04-en-preparacion.mp4" download>Descargar video</a></div>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="05-despachado.jpg" src="05-despachado.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">Despachado</p>
+        <p class="msg">Hola, Lucía. Tu purificador PN-20261030-S2LP ya salió 📦 Te escribo para coordinar la entrega.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="05-despachado.mp4" download>Descargar video</a></div>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="06-en-camino.jpg" src="06-en-camino.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">En camino</p>
+        <p class="msg">Hola, Lucía. Tu purificador PN-20261030-S2LP va en camino 🚚 Por favor, ten a la mano tu número de pedido.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="06-en-camino.mp4" download>Descargar video</a></div>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="07-entregado.jpg" src="07-entregado.mp4"></video>
       <div class="cuerpo">
         <p class="estado">Entregado</p>
         <p class="msg">Hola, Lucía. ¡Ya tienes tu purificador! 🎉 Gracias por confiar en Pureza Natural.
 Si tienes dudas con el primer uso o el primer curado de la vasija, responde este mensaje y te guiamos. Tienes 5 días hábiles desde la entrega para retractarte, con el producto en su estado original.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="07-entregado.mp4" download>Descargar video</a></div>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="08-listo-para-recoger.jpg" src="08-listo-para-recoger.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">Listo para recoger</p>
+        <p class="msg">Hola, Lucía. Tu purificador PN-20261030-S2LP ya está listo para recoger 🎉
+📍 Ferrecubiertas S.A.S., Calle 35 A No. 27-86, San Isidro, Villavicencio. Horario: lunes a viernes de 8:00 a. m. a 5:00 p. m.
+Trae tu número de pedido y tu cédula.</p>
+        <div class="acc"><button type="button" class="copiar">Copiar texto</button><a href="08-listo-para-recoger.mp4" download>Descargar video</a></div>
       </div>
     </article>
   </section>
-  <p class="nota">Los nombres, el número de pedido y las fechas son de ejemplo. En cada pedido real se completan solos con los datos del cliente.</p>
+  <p class="nota">Los nombres, el número de pedido y las fechas son de ejemplo. En cada pedido real se completan con los datos del cliente.</p>
 </main>
+<script>
+document.querySelectorAll('.copiar').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.closest('.cuerpo').querySelector('.msg').textContent;
+    var ok=function(){b.textContent='¡Copiado!';setTimeout(function(){b.textContent='Copiar texto'},1500)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){})}
+  });
+});
+</script>
 </body>
 </html>
