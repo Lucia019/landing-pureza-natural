@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/favicon-48.png">
+<title>Avisos de tu pedido · Pureza Natural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F4F1E9;--panel:#FBF9F4;--deep:#174C46;--water:#007585;--text:#24302E;--text-2:#4E5D58;--line:#DDD6C6;
+--display:'Bricolage Grotesque',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--text);font:16px/1.5 var(--body)}
+.wrap{width:min(900px,100% - 32px);margin:0 auto;padding:40px 0 72px}
+.kick{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--water)}
+h1{font:700 clamp(1.9rem,4vw,2.8rem)/1.05 var(--display);letter-spacing:-.02em;color:var(--deep);margin:6px 0 10px}
+.lead{color:var(--text-2);max-width:60ch;margin:0 0 32px}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:720px){.par{grid-template-columns:1fr}}
+.tarjeta{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.tarjeta video{display:block;width:100%;height:auto;background:#123D38}
+.cuerpo{padding:16px 18px 20px}
+.estado{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--water);margin:0 0 8px}
+.msg{background:#E7F3EC;border-radius:12px;padding:12px 14px;font-size:15px;white-space:pre-line;margin:0}
+.nota{margin-top:28px;font-size:14px;color:var(--text-2)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="kick">Pureza Natural</div>
+  <h1>Así te avisamos de tu pedido</h1>
+  <p class="lead">Estos son dos de los mensajes de WhatsApp que recibe tu cliente: cuando confirmamos su pago y cuando le entregamos su purificador. Cada uno trae un video corto.</p>
+
+  <section class="par">
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="confirmado.jpg" src="confirmado.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">Confirmado</p>
+        <p class="msg">Hola, Lucía. Ya recibimos tu pago ✅ Tu pedido PN-20261030-S2LP por $810.000 quedó reservado.
+Despacho estimado: del 12 al 23 de noviembre de 2026. Puedes ver cómo va en "Consulta tu pedido", en nuestra página, con tu número de pedido y tu celular.</p>
+      </div>
+    </article>
+    <article class="tarjeta">
+      <video controls playsinline preload="metadata" poster="entregado.jpg" src="entregado.mp4"></video>
+      <div class="cuerpo">
+        <p class="estado">Entregado</p>
+        <p class="msg">Hola, Lucía. ¡Ya tienes tu purificador! 🎉 Gracias por confiar en Pureza Natural.
+Si tienes dudas con el primer uso o el primer curado de la vasija, responde este mensaje y te guiamos. Tienes 5 días hábiles desde la entrega para retractarte, con el producto en su estado original.</p>
+      </div>
+    </article>
+  </section>
+  <p class="nota">Los nombres, el número de pedido y las fechas son de ejemplo. En cada pedido real se completan solos con los datos del cliente.</p>
+</main>
+</body>
+</html>
