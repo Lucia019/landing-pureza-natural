@@ -5,12 +5,23 @@
   var GA_ID = 'G-PEGAR_AQUI';      // Google Analytics 4: ID de medición (empieza por G-)
   var PIXEL_ID = 'PEGAR_AQUI';     // Meta: ID del píxel (solo números)
 
+  var GTM_ID = 'GTM-TGFJLRQM';     // Google Tag Manager: ID del contenedor (empieza por GTM-)
+
   var gaOn = /^G-[A-Z0-9]{6,}$/.test(GA_ID);
   var pxOn = /^\d{8,}$/.test(PIXEL_ID);
+  var gtmOn = /^GTM-[A-Z0-9]{4,}$/.test(GTM_ID);
 
-  /* ---- Google Analytics 4 ---- */
+  /* ---- Google Tag Manager ---- */
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
+  if (gtmOn) {
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var g = document.createElement('script');
+    g.async = true; g.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    document.head.appendChild(g);
+  }
+
+  /* ---- Google Analytics 4 (directo; no lo uses si ya lo cargas desde GTM) ---- */
   if (gaOn) {
     var s = document.createElement('script');
     s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
@@ -34,6 +45,7 @@
 
   function send(ga, name, params, px) {
     if (gaOn) gtag('event', ga, params || {});
+    if (gtmOn) { var d = { event: ga }; for (var k in (params || {})) d[k] = params[k]; window.dataLayer.push(d); }
     if (pxOn) fbq('track', px || name, params || {});
   }
 
@@ -74,10 +86,10 @@
     if (h <= 0) return;
     var p = scrollY / h * 100;
     hitos.forEach(function (m) {
-      if (p >= m && !vistos[m]) { vistos[m] = 1; if (gaOn) gtag('event', 'scroll_profundo', { porcentaje: m, pagina: page }); }
+      if (p >= m && !vistos[m]) { vistos[m] = 1; if (gaOn) gtag('event', 'scroll_profundo', { porcentaje: m, pagina: page }); if (gtmOn) window.dataLayer.push({ event: 'scroll_profundo', porcentaje: m, pagina: page }); }
     });
   }, { passive: true });
 
   /* Visitas de calidad: 30 s con la pestaña abierta */
-  setTimeout(function () { if (gaOn) gtag('event', 'visita_30s', { pagina: page }); }, 30000);
+  setTimeout(function () { if (gaOn) gtag('event', 'visita_30s', { pagina: page }); if (gtmOn) window.dataLayer.push({ event: 'visita_30s', pagina: page }); }, 30000);
 })();
