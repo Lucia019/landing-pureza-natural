@@ -3,7 +3,7 @@
 (function () {
   'use strict';
   var GA_ID = 'G-PEGAR_AQUI';      // Google Analytics 4: ID de medición (empieza por G-)
-  var PIXEL_ID = 'PEGAR_AQUI';     // Meta: ID del píxel (solo números)
+  var PIXEL_ID = '1709415957558898';     // Meta: ID del píxel (solo números)
 
   var GTM_ID = 'GTM-TGFJLRQM';     // Google Tag Manager: ID del contenedor (empieza por GTM-)
 
