@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://purezanatural.co/sitemap.xml
 Sitemap: https://purezanatural.co/sitemap-imagenes.xml
+Sitemap: https://purezanatural.co/sitemap-modelos.xml
