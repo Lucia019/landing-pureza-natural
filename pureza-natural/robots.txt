@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://purezanatural.co/sitemap.xml
+Sitemap: https://purezanatural.co/sitemap-imagenes.xml
