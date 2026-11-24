@@ -41,6 +41,10 @@ main{max-width:1000px;margin:-30px auto 60px;padding:0 20px}
 .card span{display:inline-block;background:var(--accent);color:#fff;padding:12px 24px;border-radius:99px;font-weight:600}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:700px){.card{grid-template-columns:1fr}.card img{aspect-ratio:16/10;max-height:none}.card div{padding:24px}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.chips button{font:600 .92rem 'Plus Jakarta Sans',system-ui,sans-serif;border:1px solid #d9d4c6;background:#fff;color:#174C46;padding:9px 18px;border-radius:99px;cursor:pointer;transition:.2s}
+.chips button:hover{border-color:#174C46}.chips button.on{background:#174C46;color:#fff;border-color:#174C46}
+.card[hidden]{display:none}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog de agua pura | Pureza Natural","url":"https://purezanatural.co/blog/","inLanguage":"es-CO","publisher":{"@type":"Organization","name":"Pureza Natural","url":"https://purezanatural.co/"},"blogPost":[{"@type":"BlogPosting","headline":"Cómo curar la vasija de barro de tu purificador","url":"https://purezanatural.co/blog/como-curar-vasija-de-barro-purificador/","datePublished":"2026-11-08"},{"@type":"BlogPosting","headline":"Purificador vs botellón: cuál conviene en Villavicencio","url":"https://purezanatural.co/blog/purificador-vs-botellon-villavicencio/","datePublished":"2026-11-08"},{"@type":"BlogPosting","headline":"Purificadores de agua en Villavicencio: cuál elegir","url":"https://purezanatural.co/blog/purificadores-de-agua-villavicencio/","datePublished":"2026-11-08"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://purezanatural.co/#sitio","url":"https://purezanatural.co/","name":"Pureza Natural","alternateName":"Pureza Natural Villavicencio","inLanguage":"es-CO"},{"@type":"LocalBusiness","@id":"https://purezanatural.co/#negocio","name":"Pureza Natural","description":"Distribuidor autorizado de purificadores de agua AguaLogic en Villavicencio, Meta. Agua pura para el hogar, sin luz y sin instalación.","url":"https://purezanatural.co/","logo":"https://purezanatural.co/assets/logo.png","image":"https://purezanatural.co/assets/compartir.jpg","telephone":"+573053529366","address":{"@type":"PostalAddress","streetAddress":"Calle 35 A No. 27-86, San Isidro","addressLocality":"Villavicencio","addressRegion":"Meta","addressCountry":"CO"},"areaServed":["Villavicencio","Meta"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"16:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:30"}]}]}</script>
@@ -51,6 +55,15 @@ body{background:#fff}
 .hero h1{color:#111;font-weight:600}.hero p{color:#5c5c5c}
 .card{border-radius:12px}.card span{background:#111}.card:hover span{background:var(--accent)}
 .card h2{color:#111;font-weight:600}
+
+/* wa-ganas */
+a[href*="wa.me"].btn-cta,.wa-float{background:linear-gradient(135deg,#D9814F,#C66F45 55%,#B5602F);color:#fff;font-weight:700;border-radius:999px;box-shadow:0 8px 20px rgba(198,111,69,.45),inset 0 1px 0 rgba(255,255,255,.25);display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .18s,box-shadow .18s,filter .18s}
+a[href*="wa.me"].btn-cta::before,.wa-float::before{content:"";width:1.25em;height:1.25em;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.3A10 10 0 1 0 12 2zm5.8 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.4z'/%3E%3C/svg%3E") center/contain no-repeat}
+a[href*="wa.me"].btn-cta:hover,.wa-float:hover{background:linear-gradient(135deg,#E08B58,#CF7549 55%,#B5602F);transform:translateY(-2px) scale(1.03);box-shadow:0 12px 26px rgba(198,111,69,.55),inset 0 1px 0 rgba(255,255,255,.3)}
+a[href*="wa.me"].btn-cta:active,.wa-float:active{transform:scale(.97)}
+.wa-float{animation:waPulse 2.6s ease-out infinite}
+@keyframes waPulse{0%{box-shadow:0 8px 20px rgba(198,111,69,.45),0 0 0 0 rgba(198,111,69,.5)}70%{box-shadow:0 8px 20px rgba(198,111,69,.45),0 0 0 16px rgba(198,111,69,0)}100%{box-shadow:0 8px 20px rgba(198,111,69,.45),0 0 0 0 rgba(198,111,69,0)}}
+@media (prefers-reduced-motion:reduce){.wa-float{animation:none}}
 </style>
 </head>
 <body>
@@ -60,8 +73,9 @@ body{background:#fff}
   <p>Guías claras sobre purificadores AguaLogic, ahorro en botellones y agua segura para tu familia en Villavicencio.</p>
 </div></header>
 <main>
-  <a class="card" href="que-purificador-elegir-segun-tu-familia/">
-    <img src="img/real-sirve.webp" alt="Qué purificador elegir según tu familia" width="667" height="1000" fetchpriority="high">
+  <nav class="chips" aria-label="Categorías del blog"><button type="button" class="on" data-f="todo">Todos</button><button type="button" data-f="Guía de compra">Guía de compra</button><button type="button" data-f="Uso y mantenimiento">Uso y mantenimiento</button><button type="button" data-f="Villavicencio y el Meta">Villavicencio y el Meta</button><button type="button" data-f="Agua segura en casa">Agua segura en casa</button></nav>
+  <a class="card" data-cat="Guía de compra" href="que-purificador-elegir-segun-tu-familia/">
+    <img src="img/real-sirve.webp" alt="Qué purificador elegir según tu familia" width="667" height="1000" loading="lazy">
     <div>
       <small>Guía de compra · 10 nov 2026</small>
       <h2>Qué purificador elegir según tu familia</h2>
@@ -69,7 +83,7 @@ body{background:#fff}
       <span>Leer la guía</span>
     </div>
   </a>
-  <a class="card" href="como-curar-vasija-de-barro-purificador/">
+  <a class="card" data-cat="Uso y mantenimiento" href="como-curar-vasija-de-barro-purificador/">
     <img src="img/real-vasija.webp" alt="Cómo curar la vasija de barro de tu purificador" width="933" height="1400" loading="lazy">
     <div>
       <small>Uso y mantenimiento · 8 nov 2026</small>
@@ -78,24 +92,29 @@ body{background:#fff}
       <span>Leer el paso a paso</span>
     </div>
   </a>
-  <a class="card" href="purificador-vs-botellon-villavicencio/">
+  <a class="card" data-cat="Guía de compra" href="purificador-vs-botellon-villavicencio/">
     <img src="img/real-grifo-vaso.webp" alt="Purificador vs botellón: cuál conviene" width="933" height="1400" loading="lazy">
     <div>
-      <small>Comparativa · 8 nov 2026</small>
+      <small>Guía de compra · 8 nov 2026</small>
       <h2>Purificador vs botellón: cuál conviene en Villavicencio</h2>
       <p>Costo mensual, comodidad y calidad del agua, con precios reales y una calculadora de ahorro.</p>
       <span>Leer la comparativa</span>
     </div>
   </a>
-  <a class="card" href="purificadores-de-agua-villavicencio/">
+  <a class="card" data-cat="Villavicencio y el Meta" href="purificadores-de-agua-villavicencio/">
     <img src="img/real-vidrio.webp" alt="Purificadores de agua en Villavicencio, cuál elegir" width="966" height="1400" loading="lazy">
     <div>
-      <small>Guía · 8 nov 2026</small>
+      <small>Villavicencio y el Meta · 8 nov 2026</small>
       <h2>Purificadores de agua en Villavicencio: cuál elegir</h2>
       <p>Agua pura para el hogar, cuánto cuesta cada modelo y cuánto ahorras frente a los botellones.</p>
       <span>Leer la guía</span>
     </div>
   </a>
 </main>
+<script>
+(function(){var bs=document.querySelectorAll('.chips button'),cs=document.querySelectorAll('main .card');
+bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+var f=b.getAttribute('data-f');cs.forEach(function(c){c.hidden=!(f==='todo'||c.getAttribute('data-cat')===f)})})})})();
+</script>
 </body>
 </html>
