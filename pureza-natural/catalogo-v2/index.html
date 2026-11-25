@@ -1517,6 +1517,8 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
     <nav aria-label="Información legal">
       <h4>Información legal</h4>
       <ul>
+        <li><button class="linkbtn" type="button" data-open="pedido">Consulta tu pedido</button></li>
+        <li><button class="linkbtn" type="button" data-vis>Agendar visita</button></li>
         <li><button class="linkbtn" type="button" data-open="datos">Tratamiento de datos</button></li>
         <li><button class="linkbtn" type="button" data-open="cookies">Política de cookies</button></li>
       </ul>
@@ -1537,6 +1539,24 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
   </div></div>
 </footer>
 
+<dialog class="pol" id="pol-pedido" aria-labelledby="t-pedido">
+  <div class="pol-head"><h3 id="t-pedido">Consulta tu pedido</h3><button class="pol-x" type="button" data-close aria-label="Cerrar">×</button></div>
+  <div class="pol-body">
+    <p>Escribe tu número de pedido y el celular con el que pediste para ver en qué va.</p>
+    <form id="tk-form" novalidate class="tk-form">
+      <label>Número de pedido<input id="tk-num" placeholder="PN-20261028-1234" autocapitalize="characters" autocomplete="off"></label>
+      <label>Celular con el que pediste<input id="tk-tel" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="3XX XXX XXXX"></label>
+      <p class="tk-err" id="tk-err" role="alert"></p>
+      <button class="btn-wa" type="submit" id="tk-go">Ver mi pedido</button>
+    </form>
+    <div class="tk-scene" id="tk-scene" hidden></div>
+    <div class="tk-bar" id="tk-bar" hidden><i></i></div>
+    <p class="tk-cap" id="tk-cap" hidden></p>
+    <ol class="tk-steps" id="tk-steps" hidden></ol>
+    <p class="tk-msg" id="tk-msg" hidden></p>
+    <button class="btn-wa" type="button" id="tk-pdf" hidden>Descargar comprobante (PDF)</button>
+  </div>
+</dialog>
 <dialog class="pol" id="pol-datos" aria-labelledby="t-datos">
   <div class="pol-head"><h3 id="t-datos">Política de tratamiento de datos personales</h3><button class="pol-x" type="button" data-close aria-label="Cerrar">×</button></div>
   <div class="pol-body">
@@ -1600,7 +1620,7 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
 </dialog>
 
 <a class="wa-fab" data-wa="Hola, quiero información sobre los purificadores AguaLogic." target="_blank" rel="noopener" href="#" aria-label="Escríbenos por WhatsApp">
-  <span class="wa-bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
+  <span class="wa-bubble"><img class="wa-av" src="../assets/clara-avatar.png" alt="" width="60" height="60" decoding="async"></span>
   <span class="wa-tip">¿Te ayudo a elegir tu purificador?</span>
 </a>
 
@@ -1835,7 +1855,7 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
         <label class="pay"><input type="radio" name="modo" value="domicilio" checked><span class="pay-dot" aria-hidden="true"></span><div><b>A domicilio</b><small>Te lo llevamos a tu dirección.</small></div></label>
         <label class="pay"><input type="radio" name="modo" value="recoger"><span class="pay-dot" aria-hidden="true"></span><div><b>Punto de recogida</b><small>Lo recoges en San Isidro, sin costo de envío.</small></div></label>
       </div>
-      <div class="recoge" id="recoge-box" hidden><b>Punto de recogida: Ferrecubiertas</b><span>Calle 35 A No. 27-86, San Isidro, Villavicencio</span><span>Lunes a viernes de 8:00 a. m. a 4:00 p. m. · Sábados de 8:00 a. m. a 12:30 p. m.</span><span>Es una ferretería, no una sala de exhibición: espera nuestra confirmación por WhatsApp antes de ir.</span></div>
+      <div class="recoge" id="recoge-box" hidden><b>Punto de recogida</b><span>Calle 35 A No. 27-86, San Isidro, Villavicencio</span><span>Lunes a viernes de 8:00 a. m. a 4:00 p. m. · Sábados de 8:00 a. m. a 12:30 p. m.</span><span>Es una ferretería, no una sala de exhibición: espera nuestra confirmación por WhatsApp antes de ir.</span><button type="button" data-vis>Agendar visita</button></div>
       <h4>Tus datos</h4>
       <div class="row2"><label>Nombre<input name="nombre" autocomplete="given-name" required maxlength="40"></label><label>Apellido<input name="apellido" autocomplete="family-name" required maxlength="40"></label></div>
       <label>Celular o WhatsApp<input name="tel" type="tel" inputmode="tel" autocomplete="tel" required minlength="7" maxlength="15" placeholder="3XX XXX XXXX"></label>
@@ -1913,7 +1933,7 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
       var p=D[id],pr=price(id);if(pr)tot+=pr*cart[id];else pend=true;
       var th=thumb(id);
       return '<div class="ci" data-id="'+id+'"><div class="ci-img">'+(th?'<img src="'+th+'" alt="">':'')+'</div><div class="ci-tx"><b>'+esc(p.n)+'</b><span>'+(pr?cop(pr):"Precio por confirmar")+'</span>'
-        +(pedido(id)?'<em class="ci-ped">Sobre pedido</em>':'')
+        +(pedido(id)?'<em class="ci-ped">Sobre pedido</em>':'')+(window.pnRsv&&window.pnRsv[id]?'<em class="ci-ped">Bajo reserva</em>':'')
         +'<div class="qty"><button type="button" data-q="-1" aria-label="Quitar uno">−</button><output>'+cart[id]+'</output><button type="button" data-q="1" aria-label="Agregar uno">+</button></div></div>'
         +'<button type="button" class="ci-x" data-rm aria-label="Eliminar">×</button></div>';
     }).join("")+(ids.some(pedido)?'<p class="ci-aviso">Los productos <b>sobre pedido</b> no están en bodega: los solicitamos y te confirmamos el tiempo de entrega por WhatsApp.</p>':"");
@@ -1945,7 +1965,7 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
     save();render();
   });
   document.getElementById("cart-clear").addEventListener("click",function(){cart={};save();render();});
-  window.pnItems=function(){return Object.keys(cart).map(function(id){var q=cart[id],p=price(id);return {n:D[id].n,q:q,p:p,s:p*q,sp:pedido(id)};});};
+  window.pnItems=function(){return Object.keys(cart).map(function(id){var q=cart[id],p=price(id);return {n:D[id].n,q:q,p:p,s:p*q,sp:pedido(id),r:!!(window.pnRsv&&window.pnRsv[id])};});};
   var NEQUI_NUM="305 352 9366";
   (function(){var f=document.getElementById("cart-form"),bx=document.getElementById("nequi-box"),r=f.elements["nref"];
     
@@ -1960,7 +1980,7 @@ dialog.conf::backdrop{background:rgba(10,30,26,.65);backdrop-filter:blur(3px)}
       var m=head+"\n"+orderTxt+"\nEnvío: "+window.pnShipTxt(v("ciudad"))+"\nTotal a pagar: "+window.pnTotal(v("ciudad"))+"\n\nDatos de entrega:\nNombre: "+v("nombre")+" "+v("apellido")+"\nCelular: "+v("tel")+"\nCiudad: "+v("ciudad")+"\nMunicipio: "+v("municipio")+"\nDirección: "+v("dir")+"\nPunto de referencia: "+v("ref")+(window.pnRecoge()?"\nDía para recoger: ":"\nDía preferido de entrega: ")+""+v("dia")+" ("+v("franja")+")\nPago: "+pg+(paid?"\nReferencia de pago Nequi: "+nr:"")+"\n\n¿Me confirman disponibilidad y fecha de entrega?\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";
       return "https://wa.me/"+NUM+"?text="+encodeURIComponent(m);};
     var url=mk("");
-    window.__pnOrder={url:url,mk:mk,name:v("nombre"),ciudad:v("ciudad"),municipio:v("municipio"),dia:v("dia"),franja:v("franja"),total:window.pnTotal(v("ciudad")),sub:window.pnSub(),pago:pg,recoge:window.pnRecoge(),items:window.pnItems(),full:v("nombre")+" "+v("apellido"),tel:v("tel"),dir:v("dir"),ref:v("ref")};if(window.__pnConfirm){window.__pnConfirm();}else{var w=window.open(url,"_blank","noopener");if(!w)location.href=url;}
+    window.__pnOrder={url:url,mk:mk,name:v("nombre"),ciudad:v("ciudad"),municipio:v("municipio"),dia:v("dia"),franja:v("franja"),total:window.pnTotal(v("ciudad")),sub:window.pnSub(),pago:pg,recoge:window.pnRecoge(),items:window.pnItems(),despacho:window.pnDespacho?window.pnDespacho():"",full:v("nombre")+" "+v("apellido"),tel:v("tel"),dir:v("dir"),ref:v("ref")};if(window.__pnConfirm){window.__pnConfirm();}else{var w=window.open(url,"_blank","noopener");if(!w)location.href=url;}
   });
   render();
 })();
@@ -2023,12 +2043,12 @@ var $=function(i){return document.getElementById(i);};
 function addDays(n){var x=new Date();while(n>0){x.setDate(x.getDate()+1);if(x.getDay()!==0)n--;}return x;}
 var F=new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"long"});
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
-function est(o){var loc=/villavicencio/i.test(o.ciudad||"");var r=loc?ENVIO.local:ENVIO.otros;return {txt:(r[1]!==r[0]?cap(F.format(addDays(r[0])))+" a "+F.format(addDays(r[1])):"Hacia el "+F.format(addDays(r[0]))+" ("+r[0]+" días hábiles)"),loc:loc};}
+function est(o){if(o&&o.despacho)return {txt:o.despacho.charAt(0).toUpperCase()+o.despacho.slice(1),loc:true};var loc=/villavicencio/i.test(o.ciudad||"");var r=loc?ENVIO.local:ENVIO.otros;return {txt:(r[1]!==r[0]?cap(F.format(addDays(r[0])))+" a "+F.format(addDays(r[1])):"Hacia el "+F.format(addDays(r[0]))+" ("+r[0]+" días hábiles)"),loc:loc};}
 /* días preferidos */
 var sel=$("f-dia");
-function fillDias(){if(!sel)return;var cf=document.getElementById("cart-form"),ci=cf?cf.elements["ciudad"].value:"",loc=/villavicencio/i.test(ci),lead=(loc?ENVIO.local:ENVIO.otros)[0],prev=sel.value;sel.innerHTML="";var o0=document.createElement("option");o0.textContent="Lo antes posible";sel.appendChild(o0);var x=addDays(lead-1),k=0;while(k<6){x.setDate(x.getDate()+1);if(x.getDay()===0)continue;var op=document.createElement("option");op.textContent=cap(new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"short"}).format(x));sel.appendChild(op);k++;}
+function fillDias(){if(!sel)return;var rs=window.pnDespacho&&window.pnDespacho();if(rs){sel.innerHTML="";var or=document.createElement("option");or.textContent="Bajo reserva, "+rs;sel.appendChild(or);return;}var cf=document.getElementById("cart-form"),ci=cf?cf.elements["ciudad"].value:"",loc=/villavicencio/i.test(ci),lead=(loc?ENVIO.local:ENVIO.otros)[0],prev=sel.value;sel.innerHTML="";var o0=document.createElement("option");o0.textContent="Lo antes posible";sel.appendChild(o0);var x=addDays(lead-1),k=0;while(k<6){x.setDate(x.getDate()+1);if(x.getDay()===0)continue;var op=document.createElement("option");op.textContent=cap(new Intl.DateTimeFormat("es-CO",{weekday:"long",day:"numeric",month:"short"}).format(x));sel.appendChild(op);k++;}
  for(var q=0;q<sel.options.length;q++){if(sel.options[q].textContent===prev){sel.selectedIndex=q;break;}}}
-fillDias();var cf0=document.getElementById("cart-form");if(cf0){cf0.addEventListener("input",function(e){if(e.target.name==="ciudad")fillDias();});cf0.addEventListener("change",function(e){if(e.target.name==="ciudad")fillDias();});}
+fillDias();(function(){var cd=document.getElementById("cartd");if(cd&&window.MutationObserver){new MutationObserver(function(){if(cd.open)fillDias();}).observe(cd,{attributes:true,attributeFilter:["open"]});var ct=document.getElementById("cart-items");if(ct)new MutationObserver(fillDias).observe(ct,{childList:true});}})();var cf0=document.getElementById("cart-form");if(cf0){cf0.addEventListener("input",function(e){if(e.target.name==="ciudad")fillDias();});cf0.addEventListener("change",function(e){if(e.target.name==="ciudad")fillDias();});}
 function show(id){["ok-review","ok-pay","ok-done"].forEach(function(s){$(s).hidden=s!==id;});var sc=d.querySelector("#"+id+" .sch");if(sc){sc.style.animation="none";void sc.getBoundingClientRect();sc.style.animation="";}}
 function openWA(u){var w=window.open(u,"_blank","noopener");if(!w)location.href=u;}
 function done(o,u){var e=est(o),nq=o.pago==="Nequi";$("dn-n").textContent=o.name||"";$("dn-est").textContent=e.txt;
@@ -2085,21 +2105,21 @@ function bog(){var p={};new Intl.DateTimeFormat("es-CO",{timeZone:"America/Bogot
 function mkNum(){var p=bog();return "PN-"+p.year+p.month+p.day+"-"+(1000+Math.floor(Math.random()*9000));}
 function fdate(){return new Intl.DateTimeFormat("es-CO",{timeZone:"America/Bogota",day:"numeric",month:"long",year:"numeric",hour:"numeric",minute:"2-digit"}).format(new Date());}
 function toast(m){var t=$("toast");if(!t)return;t.textContent=m;try{t.showPopover();}catch(e){}setTimeout(function(){try{t.hidePopover();}catch(e){}},3200);}
-function openWA(u){var w=window.open(u,"_blank","noopener");if(!w)location.href=u;}
+function openWA(u){var w=window.open(u,"_blank");if(w){try{w.opener=null;}catch(e){}}else location.href=u;}
 function wa(m){return "https://wa.me/573053529366?text="+encodeURIComponent(m);}
-function items(o){return o.items.map(function(i){return "- "+i.q+" x "+i.n+(i.p?" ("+money(i.s)+")":" (por cotizar)")+(i.sp?" - SOBRE PEDIDO":"");}).join("\n");}
+function items(o){return o.items.map(function(i){return "- "+i.q+" x "+i.n+(i.p?" ("+money(i.s)+")":" (por cotizar)")+(i.sp?" - SOBRE PEDIDO":"")+(i.r?" - BAJO RESERVA":"");}).join("\n");}
 function fullMsg(o,nq){
  var head=nq?"Hola Pureza Natural 👋\nAcabo de pagar mi pedido *No. "+o.num+"* por Nequi y quiero consultar el estado de envío.\n\n*Pago*\nReferencia Nequi: "+S.ref+"\nValor pagado: "+o.total
   :"Hola Pureza Natural 👋\nQuiero confirmar mi pedido *No. "+o.num+"* con pago contraentrega.\n\n*Pago*\nTotal a pagar al recibir: "+o.total;
- return head+"\n\n*Pedido*\n"+items(o)+"\nEnvío: "+window.pnShipTxt(o.ciudad)+"\n\n*"+(o.recoge?"Recogida en punto":"Entrega")+"*\nNombre: "+o.full+"\nCelular: "+o.tel+"\nCiudad: "+o.ciudad+"\nMunicipio: "+o.municipio+"\nDirección: "+o.dir+"\nPunto de referencia: "+o.ref+"\n"+(o.recoge?"Día para recoger: ":"Día preferido: ")+o.dia+" ("+o.franja+")"+(nq?"\n\nAdjunto la captura del comprobante.":"")+"\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";}
+ return head+"\n\n*Pedido*\n"+items(o)+(o.despacho?"\nDespacho estimado (bajo reserva): "+o.despacho:"")+"\nEnvío: "+window.pnShipTxt(o.ciudad)+"\n\n*"+(o.recoge?"Recogida en punto":"Entrega")+"*\nNombre: "+o.full+"\nCelular: "+o.tel+"\nCiudad: "+o.ciudad+"\nMunicipio: "+o.municipio+"\nDirección: "+o.dir+"\nPunto de referencia: "+o.ref+"\n"+(o.recoge?"Día para recoger: ":"Día preferido: ")+o.dia+" ("+o.franja+")"+(nq?"\n\nAdjunto la captura del comprobante.":"")+"\n\n——————\n✅ Pedido seguro · Pureza Natural, distribuidor autorizado AguaLogic\nAl enviar este pedido acepto los términos de venta: garantía legal y del fabricante, retracto de 5 días hábiles desde la entrega con el producto en su estado original, y confirmación de disponibilidad, costo y tiempo de envío antes del despacho.";}
 /* Registro de pedidos: pega aquí la URL de tu Apps Script (termina en /exec). Vacío = el mensaje sale completo. */
-var ORDER_HOOK="";
-function saveOrder(o,nq){if(!ORDER_HOOK)return false;try{fetch(ORDER_HOOK,{method:"POST",mode:"no-cors",keepalive:true,headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({numero:o.num,fecha:S.date,pago:nq?"Nequi":"Contraentrega",referencia_pago:S.ref||"",total:o.total,subtotal:money(o.sub),envio:window.pnShipTxt(o.ciudad),nombre:o.full,celular:o.tel,ciudad:o.ciudad,municipio:o.municipio,direccion:o.dir,punto_referencia:o.ref,dia:o.dia,franja:o.franja,llegada_estimada:window.pnEst(o).txt,productos:items(o),acepta_terminos:"Sí"})});return true;}catch(e){return false;}}
+var ORDER_HOOK="https://script.google.com/macros/s/AKfycbwftsLRlt29GHRbcG5VrVP0Y6QTwrrY7vDKNUpKe0tO3S9NbCOHrbZLC4D3oEzd0XzC/exec";
+function saveOrder(o,nq){return new Promise(function(res){if(!ORDER_HOOK){res(false);return;}var fin=false,t;function done(v){if(!fin){fin=true;clearTimeout(t);res(v);}}t=setTimeout(function(){done(false);},12000);try{var c={},k;for(k in o){if(k!=="url"&&typeof o[k]!=="function")c[k]=o[k];}c.tienda=!!o.recoge;c.nombre=o.full;fetch(ORDER_HOOK,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({tipo:"pedido",numero:o.num,nombre:o.full,celular:o.tel,datos:JSON.stringify({o:c,nq:nq,ref:S.ref||"",date:S.date}),detalle:"Pedido No. "+o.num+(nq?" · Pago por llave (pendiente de comprobante)":"")+"\n"+fullMsg(o,nq)})}).then(function(r){return r.text();}).then(function(x){done(x.trim()==="ok");}).catch(function(){done(false);});}catch(e){done(false);}});}
 function briefMsg(o,nq){return (nq?"Hola Pureza Natural 👋\nAcabo de pagar mi pedido *No. "+o.num+"* por Nequi (ref. "+S.ref+") y quiero consultar el estado de envío.":"Hola Pureza Natural 👋\nQuiero confirmar mi pedido *No. "+o.num+"* con pago contraentrega.")+"\n\n"+o.full+" · "+o.ciudad+" · "+o.total+"\nAcepté los términos de venta.";}
 function shortMsg(o,nq){return nq?"Hola Pureza Natural 👋 Acabo de pagar mi pedido *No. "+o.num+"* por Nequi (ref. "+S.ref+") y quiero consultar el estado de envío.":"Hola Pureza Natural 👋 Tengo el pedido *No. "+o.num+"* (contraentrega) y necesito ayuda o cambiar el horario de entrega.";}
 
 function steps(o,nq,e){
- var s=nq?[["Verificamos tu pago","Revisamos la referencia "+esc(S.ref)+" en nuestra cuenta Nequi y te confirmamos por WhatsApp. Si algún producto se agotó, queda bajo reserva y acordamos contigo la nueva fecha."],["Coordinamos la entrega","Acordamos contigo el día y la franja que elegiste ("+esc(o.dia)+", "+esc(o.franja)+")."],["Recibes tu pedido","Estimado: "+esc(e.txt)+" (días hábiles, desde que confirmemos el pago)."]]
+ var s=nq?[["Verificamos tu pago","Revisamos la referencia "+esc(S.ref)+" en nuestra cuenta Nequi y te confirmamos por WhatsApp. Si algún producto se agotó, queda bajo reserva y acordamos contigo la nueva fecha."],["Coordinamos la entrega","Acordamos contigo el día y la franja que elegiste ("+esc(o.dia)+", "+esc(o.franja)+")."],["Recibes tu pedido","Estimado: "+esc(e.txt)+(o.despacho?" (bajo reserva).":" (días hábiles, desde que confirmemos el pago).")]]
  :[["Confirmamos tu pedido","Te escribimos por WhatsApp para confirmar disponibilidad y que los datos estén correctos. Si algún producto se agotó, queda bajo reserva y acordamos contigo la nueva fecha."],["Coordinamos el horario","Acordamos contigo el día y la franja que elegiste ("+esc(o.dia)+", "+esc(o.franja)+"). Si necesitas cambiarlos, escríbenos."],["Recibes y pagas","Revisas tu pedido al llegar y pagas "+esc(o.total)+" al recibirlo. Estimado: "+esc(e.txt)+"."]];
  if(o.recoge)s=s.map(function(x){return [x[0].replace("la entrega","la recogida").replace("Recibes tu pedido","Recoges tu pedido").replace("Recibes y pagas","Recoges y pagas"),x[1].replace("al llegar","al recogerlo").replace("al recibirlo","en ese momento")];});
  return '<section class="cf-steps"><h3>Cómo coordinamos tu '+(o.recoge?"recogida":"entrega")+'</h3><ol>'+s.map(function(x,i){return '<li><b class="n">'+(i+1)+'</b><div><b>'+x[0]+'</b><span>'+x[1]+'</span></div></li>';}).join("")+'</ol></section>';}
@@ -2122,7 +2142,7 @@ function render(){
  $("cf-in").innerHTML=h;
  var a="";
  if(!sent){
-  a='<p class="cf-note">Tu pedido nos llega cuando lo envías por WhatsApp.</p><button type="button" class="cf-btn wa" data-a="send">'+WA_ICON+'<span>'+(nq?"Enviar comprobante por WhatsApp":"Enviar pedido por WhatsApp")+'</span></button><button type="button" class="cf-btn gh" data-a="pdf">'+PDF_ICON+'<span>'+(nq?"Descargar comprobante PDF":"Descargar orden PDF")+'</span></button>';
+  a='<p class="cf-note">Al tocar el botón registramos tu pedido y abrimos WhatsApp.</p><button type="button" class="cf-btn wa" data-a="send">'+WA_ICON+'<span>'+(nq?"Enviar comprobante por WhatsApp":"Enviar pedido por WhatsApp")+'</span></button><button type="button" class="cf-btn gh" data-a="pdf">'+PDF_ICON+'<span>'+(nq?"Descargar comprobante PDF":"Descargar orden PDF")+'</span></button>';
  }else{
   a=(nq?'<button type="button" class="cf-btn pdf" data-a="pdf">'+PDF_ICON+'<span>Descargar comprobante PDF</span></button><button type="button" class="cf-btn wa" data-a="wa">'+WA_ICON+'<span>Consultar estado de envío</span></button>'
    :'<button type="button" class="cf-btn wa" data-a="wa">'+WA_ICON+'<span>Soporte o cambiar horario</span></button><button type="button" class="cf-btn gh" data-a="pdf">'+PDF_ICON+'<span>Descargar orden PDF</span></button>')+'<button type="button" class="cf-end" data-a="end">Terminar</button>';
@@ -2134,7 +2154,7 @@ window.pnShowConf=function(o,ref){
  if(!c.open)c.showModal();var bd=$("cf-body");bd.setAttribute("tabindex","-1");bd.focus({preventScroll:true});bd.scrollTop=0;};
 function finish(){c.close();var d=window.pnOkd;if(d&&d.open)d.close();var cl=$("cart-clear");if(cl)cl.click();var x=$("cart-x");if(x&&$("cartd").open)x.click();}
 c.addEventListener("click",function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.getAttribute("data-a"),o=S.o,nq=o.pago==="Nequi";
- if(a==="send"){var sv=saveOrder(o,nq);openWA(wa(sv?briefMsg(o,nq):fullMsg(o,nq)));S.sent=true;render();$("cf-body").scrollTop=0;}
+ if(a==="send"){if(b.disabled)return;b.disabled=true;var sp=b.querySelector("span");if(sp)sp.textContent="Registrando tu pedido…";saveOrder(o,nq).then(function(sv){openWA(wa(sv?briefMsg(o,nq):fullMsg(o,nq)));S.sent=true;render();$("cf-body").scrollTop=0;if(sv){if(window.fbq)fbq("track","Purchase",{value:o.sub,currency:"COP"},{eventID:o.num});}else toast("No pudimos registrar tu pedido en la página: envíalo por WhatsApp para que nos llegue.");});}
  else if(a==="wa"){openWA(wa(shortMsg(o,nq)));}
  else if(a==="pdf"){pdf(o,nq,b);}
  else if(a==="end"){finish();}});
@@ -2166,9 +2186,9 @@ function build(o,nq){
  y=36;ln(y,.9,INK);
  /* estado */
  y+=7;var st=nq?(S.sent?"PAGO EN VERIFICACION":"PENDIENTE DE ENVIO POR WHATSAPP"):(S.sent?"PEDIDO CONFIRMADO - PAGO AL RECIBIR":"PENDIENTE DE ENVIO POR WHATSAPP");
- var ok=S.sent;d.setFillColor.apply(d,ok?[223,241,230]:[251,238,221]);var sw=d.getTextWidth(st)+0;d.setFont("helvetica","bold");d.setFontSize(8.5);sw=d.getTextWidth(st)+10;d.roundedRect(M,y-4.8,sw,7.2,3.6,3.6,"F");t(st,M+5,y,8.5,"bold",ok?GRN:[138,84,38]);
+ if(o.__confirmado)st=o.__pagado?"PAGO RECIBIDO":"PEDIDO CONFIRMADO";var ok=S.sent;d.setFillColor.apply(d,ok?[223,241,230]:[251,238,221]);var sw=d.getTextWidth(st)+0;d.setFont("helvetica","bold");d.setFontSize(8.5);sw=d.getTextWidth(st)+10;d.roundedRect(M,y-4.8,sw,7.2,3.6,3.6,"F");t(st,M+5,y,8.5,"bold",ok?GRN:[138,84,38]);
  if(!nq){y+=7;d.setFillColor(234,245,238);d.roundedRect(M,y,R-M,22,3,3,"F");t("TOTAL A PAGAR AL RECIBIR",M+6,y+7,8,"bold",GRN);t(o.total,M+6,y+17,20,"bold");t("Pago contraentrega. No se cobra nada antes de la entrega.",R-6,y+17,8.5,"normal",GRY,"right");y+=22;}
- if(nq){sec("Pago");ln(y+1.5);kv("Método","Nequi");kv("Referencia",S.ref);kv("Cuenta destino","Cla*** Taf***  ·  305 352 9366");kv("Llave","@3132696087");kv("Estado",S.sent?"En verificación":"Pendiente de envío");}
+ if(nq){sec("Pago");ln(y+1.5);kv("Método","Nequi");kv("Referencia",S.ref);kv("Cuenta destino","Cla*** Taf***  ·  305 352 9366");kv("Llave","@3132696087");kv("Estado",o.__pagado?"Pago recibido":S.sent?"En verificación":"Pendiente de envío");}
  sec(o.recoge?"Punto de recogida":nq?"Entrega":"Destino de entrega");ln(y+1.5);
  var e=window.pnEst(o);
  kv("Para",o.full);kv("Celular",o.tel);kv("Dirección",o.dir);kv("Ciudad",o.ciudad+(o.municipio?", "+o.municipio:""));if(o.ref)kv("Referencia",o.ref);kv("Día y franja",o.dia+" · "+o.franja);kv(o.recoge?"Fecha estimada":"Llegada estimada",e.txt);
@@ -2178,15 +2198,103 @@ function build(o,nq){
  need(16);y+=3;ln(y,.9,INK);y+=8;t(nq?"TOTAL PAGADO":"TOTAL A PAGAR AL RECIBIR",M,y,9,"bold");t(o.total,R,y+.5,17,"bold",INK,"right");y+=5;
  /* pasos */
  need(40);y+=6;t(o.recoge?"COMO COORDINAMOS TU RECOGIDA":"COMO COORDINAMOS TU ENTREGA",M,y,8,"bold",TEAL);y+=1;
- var ss=nq?["Verificamos tu pago en nuestra cuenta Nequi y te confirmamos por WhatsApp. Si algún producto se agotó, queda bajo reserva y acordamos contigo la nueva fecha.","Coordinamos contigo el día y la franja elegidos ("+o.dia+", "+o.franja+").","Recibes tu pedido. Estimado: "+e.txt+" (días hábiles)."]
+ var ss=nq?["Verificamos tu pago en nuestra cuenta Nequi y te confirmamos por WhatsApp. Si algún producto se agotó, queda bajo reserva y acordamos contigo la nueva fecha.","Coordinamos contigo el día y la franja elegidos ("+o.dia+", "+o.franja+").","Recibes tu pedido. Estimado: "+e.txt+(o.despacho?" (bajo reserva).":" (días hábiles).")]
   :["Te escribimos por WhatsApp para confirmar disponibilidad y datos. Si algún producto se agotó, queda bajo reserva y acordamos contigo la nueva fecha.","Coordinamos contigo el día y la franja elegidos ("+o.dia+", "+o.franja+"). Puedes cambiarlos escribiéndonos.","Revisas tu pedido al llegar y pagas "+o.total+" al recibirlo."];
  if(o.recoge)ss=ss.map(function(x){return x.replace("Recibes tu pedido","Recoges tu pedido").replace("al llegar","al recogerlo").replace("al recibirlo","en ese momento");});
  ss.forEach(function(s,i){var L=d.splitTextToSize(s,R-M-9);need(L.length*4.6+4);y+=6;d.setFillColor(22,50,44);d.circle(M+2.6,y-1.2,2.6,"F");t(String(i+1),M+2.6,y-.1,8,"bold",[255,255,255],"center");d.setFont("helvetica","normal");d.setFontSize(9.5);tc(INK);d.text(L,M+9,y);y+=(L.length-1)*4.6;});
  /* legal */
- var fine=(nq?"Este comprobante soporta tu pedido y no reemplaza la factura electrónica. El pago queda sujeto a verificación en nuestra cuenta Nequi. ":"Esta orden confirma tu pedido y no es una factura de pago. ")+"Garantía legal y del fabricante. Retracto de 5 días hábiles desde la entrega, con el producto en su estado original. Confirmamos disponibilidad, costo y tiempo de envío antes del despacho.";
+ var fine=(nq?"Este comprobante soporta tu pedido y no reemplaza la factura electrónica. "+(o.__pagado?"":"El pago queda sujeto a verificación en nuestra cuenta Nequi. "):"Esta orden confirma tu pedido y no es una factura de pago. ")+"Garantía legal y del fabricante. Retracto de 5 días hábiles desde la entrega, con el producto en su estado original. Confirmamos disponibilidad, costo y tiempo de envío antes del despacho.";
  var FL=d.splitTextToSize(fine,R-M);need(FL.length*4+16);y+=9;ln(y);y+=5;t("Pedido seguro · Distribuidor autorizado AguaLogic",M,y,8.5,"bold",GRN);y+=4.6;d.setFont("helvetica","normal");d.setFontSize(8);tc(GRY);d.text(FL,M,y);
  d.save("Pureza-Natural-"+o.num+".pdf");
 }
+function pnRuta(i){
+  var VX=[64,64,64,150,218,296][i], T=['Recibido','Confirmado','Empacando','Despachado','En camino','¡Entregado!'][i], cx=[64,64,64,150,218,296][i];
+  var w=T.length*8+26, bx=Math.max(8,Math.min(392-w,cx-w/2)), col=i===5?'#2E7D4F':'#B35E36';
+  var NX=[64,118.4,172.8,227.2,281.6,336], run=(i===3||i===4);
+  var s='<svg viewBox="0 0 400 150" role="img" aria-label="Tu pedido va en: '+T.replace('¡','').replace('!','')+'"><defs><linearGradient id="tkBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E7F1EE"/><stop offset="1" stop-color="#FAF8F2"/></linearGradient><linearGradient id="tkVan" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1F6F65"/><stop offset="1" stop-color="#174C46"/></linearGradient><clipPath id="tkClip"><rect x="62" y="56" width="280" height="56"/></clipPath></defs>';
+  s+='<rect width="400" height="150" fill="url(#tkBg)"/>';
+  /* calle */
+  s+='<rect x="0" y="112" width="400" height="12" fill="#3F4F4A"/><line x1="0" y1="118" x2="400" y2="118" stroke="#F4F1E8" stroke-width="1.6" stroke-dasharray="12 10" class="'+(run?'tk-dash':'')+'"/>';
+  if(run){ s+='<g clip-path="url(#tkClip)"><g class="tk-scroll">'; for(var q=0;q<7;q++){ var px=q*50; s+='<line x1="'+px+'" y1="78" x2="'+px+'" y2="112" stroke="#9fb0aa" stroke-width="2"/><line x1="'+(px-6)+'" y1="82" x2="'+(px+6)+'" y2="82" stroke="#9fb0aa" stroke-width="1.6"/><circle cx="'+(px+25)+'" cy="106" r="6" fill="#8FC3A5"/><circle cx="'+(px+31)+'" cy="108" r="4.5" fill="#7DB693"/>'; } s+='</g></g>'; }
+  /* almacen */
+  s+='<g><rect x="10" y="74" width="40" height="38" fill="#fff" stroke="#174C46" stroke-width="1.6"/><rect x="3" y="66" width="54" height="10" rx="2" fill="#174C46"/><text x="30" y="73.2" text-anchor="middle" font-size="5.3" font-weight="800" fill="#F4F1E8" font-family="inherit" letter-spacing=".2">PUREZA NATURAL</text><rect x="15" y="86" width="30" height="26" fill="#DCE5E1" stroke="#174C46" stroke-width="1.2"/>';
+  for(var k=0;k<4;k++) s+='<line x1="15" y1="'+(92+k*5.5)+'" x2="45" y2="'+(92+k*5.5)+'" stroke="#AEBFB8" stroke-width=".9"/>';
+  s+='</g>';
+  /* casa */
+  s+='<g><rect x="352" y="86" width="40" height="26" fill="#fff" stroke="#174C46" stroke-width="1.6"/><polygon points="347,86 372,64 397,86" fill="#B35E36"/><rect x="366" y="93" width="12" height="19" rx="1.5" fill="#174C46"/><circle cx="375" cy="104" r="1.2" fill="#F4C26B"/><rect x="355" y="92" width="8" height="8" fill="#BFE3E0" stroke="#174C46" stroke-width="1"/><rect x="381" y="92" width="8" height="8" fill="#BFE3E0" stroke="#174C46" stroke-width="1"/></g>';
+  /* fase 0 y 1: insignia sobre el almacen */
+  if(i===0) s+='<circle class="tk-ping" cx="30" cy="48" r="11" fill="none" stroke="#B35E36" stroke-width="2"/><circle class="tk-ping d2" cx="30" cy="48" r="11" fill="none" stroke="#B35E36" stroke-width="2"/><g class="tk-bub"><g class="tk-wig"><circle cx="30" cy="48" r="11" fill="#fff" stroke="#B35E36" stroke-width="2"/><path d="M25 48h10M25 44h10M25 52h6" stroke="#B35E36" stroke-width="1.8" stroke-linecap="round"/></g></g>';
+  if(i===1) s+='<circle class="tk-ping" cx="30" cy="48" r="11" fill="none" stroke="#2E7D4F" stroke-width="2"/><circle class="tk-ping d2" cx="30" cy="48" r="11" fill="none" stroke="#2E7D4F" stroke-width="2"/><g class="tk-bub"><circle cx="30" cy="48" r="11" fill="#2E7D4F"/><path class="tk-draw" d="M24.5 48.5l4 4 7.5-8.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>';
+  /* camioneta */
+  s+='<g class="tk-van" style="transform:translateX('+VX+'px)">';
+  if(run) s+='<g class="tk-speed" stroke="#9fb4ad" stroke-width="2" stroke-linecap="round"><line x1="-36" y1="90" x2="-52" y2="90"/><line x1="-34" y1="98" x2="-46" y2="98"/></g>';
+  s+='<ellipse cx="0" cy="113" rx="36" ry="3" fill="#000" opacity=".16"/><g class="tk-puff"><circle cx="-33" cy="104" r="2.6" fill="#d9dfdc"/></g><g class="tk-puff d2"><circle cx="-33" cy="104" r="2.2" fill="#d9dfdc"/></g><g class="tk-bob'+(i===5?' once':'')+'">';
+  s+='<path d="M-30 86a5 5 0 015-5h35v25h-40z" fill="url(#tkVan)"/><path d="M10 85h10a5 5 0 014 2l6 8a5 5 0 011 3v8H10z" fill="#1F7A8C"/><path d="M14 88.5h6a2.6 2.6 0 012 1l4.6 6H14z" fill="#E4F3F3"/><rect x="-30" y="97" width="40" height="3" fill="#B35E36"/><rect class="tk-lamp" x="29" y="98" width="3" height="4" rx="1" fill="#FFE08A"/>';
+  s+='<path d="M-19 86q6 8 0 12q-6-4 0-12z" fill="#F4F1E8"/><text x="-11" y="93" font-size="6.6" font-weight="800" fill="#F4F1E8" font-family="inherit">Pureza</text><text x="-11" y="98" font-size="4.2" font-weight="700" fill="#BFE3E0" font-family="inherit" letter-spacing=".5">NATURAL</text>';
+  [-16,19].forEach(function(x){ s+='<g class="tk-wh'+(i===5?' once':(run?' on':''))+'"><circle cx="'+x+'" cy="106" r="6.2" fill="#1b2623"/><circle cx="'+x+'" cy="106" r="2.6" fill="#D5DDD9"/><line x1="'+(x-5.4)+'" y1="106" x2="'+(x+5.4)+'" y2="106" stroke="#D5DDD9" stroke-width="1.1"/><line x1="'+x+'" y1="100.6" x2="'+x+'" y2="111.4" stroke="#D5DDD9" stroke-width="1.1"/></g>'; });
+  if(i===2) s+='<g class="tk-load"><rect x="40" y="95" width="14" height="12" fill="#C9A27A" stroke="#8a6a44" stroke-width="1.2"/><line x1="40" y1="100" x2="54" y2="100" stroke="#8a6a44" stroke-width=".9"/><line x1="47" y1="95" x2="47" y2="100" stroke="#8a6a44" stroke-width=".9"/></g><g class="tk-load d2"><rect x="40" y="95" width="14" height="12" fill="#D4AE86" stroke="#8a6a44" stroke-width="1.2"/><line x1="40" y1="100" x2="54" y2="100" stroke="#8a6a44" stroke-width=".9"/></g>';
+  s+='</g></g>';
+  /* mensajero (pictograma limpio) */
+  if(i===5){
+    s+='<g class="tk-cour"><g class="tk-leg a" style="transform-origin:-2px 98px"><line x1="-2" y1="98" x2="-2" y2="110" stroke="#1b2623" stroke-width="3.6" stroke-linecap="round"/></g><g class="tk-leg b" style="transform-origin:2px 98px"><line x1="2" y1="98" x2="2" y2="110" stroke="#33423d" stroke-width="3.6" stroke-linecap="round"/></g>';
+    s+='<rect x="-6.5" y="80" width="13" height="19" rx="4" fill="#174C46"/><path d="M0 85q2.6 3.4 0 6q-2.6-2.6 0-6z" fill="#F4F1E8"/><circle cx="0" cy="73" r="6" fill="#D9A77F"/><path d="M-6.4 72a6.4 6.4 0 0112.8 0z" fill="#B35E36"/><rect x="2" y="70.6" width="8" height="2.4" rx="1.2" fill="#B35E36"/>';
+    s+='<g class="tk-carry"><line x1="3" y1="86" x2="11" y2="91" stroke="#174C46" stroke-width="3.6" stroke-linecap="round"/><rect x="7" y="80" width="16" height="14" fill="#C9A27A" stroke="#8a6a44" stroke-width="1.2"/><line x1="7" y1="85" x2="23" y2="85" stroke="#8a6a44" stroke-width=".9"/><line x1="15" y1="80" x2="15" y2="85" stroke="#8a6a44" stroke-width=".9"/></g></g>';
+    s+='<g class="tk-drop"><rect x="349" y="99" width="14" height="13" fill="#C9A27A" stroke="#8a6a44" stroke-width="1.2"/><line x1="349" y1="104" x2="363" y2="104" stroke="#8a6a44" stroke-width=".9"/><line x1="356" y1="99" x2="356" y2="104" stroke="#8a6a44" stroke-width=".9"/></g>';
+    s+='<rect class="tk-glow" x="355" y="92" width="8" height="8" fill="#FFE9A8" stroke="#174C46" stroke-width="1"/>';
+    [['#2E7D4F',-18,-26],['#B35E36',-8,-32],['#F4C26B',6,-34],['#1F7A8C',16,-28],['#2E7D4F',24,-18],['#B35E36',-24,-12],['#F4C26B',12,-12],['#1F7A8C',-14,-16]].forEach(function(c,n){ s+='<rect class="tk-conf" style="--dx:'+c[1]+'px;--dy:'+c[2]+'px;animation-delay:'+(3.95+n*.03)+'s" x="357" y="96" width="3.4" height="3.4" rx="1" fill="'+c[0]+'"/>'; });
+  }
+  /* linea de avance y etapas */
+  s+='<line x1="64" y1="136" x2="336" y2="136" stroke="#D2DBD7" stroke-width="3" stroke-linecap="round"/>';
+  if(i>0) s+='<line class="tk-prog" x1="64" y1="136" x2="'+NX[i]+'" y2="136" stroke="#2E7D4F" stroke-width="3" stroke-linecap="round"/>';
+  NX.forEach(function(x,n){
+    if(n<i) s+='<g><circle cx="'+x+'" cy="136" r="6.4" fill="#2E7D4F"/><path d="M'+(x-3)+' 136.2l2.2 2.2 3.8-4.4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g>';
+    else if(n===i) s+='<g><circle class="tk-ring" cx="'+x+'" cy="136" r="6.4" fill="#B35E36" opacity=".35"/><circle cx="'+x+'" cy="136" r="6.4" fill="#B35E36"/><circle cx="'+x+'" cy="136" r="2.4" fill="#fff"/></g>';
+    else s+='<circle cx="'+x+'" cy="136" r="5.6" fill="#fff" stroke="#BCC8C3" stroke-width="1.6"/>';
+  });
+  s+='<g class="tk-bub"><rect x="'+bx+'" y="12" width="'+w+'" height="26" rx="13" fill="'+col+'"/><text x="'+(bx+w/2)+'" y="29.5" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff" font-family="inherit">'+T+'</text></g>';
+  return s+'</svg>';
+}
+/* Bocina amistosa: sonido sintetizado, no pesa nada */
+var pnAC=null;
+function pnAudioListo(){ try{ var C=window.AudioContext||window.webkitAudioContext; if(!C) return; if(!pnAC) pnAC=new C(); if(pnAC.state==='suspended') pnAC.resume(); }catch(e){} }
+function pnBocina(){
+  try{
+    if(!pnAC||pnAC.state!=='running') return;
+    [[0,392],[0.2,523.25]].forEach(function(n){
+      var t=pnAC.currentTime+n[0], o=pnAC.createOscillator(), g=pnAC.createGain();
+      o.type='triangle'; o.frequency.setValueAtTime(n[1],t);
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.16,t+0.03); g.gain.exponentialRampToValueAtTime(0.0001,t+0.17);
+      o.connect(g); g.connect(pnAC.destination); o.start(t); o.stop(t+0.2);
+    });
+  }catch(e){}
+}
+
+/* Consulta tu pedido */
+(function(){var f=$("tk-form");if(!f||!ORDER_HOOK)return;
+var ET=["Recibido","Confirmado","En preparación","Despachado","En camino","Entregado"],MP={"nuevo":0,"recibido":0,"confirmado":1,"en preparación":2,"en preparacion":2,"despachado":3,"en camino":4,"entregado":5};
+var err=$("tk-err"),box=$("tk-steps"),msg=$("tk-msg"),bp=$("tk-pdf"),cur=null;
+f.addEventListener("submit",function(e){e.preventDefault();err.textContent="";box.hidden=true;msg.hidden=true;bp.hidden=true;$("tk-bar").hidden=true;$("tk-scene").hidden=true;$("tk-cap").hidden=true;cur=null;
+ var num=$("tk-num").value.trim().toUpperCase(),tel=$("tk-tel").value.replace(/\D/g,"").replace(/^57(?=3\d{9}$)/,"");
+ if(!/^PN-\d{8}-[A-Z0-9]{4}$/.test(num)){err.textContent="Escribe el número de pedido completo, por ejemplo PN-20261028-1234.";return;}
+ if(!/^3\d{9}$/.test(tel)){err.textContent="Escribe el celular de 10 dígitos con el que pediste.";return;}
+ pnAudioListo();var b=$("tk-go"),bt=b.textContent;b.disabled=true;b.textContent="Buscando…";var fin=false;function listo(){b.disabled=false;b.textContent=bt;}
+ var tm=setTimeout(function(){if(fin)return;fin=true;listo();msg.hidden=false;msg.textContent="No pudimos consultar ahora. Escríbenos por WhatsApp y te contamos.";},12000);
+ fetch(ORDER_HOOK+"?numero="+encodeURIComponent(num)+"&celular="+encodeURIComponent(tel)).then(function(r){return r.json();}).then(function(r){
+  if(fin)return;fin=true;clearTimeout(tm);listo();
+  if(!r||!r.ok){msg.hidden=false;msg.textContent="No encontramos un pedido con esos datos. Revisa el número y el celular, o escríbenos por WhatsApp.";return;}
+  var i=MP[String(r.estado||"").trim().toLowerCase()];if(i===undefined)i=0;
+  var scn=$("tk-scene");scn.hidden=false;scn.innerHTML=pnRuta(i);if(i===5)setTimeout(pnBocina,2300);var br=$("tk-bar"),cp=$("tk-cap");br.hidden=false;cp.hidden=false;br.firstElementChild.style.setProperty("--p",(i/5*100)+"%");br.firstElementChild.style.animation="none";void br.offsetWidth;br.firstElementChild.style.animation="";cp.textContent=i===5?"¡Tu pedido ya llegó!":"Tu pedido va en: "+ET[i]+" (paso "+(i+1)+" de 6)";
+  box.innerHTML=ET.map(function(x,n){return '<li style="--n:'+n+'" class="'+(n<i?"hecho":n===i?"actual":"")+'"><span>'+(n<i?"✓":n+1)+'</span>'+x+'</li>';}).join("");box.hidden=false;
+  if(r.guia){msg.hidden=false;msg.textContent="Guía de envío: "+r.guia;}
+  if(i===0&&r.datos){var P0=null;try{P0=JSON.parse(r.datos);}catch(x){}
+   if(P0&&(P0.nq||P0.nequi)){P0.o=P0.o||P0;msg.hidden=false;msg.innerHTML="<b>Estamos esperando tu pago.</b> Paga <b>"+esc(P0.o.total)+"</b> a la llave <b>@3132696087</b> (a nombre de Cla*** Taf***), escribe "+esc(num)+" en la descripción y envíanos el comprobante.<br><a class=\"cf-btn wa\" target=\"_blank\" rel=\"noopener\" href=\""+wa("Pedido No. "+num+"\nYa pagué "+P0.o.total+" por llave. Te envío el comprobante.")+"\">Ya pagué, enviar comprobante</a>";scn.hidden=true;cp.hidden=true;box.hidden=true;}}
+  if(r.datos&&i>=1){try{var D=JSON.parse(r.datos);D.o.__pagado=D.nq?true:i>=5;D.o.__confirmado=true;cur=D;bp.hidden=false;if(D.nq){msg.hidden=false;msg.textContent="¡Pago confirmado! Tu pedido está confirmado."+(D.o&&D.o.despacho?" Despacho estimado: "+D.o.despacho+".":"")+(r.guia?" Guía de envío: "+r.guia:"");}}catch(x){cur=null;}}
+ }).catch(function(){if(fin)return;fin=true;clearTimeout(tm);listo();msg.hidden=false;msg.textContent="No pudimos consultar ahora. Escríbenos por WhatsApp y te contamos.";});});
+bp.addEventListener("click",function(){if(!cur)return;var old=bp.textContent;bp.textContent="Generando PDF…";bp.disabled=true;
+ loadPdf(function(ok){function fin2(m){bp.textContent=m||old;bp.disabled=false;if(m)setTimeout(function(){bp.textContent=old;},1800);}
+  if(!ok){fin2();toast("No se pudo generar el PDF. Toma una captura de esta pantalla.");return;}
+  try{S.o=cur.o;S.ref=cur.ref||"";S.date=cur.date||"";S.sent=true;build(cur.o,cur.nq);fin2("PDF descargado");}catch(x){console.error(x);fin2();toast("No se pudo generar el PDF. Toma una captura de esta pantalla.");}});});
+})();
 })();
 </script>
 
@@ -2194,7 +2302,7 @@ function build(o,nq){
 (function(){
   var f=document.getElementById("cart-form");if(!f)return;
   var E=f.elements,caja=document.getElementById("recoge-box"),guardado=null;
-  var FIJO={ciudad:"Villavicencio",municipio:"Meta",dir:"Recoge en Ferrecubiertas, Calle 35 A No. 27-86, San Isidro",ref:"Punto de recogida"};
+  var FIJO={ciudad:"Villavicencio",municipio:"Meta",dir:"Punto de recogida, Calle 35 A No. 27-86, San Isidro",ref:"Punto de recogida"};
   // el sábado el punto cierra a las 12:30
   function franjas(){var sab=window.pnRecoge()&&/^s.bado/i.test(E["dia"].value),o=E["franja"].options;for(var i=0;i<o.length;i++)o[i].disabled=sab&&o[i].textContent!=="Mañana";if(sab)E["franja"].value="Mañana";}
   function modo(){
@@ -2465,6 +2573,249 @@ function build(o,nq){
   .tgrid > li:first-child .tm-com, .tm-com { width: 36px; height: 28px; }
   .tm-nota { display: block; margin: 0; text-align: center; font: 700 12.5px var(--body); color: var(--ink-soft); }
 }
+.tk-form{display:grid;gap:12px;max-width:480px}.tk-form label{display:grid;gap:6px;font-weight:700;color:#17302c}
+.tk-form input{font:inherit;font-weight:500;padding:12px 14px;border:1px solid #b9c4bf;border-radius:10px;min-height:48px}
+.tk-err{color:#9b2c1d;font-weight:700;min-height:0}.tk-err:empty{display:none}
+.tk-steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;max-width:480px}
+.tk-steps li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:#f1efe6;color:#4a5f5a;font-weight:600}
+.tk-steps li span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#cfc7b4;color:#17302c;font-size:14px;flex:none}
+.tk-steps li.hecho{background:#eef7f1;color:#17302c}.tk-steps li.hecho span{background:#2e7d4f;color:#fff}
+.tk-steps li.actual{background:#fff4e6;color:#17302c;box-shadow:inset 0 0 0 2px #B35E36}.tk-steps li.actual span{background:#B35E36;color:#fff}
+.tk-msg{font-weight:700;margin-top:12px}#tk-pdf{margin-top:14px}#tk-pdf[hidden]{display:none}
+.tk-bar{height:10px;border-radius:99px;background:#e4e0d2;max-width:480px;margin:16px 0 4px;overflow:hidden;position:relative}
+.tk-bar[hidden]{display:none}
+.tk-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#2e7d4f,#B35E36);animation:tkFill 1.1s cubic-bezier(.2,.8,.2,1) .15s forwards}
+.tk-cap{font-weight:700;color:#17302c;margin:6px 0 0;font-size:15px}.tk-cap[hidden]{display:none}
+.tk-steps li{opacity:0;transform:translateY(10px);animation:tkIn .5s ease forwards;animation-delay:calc(var(--n)*110ms + 200ms)}
+.tk-steps li.hecho span{animation:tkPop .5s ease backwards;animation-delay:calc(var(--n)*110ms + 350ms)}
+.tk-steps li.actual span{animation:tkPulse 1.6s ease-out infinite}
+@keyframes tkFill{to{width:var(--p)}}
+@keyframes tkIn{to{opacity:1;transform:none}}
+@keyframes tkPop{from{transform:scale(.3)}60%{transform:scale(1.25)}to{transform:scale(1)}}
+@keyframes tkPulse{0%{box-shadow:0 0 0 0 rgba(179,94,54,.55)}70%{box-shadow:0 0 0 12px rgba(179,94,54,0)}100%{box-shadow:0 0 0 0 rgba(179,94,54,0)}}
+@media (prefers-reduced-motion:reduce){.tk-bar i{animation:none;width:var(--p)}.tk-steps li{opacity:1;transform:none;animation:none}.tk-steps li span{animation:none!important}}
+
+.tk-scene{max-width:520px;margin:16px 0 4px;border-radius:18px;overflow:hidden;border:1px solid #dbe5e1}
+.tk-scene[hidden]{display:none}.tk-scene svg{display:block;width:100%;height:auto}
+.tk-bar{display:none!important}
+.tk-van{animation:tkDrive 2.2s cubic-bezier(.3,.7,.2,1) both}
+@keyframes tkDrive{from{transform:translateX(64px)}}
+.tk-wh{transform-box:fill-box;transform-origin:center}
+.tk-wh.on{animation:tkSpin .45s linear infinite}.tk-wh.once{animation:tkSpin .45s linear 5}
+@keyframes tkSpin{to{transform:rotate(360deg)}}
+.tk-dash{animation:tkDash .5s linear infinite}@keyframes tkDash{to{stroke-dashoffset:-22}}
+.tk-speed{animation:tkBlink .4s linear infinite}@keyframes tkBlink{50%{opacity:.25}}
+.tk-prog{stroke-dasharray:300;animation:tkProg 2.2s ease-out both}@keyframes tkProg{from{stroke-dashoffset:300}to{stroke-dashoffset:0}}
+.tk-ring{transform-box:fill-box;transform-origin:center;animation:tkRing 1.6s ease-out infinite}
+@keyframes tkRing{from{transform:scale(1);opacity:.5}to{transform:scale(2.4);opacity:0}}
+.tk-cour{transform:translateX(338px);animation:tkWalk 1.5s ease-out 2.3s both}
+@keyframes tkWalk{from{opacity:0;transform:translateX(314px)}12%{opacity:1}}
+.tk-leg{animation:tkLeg .3s ease-in-out 5 alternate 2.3s both}.tk-leg.b{animation-direction:alternate-reverse}
+@keyframes tkLeg{from{transform:rotate(-22deg)}to{transform:rotate(22deg)}}
+.tk-carry{opacity:0;animation:tkCarry 1.5s linear 2.3s both}@keyframes tkCarry{from{opacity:1}99%{opacity:1}}
+.tk-drop{animation:tkIn2 .45s ease 3.8s both}@keyframes tkIn2{from{opacity:0;transform:translateY(-10px)}}
+.tk-bub{transform-box:fill-box;transform-origin:center bottom;animation:tkBub .5s cubic-bezier(.3,1.6,.5,1) 1s both}@keyframes tkBub{from{opacity:0;transform:scale(.4)}}
+@media (prefers-reduced-motion:reduce){.tk-scene *{animation:none!important}}
+
+.tk-bob{animation:tkBob .32s ease-in-out infinite alternate}.tk-bob.once{animation-iteration-count:7}
+@keyframes tkBob{from{transform:translateY(0)}to{transform:translateY(-1px)}}
+.tk-puff{transform-box:fill-box;transform-origin:center;animation:tkPuff 1.1s ease-out infinite}.tk-puff.d2{animation-delay:.55s}
+@keyframes tkPuff{from{opacity:.8;transform:translate(0,0) scale(.6)}to{opacity:0;transform:translate(-12px,-10px) scale(1.8)}}
+.tk-lamp{animation:tkLamp 1.2s ease-in-out infinite}@keyframes tkLamp{50%{opacity:.35}}
+.tk-ping{transform-box:fill-box;transform-origin:center;animation:tkPing 1.8s ease-out infinite}.tk-ping.d2{animation-delay:.9s}
+@keyframes tkPing{from{transform:scale(1);opacity:.7}to{transform:scale(2.6);opacity:0}}
+.tk-wig{transform-box:fill-box;transform-origin:center;animation:tkWig 1.1s ease-in-out infinite}@keyframes tkWig{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.tk-draw{stroke-dasharray:24;animation:tkDraw .7s ease-out 1.3s both}@keyframes tkDraw{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
+.tk-scroll{animation:tkScroll 1.1s linear infinite}@keyframes tkScroll{to{transform:translateX(-50px)}}
+.tk-load{transform-box:fill-box;transform-origin:center;animation:tkLoad 1.8s ease-in infinite}.tk-load.d2{animation-delay:.9s}
+@keyframes tkLoad{0%{opacity:0;transform:translate(0,6px)}12%{opacity:1;transform:translate(0,0)}60%{opacity:1;transform:translate(-34px,-14px) scale(.9)}90%,100%{opacity:0;transform:translate(-44px,-6px) scale(.5)}}
+.tk-glow{animation:tkGlow .6s ease 3.8s both}@keyframes tkGlow{from{opacity:0}}
+.tk-conf{transform-box:fill-box;opacity:0;animation:tkConf 1.1s ease-out both}
+@keyframes tkConf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(260deg)}}
+#visd{border:0;border-radius:20px;padding:0;width:min(92vw,440px);max-height:92vh;background:#F4F1E8;color:#17302c}
+#visd::backdrop{background:rgba(8,28,25,.6)}
+#visForm{display:grid;gap:14px;padding:22px 20px}
+#visForm h2{font-family:var(--display);font-size:1.6rem;margin:0}
+#visForm label{display:grid;gap:6px;font-weight:700;font-size:.95rem}
+#visForm input:not([type=checkbox]),#visForm select{min-height:48px;padding:0 14px;border-radius:12px;border:1.5px solid #cfc7b4;background:#fff;font:inherit;font-weight:400;color:#17302c}
+#visForm label.chk{display:flex;flex-direction:row;gap:10px;font-weight:400;font-size:.9rem}
+.vis-sub,.vis-h{margin:0;font-size:.92rem;color:#3d5550}
+.vis-b{display:grid;grid-template-columns:1fr 1.4fr;gap:10px}
+#visForm .err{margin:0}
+
+.vis-ok{width:54px;height:54px;border-radius:50%;background:#174C46;color:#fff;font-size:1.8rem;line-height:54px;margin:0 auto}.vis-when{background:#fff;border:1.5px solid #174C46;border-radius:16px;padding:14px 12px;display:grid;gap:2px}.vis-when strong{font-size:1.35rem;color:#0f3a35;display:block}.vis-when strong::first-letter{text-transform:uppercase}.vis-when em{font-style:normal;font-size:1.6rem;font-weight:700;color:#174C46}.vis-when small{color:#4E5D58}.vis-thanks{text-align:center;display:grid;gap:12px;padding:10px 0}.vis-thanks b{font-size:1.4rem;color:#0f3a35}.vis-thanks p{margin:0}
+.vday-wrap{display:grid;gap:8px}.vday-l{font-weight:600}
+.vdays{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.vday{flex:none;scroll-snap-align:start;width:62px;padding:8px 0;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:#174C46;display:grid;gap:1px;justify-items:center;font-family:inherit;cursor:pointer;transition:transform .15s,background .2s,border-color .2s}
+.vday span{font-size:.74rem;color:#4E5D58}.vday b{font-size:1.25rem;line-height:1.1}.vday em{font-style:normal;font-size:.72rem;color:#4E5D58;text-transform:uppercase;letter-spacing:.04em}
+.vday:active{transform:scale(.94)}
+.vday:disabled{opacity:.45;cursor:not-allowed;background:#EEF1EF;border-style:dashed}.vday:disabled b{text-decoration:line-through}
+#f-dia,.row2 select{min-width:0;max-width:100%;text-overflow:ellipsis}
+.rsv-note{margin:2px 0 0;padding:10px 12px;border-radius:12px;background:#fbeedd;color:#6b4220;font-size:13.5px;line-height:1.4}
+#visd [hidden]{display:none!important}
+#visd .vbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;border:0;cursor:pointer;border-radius:999px;padding:13px 22px;min-height:48px;text-decoration:none}
+#visd .vcta{background:#A15A2C;color:#fff}#visd .vcta:hover{background:#8a4a22}
+#visd .vline{background:transparent;color:#174C46;box-shadow:inset 0 0 0 1.5px #174C46}#visd .vline:hover{background:#174C46;color:#fff}
+#visd .err{display:none;font-weight:700;color:#A8402A;font-size:.9rem}#visd .err.on{display:block}
+#visd [aria-invalid=true]{border-color:#A8402A}
+.nq-test{display:inline-block;margin:2px 0 8px;padding:3px 9px;border-radius:999px;background:#fbeedd;color:#8a5426;font:800 12px var(--body);letter-spacing:.08em}
+.wa-bubble{background:#f5f7f5;border:3px solid var(--hero-bg);box-sizing:border-box}
+.wa-fab:hover .wa-bubble{background:#f5f7f5;border-color:var(--cta)}
+.wa-av{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.bp-chip{display:block;margin:6px 0;padding:7px 11px;border-radius:12px;background:#fbeedd;color:#6b4220;font-size:12.5px;font-weight:700;line-height:1.35}
+.bpd{border:0;padding:0;border-radius:18px;width:min(420px,92vw);background:#fff;color:#24302e}
+.bpd::backdrop{background:#0009}.bpd-in{padding:22px 20px 18px}.bpd h3{margin:0 0 12px;font:600 21px var(--display)}
+.bpd p{margin:0 0 10px;font-size:15px;line-height:1.5;color:#3b4744}.bpd .bpf{padding:10px 12px;border-radius:12px;background:#f4f1e9;color:#24302e}
+.bpd-b{display:grid;grid-template-columns:1fr 1.3fr;gap:10px;margin-top:16px}
+.bpd-b button{min-height:48px;border-radius:12px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;border:1.5px solid #24302e33;background:#fff;color:#24302e}
+.bpd-b button.ok{background:#174C46;border-color:#174C46;color:#fff}
+.recoge [data-vis]{margin-top:8px;justify-self:start;min-height:44px;padding:0 18px;border:0;border-radius:999px;background:#174C46;color:#fff;font:700 14px var(--body);cursor:pointer}
+#tk-msg a{display:inline-flex;margin-top:10px;text-decoration:none}
 </style>
+<dialog id="visd" aria-labelledby="visT">
+  <form method="dialog" id="visForm" novalidate>
+    <h2 id="visT">Agenda tu visita</h2>
+    <p class="vis-sub">Ven a nuestro punto de recogida, mira el purificador y compra ahí mismo. Calle 35 A No. 27-86, San Isidro, Villavicencio.</p>
+    <label>Tu nombre completo<input id="vName" autocomplete="name" placeholder="Ej: Laura Gómez" required></label>
+    <label>Tu celular<input id="vPhone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="Ej: 310 987 6543" maxlength="18" required></label>
+    <div class="vday-wrap"><span class="vday-l" id="vDayL">Día de la visita</span><div class="vdays" id="vDays" role="radiogroup" aria-labelledby="vDayL"></div><input id="vDate" type="hidden"></div>
+    <label>Hora<select id="vTime" required></select></label>
+    <p class="vis-h" id="vHint"></p>
+    <label class="chk"><input type="checkbox" id="vOk" required><span>Acepto la <a href="../tratamiento-de-datos.html" target="_blank" rel="noopener">política de tratamiento de datos</a>. Usarán mi nombre y celular solo para confirmar y recordarme la visita.</span></label>
+    <p class="err" id="vErr" role="alert"></p>
+    <div class="vis-thanks" id="vThanks" role="status" tabindex="-1" hidden><span class="vis-ok" aria-hidden="true">✓</span><b>¡Listo, <span id="vThN"></span>!</b><div class="vis-when" id="vWhen" hidden><small>Tu visita es el</small><strong id="vWD"></strong><em id="vWH"></em><small>Punto de recogida · Calle 35 A No. 27-86, San Isidro</small></div><p></p><a class="vbtn vline" id="vCal" target="_blank" rel="noopener" hidden>Guardar en mi Google Calendar</a><button type="button" class="vbtn vcta" id="vThX">Volver a la página</button></div>
+    <div class="vis-b" id="vBtns"><button type="button" class="vbtn vline" id="vNo">Cancelar</button><button type="submit" class="vbtn vcta">Reservar mi hora</button></div>
+  </form>
+</dialog>
+<dialog class="bpd" id="bpd" aria-labelledby="bpd-t"><div class="bpd-in">
+  <h3 id="bpd-t">Compra bajo reserva</h3>
+  <p><b id="bpd-n"></b> está disponible <b>bajo reserva</b>: lo pedimos cuando haces tu pedido.</p>
+  <p class="bpf">Despacho estimado: <b id="bpd-f"></b></p>
+  <p>La fecha se cuenta desde el día de tu compra. Antes de despachar te la confirmamos por WhatsApp.</p>
+  <div class="bpd-b"><button type="button" id="bpd-no">Cancelar</button><button type="button" class="ok" id="bpd-si">Continuar</button></div>
+</div></dialog>
+<script>
+var WA_NUMBER='573053529366';
+var PN_HOOK='https://script.google.com/macros/s/AKfycbwftsLRlt29GHRbcG5VrVP0Y6QTwrrY7vDKNUpKe0tO3S9NbCOHrbZLC4D3oEzd0XzC/exec';
+function waURL(m){ return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(m||'Hola Pureza, quiero información del producto y el valor.'); }
+function pnTrack(n,p){ if(window.fbq) fbq('track',n,p||{}); }
+function pnNombre(s){ var p={de:1,del:1,la:1,las:1,los:1,y:1,e:1}; return String(s||'').replace(/\s+/g,' ').trim().toLowerCase().split(' ').map(function(w,i){ return (i&&p[w])?w:w.charAt(0).toUpperCase()+w.slice(1); }).join(' '); }
+function enviarRegistro(datos){
+  return new Promise(function(resolve){
+    var fin=false; enviarRegistro.ultimo='';
+    function cierra(v){ if(!fin){ fin=true; clearTimeout(tm); resolve(v); } }
+    var tm=setTimeout(function(){ cierra(false); },12000);
+    try{
+      fetch(PN_HOOK,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(datos)})
+        .then(function(r){ return r.text(); })
+        .then(function(x){ enviarRegistro.ultimo=x.trim(); cierra(enviarRegistro.ultimo==='ok'); })
+        .catch(function(){ cierra(false); });
+    }catch(e){ cierra(false); }
+  });
+}
+/* ===== Agendar visita al punto de recogida ===== */
+(function(){
+  var d = document.getElementById('visd');
+  if (!d || !d.showModal) return;
+  var fDate = document.getElementById('vDate'), fTime = document.getElementById('vTime'), hint = document.getElementById('vHint'), err = document.getElementById('vErr');
+  var DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  var MES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function iso(x){ return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0'); }
+  function parse(v){ var p=v.split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function rango(dow){ return dow===0 ? [8*60,12*60+30,'8:00 a.m. a 1:00 p.m.'] : dow===6 ? [7*60+30,16*60+30,'7:30 a.m. a 5:00 p.m.'] : [7*60+30,17*60+30,'7:30 a.m. a 6:00 p.m.']; }
+  function hora(m){ var h=Math.floor(m/60), mm=m%60, ap=h>=12?'p.m.':'a.m.'; h=h%12||12; return h+':'+String(mm).padStart(2,'0')+' '+ap; }
+  var ocupadas=[];
+  function cargaOcupadas(cb){ var fin=false; function ya(){ if(!fin){ fin=true; if(cb) cb(); } } setTimeout(ya,6000);
+    try{ fetch(PN_HOOK+'?visitas=1').then(function(r){ return r.json(); }).then(function(j){ ocupadas=(j&&j.ocupadas)||[]; ya(); }).catch(ya); }catch(e){ ya(); } }
+  function horas(v){ var dt=parse(v), r=rango(dt.getDay()), now=new Date(), hoy=iso(now)===v, nowM=now.getHours()*60+now.getMinutes()+60, out=[]; for(var m=r[0]; m<=r[1]; m+=30){ if(hoy && m<nowM) continue; out.push(hora(m)); } return out; }
+  function calUrl(v,h){ var m=/^(\d+):(\d+) (a|p)\.m\./.exec(h), hh=(+m[1])%12+(m[3]==='p'?12:0), mm=+m[2], f=v.replace(/-/g,''), z=function(n){ return String(n).padStart(2,'0'); }, fin=hh*60+mm+30;
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent('Visita al punto de recogida (Pureza Natural)')+'&dates='+f+'T'+z(hh)+z(mm)+'00/'+f+'T'+z(Math.floor(fin/60))+z(fin%60)+'00&ctz=America/Bogota&location='+encodeURIComponent('Punto de recogida, Calle 35 A No. 27-86, San Isidro, Villavicencio')+'&details='+encodeURIComponent('Ven a ver el purificador AguaLogic. Si no puedes venir, escríbenos por WhatsApp al 305 352 9366 para liberar tu hora.'); }
+  function libre(v,h){ return ocupadas.indexOf(v+'|'+h)===-1; }
+  function hayLibre(v){ return horas(v).some(function(h){ return libre(v,h); }); }
+  function fill(){
+    fTime.innerHTML='';
+    if(!fDate.value){ hint.textContent='Escoge primero el día.'; return; }
+    var dt=parse(fDate.value), r=rango(dt.getDay()), hs=horas(fDate.value), libres=0, primera=-1;
+    hs.forEach(function(h,i){ var ok=libre(fDate.value,h), o=document.createElement('option'); o.value=h; o.textContent=ok?h:h+' · ya reservada'; o.disabled=!ok; if(ok){ libres++; if(primera<0) primera=i; } fTime.appendChild(o); });
+    fTime.selectedIndex=primera;
+    hint.textContent='Atendemos el '+DIAS[dt.getDay()]+' de '+r[2]+(!hs.length?' Ya no hay horas hoy; escoge otro día.':!libres?' Este día ya no tiene horas libres; escoge otro.':' Las horas marcadas como reservadas ya las tomó otra persona.');
+  }
+  var vDays=document.getElementById('vDays'), dn2=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  function pinta(){
+    var t0=new Date(), base=new Date(t0.getFullYear(),t0.getMonth(),t0.getDate()), html='', first='', lista=[];
+    for(var i=0,k=0;k<14&&i<20;i++){ var x=new Date(base.getFullYear(),base.getMonth(),base.getDate()+i);
+      if(i===0 && t0.getHours()*60+t0.getMinutes()+60>rango(x.getDay())[1]) continue; k++;
+      var v=iso(x), lleno=!hayLibre(v); lista.push(v); if(!first && !lleno) first=v;
+      html+='<button type="button" role="radio" class="vday'+(lleno?' full':'')+'"'+(lleno?' disabled':'')+' data-d="'+v+'" aria-label="'+DIAS[x.getDay()]+' '+x.getDate()+' de '+MES[x.getMonth()]+(lleno?', sin horas libres':'')+'"><span>'+(i===0?'Hoy':i===1?'Mañana':dn2[x.getDay()])+'</span><b>'+x.getDate()+'</b><em>'+(lleno?'lleno':MES[x.getMonth()])+'</em></button>'; }
+    if(!first) first=lista[0];
+    if(lista.indexOf(fDate.value)===-1 || !hayLibre(fDate.value)) fDate.value=first;
+    vDays.innerHTML=html;
+    vDays.querySelectorAll('.vday').forEach(function(b){ var on=b.getAttribute('data-d')===fDate.value; b.setAttribute('aria-checked',on); b.classList.toggle('on',on); if(on){ vDays.scrollLeft=Math.max(0,b.offsetLeft-12); } });
+  }
+  vDays.addEventListener('click',function(e){ var b=e.target.closest('.vday'); if(!b) return; fDate.value=b.getAttribute('data-d'); fill(); pinta(); });
+  function abrir(e){
+    e.preventDefault();
+    var t=new Date(), min=new Date(t.getFullYear(),t.getMonth(),t.getDate()), max=new Date(min); max.setDate(max.getDate()+30);
+    document.querySelectorAll('#visForm > label, #visForm .vday-wrap, #visForm .vis-sub, #visForm .vis-h, #visForm .err, #vBtns').forEach(function(x){x.hidden=false;}); document.getElementById('vThanks').hidden=true;
+    fDate.min=iso(min); fDate.max=iso(max); if(!fDate.value) fDate.value=iso(min); pinta(); fill(); err.classList.remove('on'); d.showModal();
+    cargaOcupadas(function(){ pinta(); fill(); rapidos(); });
+  }
+  document.querySelectorAll('[data-vis]').forEach(function(x){ x.addEventListener('click', abrir); });
+  var box=document.getElementById('dDays'), dn=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  function rapidos(){ if(!box) return; box.innerHTML=''; var t0=new Date(); for(var i=0,k=0;k<4&&i<10;i++){ var x=new Date(t0.getFullYear(),t0.getMonth(),t0.getDate()+i); if(i===0 && t0.getHours()*60+t0.getMinutes()+60>rango(x.getDay())[1]) continue; k++;
+    var v=iso(x), lleno=!hayLibre(v), bt=document.createElement('button'); bt.type='button'; bt.className='d-day'; bt.disabled=lleno; bt.setAttribute('data-d',v); bt.setAttribute('aria-label','Agendar el '+DIAS[x.getDay()]+' '+x.getDate()+' de '+MES[x.getMonth()]+(lleno?', sin horas libres':''));
+    bt.innerHTML='<span>'+(i===0?'Hoy':i===1?'Mañana':dn[x.getDay()])+'</span><b>'+x.getDate()+'</b><em>'+(lleno?'lleno':MES[x.getMonth()])+'</em>'; box.appendChild(bt); } }
+  if(box){ rapidos(); cargaOcupadas(rapidos);
+    box.addEventListener('click',function(e){ var q=e.target.closest('.d-day'); if(!q||q.disabled) return; abrir(e); fDate.value=q.getAttribute('data-d'); pinta(); fill(); }); }
+  fDate.addEventListener('change', fill);
+  document.getElementById('vThX').addEventListener('click', function(){ d.close(); });
+  document.getElementById('vNo').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if(e.target===d) d.close(); });
+  document.getElementById('visForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n=document.getElementById('vName'), p=document.getElementById('vPhone'), ok=document.getElementById('vOk');
+    var name=pnNombre(n.value), phone=p.value.replace(/\D/g,'').replace(/^57(?=3\d{9}$)/,'');
+    [n,p,fDate,fTime,ok].forEach(function(x){x.removeAttribute('aria-invalid');});
+    var bad = name.length<3 ? [n,'Escribe tu nombre completo.'] : !/^3\d{9}$/.test(phone) ? [p,'Escribe un celular de 10 dígitos que empiece por 3.'] : !fDate.value ? [fDate,'Escoge el día de tu visita.'] : !fTime.value ? [fTime,'Escoge una hora disponible.'] : !ok.checked ? [ok,'Acepta la política de datos para continuar.'] : null;
+    if(bad){ bad[0].setAttribute('aria-invalid','true'); err.textContent=bad[1]; err.classList.add('on'); bad[0].focus(); return; }
+    var dt=parse(fDate.value), pretty=phone.replace(/(\d{3})(\d{3})(\d{4})/,'$1 $2 $3');
+    var msg='Visita al punto de recogida\nNombre: '+name+'\nCelular: '+pretty+'\nDía: '+DIAS[dt.getDay()]+' '+dt.getDate()+' de '+MES[dt.getMonth()]+'\nHora: '+fTime.value;
+    var vb=document.querySelector('#visForm button[type=submit]'), vbt=vb.textContent; vb.disabled=true; vb.textContent='Agendando…';
+    enviarRegistro({ tipo:'visita', nombre:name, celular:pretty, detalle:msg, clave:fDate.value+'|'+fTime.value }).then(function(ok){
+      vb.disabled=false; vb.textContent=vbt;
+      if(enviarRegistro.ultimo==='ocupado'){ cargaOcupadas(function(){ pinta(); fill(); rapidos(); }); err.textContent='Otra persona acaba de reservar esa hora. Ya actualizamos las horas libres: escoge otra.'; err.classList.add('on'); return; }
+      if(ok) pnTrack('Schedule', {content_name:'Visita al punto de recogida'});
+      var vp=document.querySelector('#vThanks p');
+      if(ok){ vp.innerHTML='No necesitas confirmar nada. Si no puedes venir, escríbenos por WhatsApp para liberar tu hora.'; document.getElementById('vWD').textContent=DIAS[dt.getDay()]+' '+dt.getDate()+' de '+MES[dt.getMonth()]; document.getElementById('vWH').textContent=fTime.value; document.getElementById('vWhen').hidden=false; var cl=document.getElementById('vCal'); cl.href=calUrl(fDate.value,fTime.value); cl.hidden=false; ocupadas.push(fDate.value+'|'+fTime.value); rapidos(); }
+      else { window.open(waURL(msg),'_blank','noopener'); document.getElementById('vWhen').hidden=true; document.getElementById('vCal').hidden=true; vp.innerHTML='No pudimos reservar tu hora desde la página. Quedó escrita en WhatsApp: <strong>toca Enviar para que nos llegue</strong> y allí te decimos si esa hora sigue libre.'; }
+      document.getElementById('vThN').textContent=name.split(' ')[0]; document.querySelectorAll('#visForm > label, #visForm .vday-wrap, #visForm .vis-sub, #visForm .vis-h, #visForm .err, #vBtns').forEach(function(x){x.hidden=true;}); var th=document.getElementById('vThanks'); th.hidden=false; th.focus();
+    });
+  });
+})();
+
+
+</script>
+<script>
+/* Inventario de la hoja: un producto en 0 se vende bajo reserva */
+(function(){
+  var MAPA={"u-plast":"pl-20"},R={},ok={},pend=null,bd=document.getElementById("bpd");
+  var MES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  window.pnRsv=R;
+  function rango(a,b){var h=new Date();h.setHours(12,0,0,0);var x=new Date(h.getTime()+a*864e5),y=new Date(h.getTime()+b*864e5);
+    return (x.getMonth()===y.getMonth()?"del "+x.getDate()+" al "+y.getDate()+" de "+MES[y.getMonth()]:"del "+x.getDate()+" de "+MES[x.getMonth()]+" al "+y.getDate()+" de "+MES[y.getMonth()])+" de "+y.getFullYear();}
+  window.pnDespacho=function(){var c={};try{c=JSON.parse(localStorage.getItem("pn-cart")||"{}")||{};}catch(e){}
+    var a=0,b=0;Object.keys(c).forEach(function(k){if(c[k]>0&&R[k]){a=Math.max(a,R[k][0]);b=Math.max(b,R[k][1]);}});return b?rango(a,b):"";};
+  function marcar(){document.querySelectorAll(".card[data-id]").forEach(function(c){var id=c.getAttribute("data-id");if(!R[id]||c.querySelector(".bp-chip"))return;
+    var bt=c.querySelector("[data-add]");if(!bt)return;var s=document.createElement("span");s.className="bp-chip";s.textContent="Bajo reserva · despacho "+rango(R[id][0],R[id][1]);bt.parentNode.insertBefore(s,bt);});}
+  window.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-add]");if(!b)return;var id=b.getAttribute("data-add");if(!R[id]||ok[id])return;
+    e.preventDefault();e.stopImmediatePropagation();var D={};try{D=JSON.parse(document.getElementById("pdata").textContent);}catch(x){}
+    document.getElementById("bpd-n").textContent=(D[id]||{}).n||"Este producto";document.getElementById("bpd-f").textContent=rango(R[id][0],R[id][1]);pend={id:id,btn:b};bd.showModal();},true);
+  document.getElementById("bpd-no").addEventListener("click",function(){pend=null;bd.close();});
+  bd.addEventListener("click",function(e){if(e.target===bd){pend=null;bd.close();}});
+  document.getElementById("bpd-si").addEventListener("click",function(){var p=pend;pend=null;bd.close();if(p){ok[p.id]=true;p.btn.click();}});
+  try{fetch(PN_HOOK+"?inventario=1").then(function(x){return x.json();}).then(function(j){if(!j||!j.ok)return;
+    Object.keys(j.productos).forEach(function(k){var v=j.productos[k],id=MAPA[k]||k;if(!(v.s>0)&&!/^(b|t|x)-/.test(id))R[id]=[v.a||13,v.b||24];});marcar();}).catch(function(){});}catch(e){}
+})();
+</script>
 </body>
 </html>
