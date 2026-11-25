@@ -7,7 +7,7 @@
 - Nombre: Pureza Natural (distribuidor autorizado AguaLogic)
 - Ciudad: Villavicencio, Meta, Colombia.
 - Punto físico de entrega (con cita previa): Ferrecubiertas, Calle 35 A No. 27-86, barrio San Isidro, Villavicencio.
-- Envíos: a Villavicencio y municipios aledaños; gratis dentro del perímetro urbano. Para otros municipios se suma el valor del envío.
+- Envíos: gratis dentro de Villavicencio. Para otros municipios se suma el valor del envío.
 - Horario: lunes a viernes 8:00 a. m. a 4:00 p. m.; sábados 8:00 a. m. a 12:30 p. m.; domingo cerrado.
 - WhatsApp y teléfono: +57 305 352 9366
 - Pago en Villavicencio: contraentrega o Nequi.
@@ -31,6 +31,7 @@
 
 ## Artículos del blog
 
+- [Filtro de agua o purificador: cuál es la diferencia](https://purezanatural.co/blog/filtro-de-agua-o-purificador-diferencia/)
 - [Purificadores de agua en Villavicencio: precios y cuál elegir](https://purezanatural.co/blog/purificadores-de-agua-villavicencio/)
 - [Qué purificador elegir según tu familia](https://purezanatural.co/blog/que-purificador-elegir-segun-tu-familia/)
 - [Purificador vs botellón en Villavicencio](https://purezanatural.co/blog/purificador-vs-botellon-villavicencio/)
@@ -39,8 +40,8 @@
 ## Vidrio
 
 - [Purificador Vidrio Verde](https://purezanatural.co/catalogo-v2/purificador-vidrio-verde/): $810.000 COP. Vidrio reciclado verde con el vaso de cerámica a la vista y tapa de acero.
-- [Purificador Vidrio Ámbar](https://purezanatural.co/catalogo-v2/purificador-vidrio-ambar/): $810.000 COP (agotado por ahora). Vidrio ámbar intenso con las capas filtrantes a la vista y base de madera.
-- [Purificador Vidrio Luna Azul](https://purezanatural.co/catalogo-v2/purificador-vidrio-luna-azul/): $1.250.000 COP (agotado por ahora). Vidrio soplado artesanal azul cobalto. Edición limitada: cada pieza es única.
+- [Purificador Vidrio Ámbar](https://purezanatural.co/catalogo-v2/purificador-vidrio-ambar/): $810.000 COP (edición limitada agotada, no volverá a salir). Vidrio ámbar intenso con las capas filtrantes a la vista.
+- [Purificador Vidrio Luna Azul](https://purezanatural.co/catalogo-v2/purificador-vidrio-luna-azul/): $1.250.000 COP (edición limitada agotada, no volverá a salir). Vidrio soplado artesanal azul cobalto. Edición limitada: cada pieza es única.
 - [Purificador Vidrio Mate](https://purezanatural.co/catalogo-v2/purificador-vidrio-mate/): $860.000 COP. Edición especial de vidrio esmerilado con el logo AguaLogic.
 
 ## Peltre
