@@ -2432,7 +2432,7 @@ function armaPdf(o, logo){
 
   /* Comprador y entrega */
   sec(o.tienda?'Comprador y recogida':'Comprador y destino de entrega'); kv('Nombre',o.nombre); kv('Celular',o.tel);
-  if(o.tienda){ kv('Recoge en','Punto de recogida, Calle 35 A No. 27-86, San Isidro, Villavicencio'); kv('Costo de envío','$0 (recogida en tienda)'); }
+  if(o.tienda){ sec('¿Cuándo quieres pasar por él?'); kv('Agéndalo','Por WhatsApp. Es solo punto de recogida.'); kv('Costo de envío','$0 (recoges tu pedido)'); }
   else { kv('Ciudad o municipio',o.town+', Meta'+(o.zona?' · '+o.zona:'')); kv('Dirección',o.dir); if(o.ref) kv('Referencia',o.ref); kv('Horario preferido',o.dia); }
   if(o.despacho) kv('Despacho estimado',o.despacho);
 
@@ -2454,7 +2454,7 @@ function armaPdf(o, logo){
   ['Garantía: legal y del fabricante. Si hay un defecto de fábrica, Pureza Natural hace el trámite ante AguaLogic en tu nombre.','Retracto: 5 días hábiles desde la entrega, con el producto en su estado original (Ley 1480 de 2011).','Disponibilidad: confirmamos disponibilidad, costo y tiempo de envío antes del despacho. Si el despacho cambia, te avisamos.','Datos personales: los usamos solo para gestionar tu pedido, según la Ley 1581 de 2012. Puedes pedir que los actualicemos o los eliminemos por contacto@purezanatural.co.','Reclamos: escríbenos primero a contacto@purezanatural.co o al WhatsApp 305 352 9366. También puedes acudir a la Superintendencia de Industria y Comercio (sic.gov.co).'].forEach(function(x){ var L=d.splitTextToSize(x,R-M-6); ensure(L.length*4.2+3); y+=4.6; d.setFillColor(31,122,140); d.circle(M+1.2,y-1.2,.8,'F'); d.setFont('helvetica','normal'); d.setFontSize(8.5); tc(INK); d.text(L,M+5,y); y+=(L.length-1)*4.2; });
 
   /* Vendedor */
-  sec('Contacto'); kv('Tienda','Pureza Natural · Distribuidor autorizado AguaLogic'); kv('Dirección','Calle 35 A No. 27-86, San Isidro, Villavicencio, Meta'); kv('WhatsApp y correo','305 352 9366 · contacto@purezanatural.co');
+  sec('Contacto'); kv('Tienda','Pureza Natural · Distribuidor autorizado AguaLogic'); kv('WhatsApp y correo','305 352 9366 · contacto@purezanatural.co');
   par('Este documento no es factura de venta; la factura electrónica se emite al entregar.',8,GRY);
   pie();
   d.save('Pureza-Natural-'+o.num+'.pdf');
