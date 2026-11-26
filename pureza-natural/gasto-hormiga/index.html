@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora gratis: el gasto hormiga de tener botellones en casa | Pureza Natural</title>
+<meta name="description" content="Descubre cuánto te cuestan los botellones al mes y al año: agua, domicilios y extras. Calculadora gratis.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48.png">
+<meta name="theme-color" content="#0E7C86">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2B3A; --muted:#4F6B76; --teal:#0E7C86; --teal-dark:#0A5F67;
+    --aqua:#5FD4DA; --lime:#C6F24E; --tint:#E4F6F5; --line:#D5E2E4; --err:#B3261E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--ink);background:#F3F8F8;
+    min-height:100vh;min-height:100svh;
+    display:flex;align-items:flex-start;justify-content:center;
+    padding:14px;
+  }
+  .frame{
+    width:100%;max-width:1000px;background:#fff;
+    border:1.5px solid var(--line);border-radius:18px;overflow:hidden;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"copy" "panel" "form";
+  }
+  .copy{grid-area:copy;padding:22px 22px 4px}
+  .panel{grid-area:panel}
+  .formwrap{grid-area:form;padding:18px 22px 24px}
+
+  .brand{
+    font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:25px;letter-spacing:-.02em;
+    color:var(--teal);display:flex;align-items:center;gap:9px;margin-bottom:18px;white-space:nowrap;
+  }
+  .brand small{
+    font-family:"Inter",sans-serif;font-weight:600;font-size:11px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--muted);border-left:1.5px solid var(--line);padding-left:9px;line-height:1.2;
+  }
+  h1{
+    font-weight:800;font-size:clamp(32px,9vw,46px);line-height:1.05;letter-spacing:-.03em;
+  }
+  h1 mark{background:linear-gradient(transparent 62%, var(--lime) 62%);color:inherit;padding:0 2px}
+  .sub{margin-top:12px;font-size:16.5px;line-height:1.45;color:var(--muted)}
+  .sub b{color:var(--ink)}
+
+  /* Panel de color con celular inclinado */
+  .panel{
+    position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#0E7C86 0%,#0A9AA6 100%);
+    height:290px;margin-top:16px;
+  }
+  .pill{
+    position:absolute;top:14px;left:16px;z-index:3;
+    background:var(--lime);color:var(--ink);font-weight:800;font-size:12px;
+    padding:6px 12px;border-radius:999px;
+  }
+  .phone{
+    position:absolute;z-index:2;left:50%;top:44px;
+    width:230px;height:430px;margin-left:-70px;
+    background:#fff;border-radius:34px;padding:16px 15px;
+    box-shadow:0 30px 50px -18px rgba(0,0,0,.45), 0 0 0 1px rgba(11,43,58,.06);
+    transform:rotate(-20deg) scale(.86);transform-origin:50% 0;
+  }
+  .ph-top{display:flex;align-items:center;gap:7px;font-weight:800;font-size:11.5px;color:var(--teal);margin-bottom:12px}
+  .ph-top i{width:16px;height:16px;border-radius:50%;background:var(--aqua);display:grid;place-items:center}
+  .ph-label{font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .ph-big{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:33px;line-height:1.1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .ph-big small{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0;margin-left:3px}
+  .ph-bar{display:flex;height:9px;border-radius:99px;overflow:hidden;margin:11px 0 10px;background:var(--tint)}
+  .ph-bar i{display:block;height:100%}
+  .ph-row{display:flex;align-items:center;gap:7px;font-size:11.5px;padding:7px 0;border-top:1px solid #EAF1F2}
+  .ph-row em{flex:none;width:8px;height:8px;border-radius:50%}
+  .ph-row b{margin-left:auto;font-variant-numeric:tabular-nums}
+  .ph-tile{margin-top:9px;background:var(--tint);border-radius:11px;padding:9px 11px}
+  .ph-tile b{display:block;font-size:15px;font-weight:800;font-variant-numeric:tabular-nums}
+  .ph-tile i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);margin-top:1px}
+
+
+  .chips{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+  .chips li{background:var(--tint);border-radius:12px;padding:10px 7px 9px;font-size:12px;line-height:1.3;color:var(--muted)}
+  .chips b{display:block;font-size:clamp(11.5px,3.4vw,17px);color:var(--ink);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .chipnote{margin-top:7px;font-size:12px;color:var(--muted)}
+  .jug{position:absolute;z-index:4;left:12px;bottom:-4px;width:104px;height:auto}
+  .jug .bamboleo{transform-origin:70px 242px;animation:bamboleo 4.5s ease-in-out infinite}
+  .jug .ola{animation:ola 2.8s linear infinite}
+  .jug .ola2{animation-duration:4.2s;animation-direction:reverse}
+  .jug .burbuja{opacity:0;animation:burbuja 3.4s ease-in infinite}
+  .jug .b2{animation-delay:.9s}.jug .b3{animation-delay:1.7s;animation-duration:4s}.jug .b4{animation-delay:2.5s}
+  .jug .destello{animation:destello 5s ease-in-out infinite}
+  @keyframes bamboleo{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+  @keyframes ola{to{transform:translateX(70px)}}
+  @keyframes burbuja{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(-110px);opacity:0}}
+  @keyframes destello{0%,35%{transform:translateX(0) skewX(-12deg)}75%,100%{transform:translateX(240px) skewX(-12deg)}}
+  .kg{
+    position:absolute;z-index:5;left:14px;top:62px;
+    background:var(--ink);color:#fff;font-weight:800;font-size:12.5px;
+    padding:6px 11px;border-radius:999px;
+  }
+
+  /* Formulario */
+  form{display:grid;gap:12px}
+  .field{display:block}
+  .field > span{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;margin-bottom:6px}
+  .field > span em{font-style:normal;font-weight:500;color:var(--muted)}
+  .input{
+    width:100%;min-height:52px;border-radius:12px;border:1.5px solid #BFD0D4;background:#fff;color:var(--ink);
+    font:500 17px "Inter",sans-serif;padding:12px 14px;outline:none;transition:border-color .12s, box-shadow .12s;
+  }
+  .input::placeholder{color:#8AA0A9}
+  .input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,124,134,.18)}
+  .input.bad{border-color:var(--err)}
+  .phonebox{display:flex;gap:8px}
+  .phonebox .cc{
+    flex:none;min-height:52px;display:grid;place-items:center;padding:0 13px;
+    border-radius:12px;background:var(--tint);font-weight:700;font-size:16px;
+  }
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.4;color:var(--muted)}
+  .consent input{flex:none;width:22px;height:22px;margin-top:1px;accent-color:var(--teal)}
+  .consent a{color:var(--teal-dark)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .error{min-height:18px;font-size:13.5px;font-weight:600;color:var(--err)}
+
+  .btn{
+    width:100%;border:0;cursor:pointer;min-height:58px;border-radius:12px;
+    background:var(--ink);color:#fff;text-decoration:none;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    font:700 17.5px "Inter",sans-serif;letter-spacing:-.01em;padding:12px 18px;
+    transition:background .12s, transform .12s;-webkit-tap-highlight-color:transparent;
+  }
+  .btn:hover{background:var(--teal-dark)}
+  .btn:active{transform:scale(.985)}
+  .btn:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+  .btn[disabled]{opacity:.7;cursor:progress}
+  .micro{font-size:13px;color:var(--muted);line-height:1.45}
+  .micro b{color:var(--ink)}
+
+  /* Éxito */
+  #done{display:none}
+  #done h2{font-weight:800;font-size:32px;line-height:1.08;letter-spacing:-.03em;margin-bottom:8px}
+  #done p{font-size:16.5px;line-height:1.45;color:var(--muted);margin-bottom:16px}
+  #done p b{color:var(--ink)}
+  .steps{list-style:none;display:grid;gap:9px;margin-bottom:18px;counter-reset:s}
+  .steps li{counter-increment:s;display:flex;gap:12px;align-items:center;background:var(--tint);border-radius:12px;padding:11px 14px;font-size:15.5px;line-height:1.3}
+  .steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:#fff;font-weight:800;font-size:14px}
+
+  .legal{padding:0 22px 20px;font-size:12px;color:#7A929B;line-height:1.45}
+
+  /* Escritorio: dos columnas como la referencia */
+  @media (min-width:860px){
+    body{padding:48px 24px}
+    .frame{
+      grid-template-columns:1.05fr .95fr;
+      grid-template-areas:"copy panel" "form panel";
+      grid-template-rows:auto 1fr;
+    }
+    .copy{padding:38px 40px 4px}
+    .formwrap{padding:22px 40px 36px}
+    .panel{height:auto;min-height:560px;margin-top:0}
+    .phone{width:250px;height:470px;left:31%;top:90px;margin-left:0;transform:rotate(-20deg)}
+    .jug{width:164px;left:20px;bottom:30px}
+    .kg{left:26px;top:auto;bottom:340px;font-size:13.5px}
+    .ph-big{font-size:38px}
+    .pill{top:20px;left:22px}
+    .legal{padding:0 40px 24px}
+  }
+  @media (prefers-reduced-motion:reduce){ .btn{transition:none} .jug *{animation:none!important} }
+</style>
+</head>
+<body>
+<div style="width:100%;max-width:1000px">
+<main class="frame">
+
+  <header class="copy">
+    <div class="brand">Pureza Natural <small>Distribuidor autorizado<br>AguaLogic</small></div>
+    <h1>El <mark>gasto hormiga</mark> de tener botellones en casa</h1>
+    <p class="sub">Cada botellón pesa unos 20 kg y se paga una y otra vez. <b>Calcula tu gasto, tu tiempo y los kilos que cargas.</b></p>
+    <ul class="chips" aria-label="Ejemplo con 8 botellones al mes">
+      <li><b>20 kg</b>pesa un botellón de 20 L</li>
+      <li><b>1.920 kg</b>de agua cargas al año</li>
+      <li><b>$1.320.000</b>al año en gasto</li>
+    </ul>
+    <p class="chipnote">Ejemplo con 8 botellones de $12.000 al mes, más domicilios y extras.</p>
+  </header>
+
+  <aside class="panel" aria-label="Ejemplo del resultado">
+    <span class="pill">Así se ve tu resultado</span>
+    <div class="phone" aria-hidden="true">
+      <div class="ph-top"><i><svg width="9" height="9" viewBox="0 0 34 34"><path d="M17 5c-4 5.6-7 9.3-7 13a7 7 0 0 0 14 0C24 14.300 21 10.600 17 5z" fill="#06202B"/></svg></i>Pureza Natural</div>
+      <div class="ph-label">Gasto hormiga al año</div>
+      <div class="ph-big"><span id="count" data-to="1320000">$1.320.000</span></div>
+      <div class="ph-bar"><i style="width:87.3%;background:#0E7C86"></i><i style="width:7.3%;background:#5FD4DA"></i><i style="width:5.4%;background:#C6F24E"></i></div>
+      <div class="ph-row"><em style="background:#0E7C86"></em>Botellones<b>$1.152.000</b></div>
+      <div class="ph-row"><em style="background:#5FD4DA"></em>Domicilios<b>$96.000</b></div>
+      <div class="ph-row"><em style="background:#C6F24E"></em>Extras<b>$72.000</b></div>
+      <div class="ph-tile"><b>$6.600.000</b><i>en 5 años, sin subidas de precio</i></div>
+    </div>
+    <div class="kg" aria-hidden="true">≈ 20 kg</div>
+    <svg class="jug" viewBox="0 0 140 256" aria-hidden="true">
+      <defs>
+        <path id="cuerpo" d="M55 36 L55 45 C55 56 19 54 14 79 Q8 86 11 93 Q12 98 17 100 L17 146 Q11 149 11 157 Q11 165 17 168 L17 202 Q11 205 11 213 Q11 220 16 223 L16 228 Q18 242 38 242 L102 242 Q122 242 124 228 L124 223 Q129 220 129 213 Q129 205 123 202 L123 168 Q129 165 129 157 Q129 149 123 146 L123 100 Q128 98 129 93 Q132 86 126 79 C121 54 85 56 85 45 L85 36 Z"/>
+        <clipPath id="dentro"><use href="#cuerpo"/></clipPath>
+        <linearGradient id="plastico" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#6FAEE3"/><stop offset=".18" stop-color="#D9EEFB"/><stop offset=".5" stop-color="#B4DAF5"/><stop offset=".82" stop-color="#CDE8FA"/><stop offset="1" stop-color="#5B9BD8"/>
+        </linearGradient>
+        <linearGradient id="agua" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#7CC4F2" stop-opacity=".75"/><stop offset="1" stop-color="#1F6FC0" stop-opacity=".85"/>
+        </linearGradient>
+        <linearGradient id="tapa" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#0F4C97"/><stop offset=".35" stop-color="#4C93E0"/><stop offset="1" stop-color="#0D3F80"/>
+        </linearGradient>
+      </defs>
+
+      <ellipse cx="70" cy="248" rx="54" ry="6" fill="rgba(0,0,0,.25)"/>
+
+      <g class="bamboleo">
+        <use href="#cuerpo" fill="url(#plastico)" opacity=".94"/>
+
+        <g clip-path="url(#dentro)">
+          <path class="ola ola2" fill="#9AD3F7" opacity=".6" d="M-70 112 q17.5 7 35 0 t35 0 t35 0 t35 0 t35 0 t35 0 t35 0 t35 0 V250 H-70 Z"/>
+          <path class="ola" fill="url(#agua)" d="M-70 117 q17.5 -7 35 0 t35 0 t35 0 t35 0 t35 0 t35 0 t35 0 t35 0 V250 H-70 Z"/>
+          <g fill="#fff" opacity=".75">
+            <circle class="burbuja" cx="44" cy="232" r="2.6"/>
+            <circle class="burbuja b2" cx="94" cy="236" r="1.8"/>
+            <circle class="burbuja b3" cx="70" cy="238" r="3.2"/>
+            <circle class="burbuja b4" cx="106" cy="230" r="2"/>
+          </g>
+        </g>
+
+        <!-- Anillos en relieve: luz arriba, sombra abajo -->
+        <g fill="none" stroke-linecap="round">
+          <g stroke="#fff" stroke-opacity=".8" stroke-width="2.2">
+            <path d="M14 87 Q70 98 126 87"/><path d="M15 152 Q70 163 125 152"/><path d="M15 208 Q70 219 125 208"/>
+          </g>
+          <g stroke="#14589F" stroke-opacity=".45" stroke-width="2">
+            <path d="M17 99 Q70 110 123 99"/><path d="M17 167 Q70 178 123 167"/><path d="M17 222 Q70 233 123 222"/>
+            <path d="M29 68 Q70 79 111 68"/><path d="M24 235 Q70 244 116 235"/>
+          </g>
+        </g>
+
+        <!-- Reflejos del plástico -->
+        <g stroke="#fff" stroke-linecap="round" fill="none">
+          <path d="M27 105 V143 M27 174 V198" stroke-width="7" stroke-opacity=".6"/>
+          <path d="M38 105 V143 M38 174 V198" stroke-width="2" stroke-opacity=".55"/>
+          <path d="M113 106 V142 M113 175 V197" stroke-width="3" stroke-opacity=".45"/>
+          <path d="M27 76 Q32 63 52 55" stroke-width="4" stroke-opacity=".75"/>
+        </g>
+        <g clip-path="url(#dentro)"><rect class="destello" x="-40" y="30" width="16" height="230" fill="#fff" opacity=".35"/></g>
+        <use href="#cuerpo" fill="none" stroke="#3F86C9" stroke-width="1.8"/>
+
+        <!-- Cuello, aro y tapa con sello -->
+        <rect x="55" y="25" width="30" height="13" fill="url(#plastico)" stroke="#3F86C9" stroke-width="1.5"/>
+        <rect x="50" y="34" width="40" height="6" rx="3" fill="#CDE8FA" stroke="#3F86C9" stroke-width="1.5"/>
+        <rect x="52" y="5" width="36" height="22" rx="4" fill="url(#tapa)"/>
+        <rect x="50" y="23" width="40" height="6" rx="2.5" fill="url(#tapa)"/>
+        <path d="M54 11 H86" stroke="#fff" stroke-opacity=".5" stroke-width="1.5"/>
+        <path d="M60 14 V23 M66 14 V23 M74 14 V23 M80 14 V23" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+
+        <rect x="42" y="119" width="56" height="26" rx="13" fill="#fff" opacity=".92"/>
+        <text x="70" y="139" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="20" fill="#0B2B3A">20 L</text>
+      </g>
+    </svg>
+  </aside>
+
+  <section class="formwrap">
+    <div id="landing">
+      <form id="lead" novalidate>
+        <label class="field"><span>Nombre</span>
+          <input class="input" id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Tu nombre" maxlength="60">
+        </label>
+
+        <label class="field"><span>Celular (WhatsApp)</span>
+          <div class="phonebox">
+            <div class="cc" aria-hidden="true">+57</div>
+            <input class="input" id="celular" name="celular" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="300 123 4567" maxlength="16">
+          </div>
+        </label>
+
+        <label class="field"><span>Correo <em>opcional</em></span>
+          <input class="input" id="correo" name="correo" type="email" autocomplete="email" placeholder="tucorreo@gmail.com" maxlength="80">
+        </label>
+
+        <input class="hp" type="text" id="web" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label class="consent">
+          <input type="checkbox" id="acepto">
+          <span>Autorizo a Pureza Natural a tratar mis datos (Ley 1581 de 2012) para enviarme la calculadora y contactarme sobre purificadores de agua. <a id="privLink" href="#" target="_blank" rel="noopener">Política de datos</a></span>
+        </label>
+
+        <div class="error" id="err" role="alert" aria-live="polite"></div>
+
+        <button class="btn" id="send" type="submit">
+          <span id="sendText">Quiero mi calculadora gratis</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="micro">Es gratis. La recibes por <b>mensaje directo en Instagram</b>.</p>
+      </form>
+    </div>
+
+    <div id="done" aria-live="polite">
+      <h2>Listo, <span id="nameOut"></span>.</h2>
+      <p>Falta un paso. Vuelve al chat de <b>@<span id="handle">purezanatural.vcio</span></b> y te enviamos la calculadora.</p>
+      <ol class="steps">
+        <li><span>Se abre <b>Instagram</b>. Si no se abre, toca el botón.</span></li>
+        <li><span>En el chat, toca <b>Iniciar</b> o escribe <b>LISTO</b>.</span></li>
+        <li><span>Recibes tu <b>calculadora</b> en segundos.</span></li>
+      </ol>
+      <a id="ig" class="btn" href="#" target="_blank" rel="noopener">Recibir mi calculadora</a>
+    </div>
+  </section>
+
+  <p class="legal" style="grid-column:1/-1;grid-row:auto">
+    Al enviar tus datos aceptas que te respondamos por este medio. © Pureza Natural · Villavicencio, Meta
+  </p>
+</main>
+</div>
+
+<script>
+/* ============ CONFIGURACIÓN: edita solo esto ============ */
+const CONFIG = {
+  // Instagram (sin @). Aquí se abre el chat conectado a ManyChat.
+  IG_USER: 'purezanatural.vcio',
+
+  // Palabra clave del flujo en ManyChat (debe ser idéntica al trigger)
+  KEYWORD: 'AGUA',
+
+  // Dirección /exec de Interesados.gs (ver LEEME-conexion.md).
+  // Si queda vacío, los datos NO se guardan.
+  WEBHOOK_URL: 'https://script.google.com/macros/s/AKfycbzdcJHKVyKQw7ybmsZ2KZODrpQurfOS5ImCX9sTGTjBlAcH-csXIcqy9thpMXosvzhvNg/exec',
+
+  // Política de tratamiento de datos y su versión
+  PRIVACY_URL: 'tratamiento-de-datos.html',
+  PRIVACY_VERSION: '2026-11-25'
+};
+/* ========================================================= */
+
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var form = $('lead'), err = $('err'), btn = $('send');
+
+  var igUrl = 'https://ig.me/m/' + encodeURIComponent(CONFIG.IG_USER) + '?ref=' + encodeURIComponent(CONFIG.KEYWORD);
+  $('ig').href = igUrl;
+  $('handle').textContent = CONFIG.IG_USER;
+  if (CONFIG.PRIVACY_URL) { $('privLink').href = CONFIG.PRIVACY_URL; }
+  else { $('privLink').style.display = 'none'; }
+
+  /* Conteo animado del ejemplo */
+  var el = $('count'), to = +el.dataset.to, fmt = new Intl.NumberFormat('es-CO');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var t0 = null, dur = 1100;
+    el.textContent = '$0';
+    requestAnimationFrame(function step(t){
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = '$' + fmt.format(Math.round(to * e));
+      if (p < 1) requestAnimationFrame(step);
+    });
+  }
+
+  function cleanPhone(v){
+    var d = v.replace(/\D/g, '');
+    if (d.length === 12 && d.indexOf('57') === 0) d = d.slice(2);
+    return d;
+  }
+  function mark(id, bad){ $(id).classList.toggle('bad', !!bad); }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    err.textContent = '';
+    var nombre = $('nombre').value.trim();
+    var cel = cleanPhone($('celular').value);
+    var correo = $('correo').value.trim();
+    var ok = true, msg = '';
+
+    mark('nombre', false); mark('celular', false); mark('correo', false);
+    if (nombre.length < 2) { mark('nombre', true); ok = false; msg = 'Escribe tu nombre.'; }
+    else if (!/^3\d{9}$/.test(cel)) { mark('celular', true); ok = false; msg = 'Revisa tu celular: 10 dígitos, empieza por 3.'; }
+    else if (correo && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) { mark('correo', true); ok = false; msg = 'Revisa tu correo o déjalo vacío.'; }
+    else if (!$('acepto').checked) { ok = false; msg = 'Marca la autorización para continuar.'; }
+    if (!ok) { err.textContent = msg; return; }
+
+    function finish(){
+      $('nameOut').textContent = nombre.split(' ')[0];
+      $('landing').style.display = 'none';
+      $('done').style.display = 'block';
+      /* Abre Instagram solo para que ManyChat empiece; el botón queda de respaldo */
+      if (!$('web').value) setTimeout(function(){ location.href = igUrl; }, 2500);
+    }
+
+    /* Honeypot: si lo llena un bot, simula éxito sin enviar */
+    if ($('web').value) { finish(); return; }
+
+    btn.disabled = true; $('sendText').textContent = 'Enviando…';
+
+    var q = new URLSearchParams(location.search);
+    /* Mismo formato que espera Interesados.gs */
+    var datos = {
+      tipo: 'interesado',
+      nombre: nombre,
+      celular: cel,
+      correo: correo,
+      autoriza: 'si',
+      politica: CONFIG.PRIVACY_VERSION,
+      origen: q.get('utm_source') || document.referrer || 'directo'
+    };
+
+    if (!CONFIG.WEBHOOK_URL) {
+      console.warn('WEBHOOK_URL vacío: el contacto no se guardó.', datos);
+      finish(); return;
+    }
+    fetch(CONFIG.WEBHOOK_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(datos)
+    })
+      .then(finish)
+      .catch(function(){
+        btn.disabled = false; $('sendText').textContent = 'Quiero mi calculadora gratis';
+        err.textContent = 'No se pudo enviar. Revisa tu conexión e intenta de nuevo.';
+      });
+  });
+})();
+</script>
+</body>
+</html>
