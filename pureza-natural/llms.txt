@@ -69,13 +69,6 @@
 - [Repuesto Minifiltro Cerámico](https://purezanatural.co/catalogo-v2/repuesto-minifiltro-ceramico/): $125.000 COP. Repuesto exclusivo para los mini peltre y las unidades Masaru.
 - [Repuesto Cerámico Filtros 20 Litros](https://purezanatural.co/catalogo-v2/repuesto-ceramico-filtros-20-litros/): $185.000 COP. Filtro cerámico para las unidades de 20 litros en vidrio, acero, peltre y plástico.
 
-## Termos
-
-- [Termo AguaLogic Negro](https://purezanatural.co/catalogo-v2/termo-agualogic-negro/): $89.000 COP. Termo de acero inoxidable de doble pared, negro mate.
-- [Termo AguaLogic Azul](https://purezanatural.co/catalogo-v2/termo-agualogic-azul/): $89.000 COP. Termo de acero inoxidable de doble pared, azul turquesa.
-- [Termo AguaLogic Plus Negro](https://purezanatural.co/catalogo-v2/termo-agualogic-plus-negro/): $139.000 COP. Termo Plus de gran capacidad, acero inoxidable negro.
-- [Termo AguaLogic Plus Azul](https://purezanatural.co/catalogo-v2/termo-agualogic-plus-azul/): $139.000 COP. Termo Plus de gran capacidad, acero inoxidable azul.
-
 ## Plástico
 
 - [Purificador Plástico](https://purezanatural.co/catalogo-v2/purificador-plastico/): $220.000 COP. Polietileno de alta densidad grado alimenticio, libre de BPA, con tapa, filtro cerámico y llave dispensadora.
