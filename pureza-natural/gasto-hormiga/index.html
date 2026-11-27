@@ -177,6 +177,7 @@
   }
   @media (prefers-reduced-motion:reduce){ .btn{transition:none} .jug *{animation:none!important} }
 </style>
+<script src="../assets/pixel-calculadora.js" defer></script>
 </head>
 <body>
 <div style="width:100%;max-width:1000px">
@@ -317,7 +318,7 @@
   </section>
 
   <p class="legal" style="grid-column:1/-1;grid-row:auto">
-    Al enviar tus datos aceptas que te respondamos por este medio. © Pureza Natural · Villavicencio, Meta
+    Al enviar tus datos aceptas que te respondamos por este medio. Medimos las visitas con el píxel de Meta. © Pureza Natural · Villavicencio, Meta
   </p>
 </main>
 </div>
@@ -337,7 +338,7 @@ const CONFIG = {
 
   // Política de tratamiento de datos y su versión
   PRIVACY_URL: 'tratamiento-de-datos.html',
-  PRIVACY_VERSION: '2026-11-25'
+  PRIVACY_VERSION: '2026-11-26'
 };
 /* ========================================================= */
 
@@ -418,7 +419,11 @@ const CONFIG = {
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(datos)
     })
-      .then(finish)
+      .then(function(){
+        /* Conversión: formulario enviado */
+        if (window.fbq) fbq('track', 'Lead', { content_name: 'calculadora' });
+        finish();
+      })
       .catch(function(){
         btn.disabled = false; $('sendText').textContent = 'Quiero mi calculadora gratis';
         err.textContent = 'No se pudo enviar. Revisa tu conexión e intenta de nuevo.';
