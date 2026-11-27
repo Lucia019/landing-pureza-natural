@@ -44,6 +44,11 @@
     font-family:"Inter",sans-serif;font-weight:600;font-size:11px;letter-spacing:.04em;
     text-transform:uppercase;color:var(--muted);border-left:1.5px solid var(--line);padding-left:9px;line-height:1.2;
   }
+  @media (max-width:520px){
+    .brand{flex-direction:column;align-items:flex-start;gap:3px}
+    .brand small{border-left:0;padding-left:0}
+    .brand small br{display:none}
+  }
   h1{
     font-weight:800;font-size:clamp(32px,9vw,46px);line-height:1.05;letter-spacing:-.03em;
   }
@@ -178,7 +183,7 @@
 <main class="frame">
 
   <header class="copy">
-    <div class="brand">Pureza Natural <small>Distribuidor autorizado<br>AguaLogic</small></div>
+    <div class="brand">Pureza Natural <small>Distribuidor autorizado <br>AguaLogic</small></div>
     <h1>El <mark>gasto hormiga</mark> de tener botellones en casa</h1>
     <p class="sub">Cada botellón pesa unos 20 kg y se paga una y otra vez. <b>Calcula tu gasto, tu tiempo y los kilos que cargas.</b></p>
     <ul class="chips" aria-label="Ejemplo con 8 botellones al mes">
