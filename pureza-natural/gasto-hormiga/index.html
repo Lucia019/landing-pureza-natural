@@ -147,9 +147,8 @@
   #done h2{font-weight:800;font-size:32px;line-height:1.08;letter-spacing:-.03em;margin-bottom:8px}
   #done p{font-size:16.5px;line-height:1.45;color:var(--muted);margin-bottom:16px}
   #done p b{color:var(--ink)}
-  .steps{list-style:none;display:grid;gap:9px;margin-bottom:18px;counter-reset:s}
-  .steps li{counter-increment:s;display:flex;gap:12px;align-items:center;background:var(--tint);border-radius:12px;padding:11px 14px;font-size:15.5px;line-height:1.3}
-  .steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:#fff;font-weight:800;font-size:14px}
+  #done .follow{margin:16px 0 0;font-size:14.5px;text-align:center}
+  #done .follow a{color:var(--teal-dark);font-weight:700}
 
   .legal{padding:0 22px 20px;font-size:12px;color:#7A929B;line-height:1.45}
 
@@ -300,19 +299,15 @@
           <span id="sendText">Quiero mi calculadora gratis</span>
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <p class="micro">Es gratis. La recibes por <b>mensaje directo en Instagram</b>.</p>
+        <p class="micro">Es gratis. La abres <b>apenas dejas tus datos</b>.</p>
       </form>
     </div>
 
     <div id="done" aria-live="polite">
       <h2>Listo, <span id="nameOut"></span>.</h2>
-      <p>Falta un paso. Vuelve al chat de <b>@<span id="handle">purezanatural.vcio</span></b> y te enviamos la calculadora.</p>
-      <ol class="steps">
-        <li><span>Se abre <b>Instagram</b>. Si no se abre, toca el botón.</span></li>
-        <li><span>En el chat, toca <b>Iniciar</b> o escribe <b>LISTO</b>.</span></li>
-        <li><span>Recibes tu <b>calculadora</b> en segundos.</span></li>
-      </ol>
-      <a id="ig" class="btn" href="#" target="_blank" rel="noopener">Recibir mi calculadora</a>
+      <p>Tu calculadora está lista. Pon lo que pagas por tus botellones y <b>mira tu cuenta</b>.</p>
+      <a id="calc" class="btn" href="#">Abrir mi calculadora</a>
+      <p class="follow">Síguenos en Instagram: <a id="ig" href="#" target="_blank" rel="noopener">@<span id="handle">purezanatural.vcio</span></a></p>
     </div>
   </section>
 
@@ -325,11 +320,11 @@
 <script>
 /* ============ CONFIGURACIÓN: edita solo esto ============ */
 const CONFIG = {
-  // Instagram (sin @). Aquí se abre el chat conectado a ManyChat.
-  IG_USER: 'purezanatural.vcio',
+  // Calculadora que se abre al dejar los datos
+  CALC_URL: 'https://purezanatural.co/calculadora/',
 
-  // Palabra clave del flujo en ManyChat (debe ser idéntica al trigger)
-  KEYWORD: 'AGUA',
+  // Instagram (sin @)
+  IG_USER: 'purezanatural.vcio',
 
   // Dirección /exec de Interesados.gs (ver LEEME-conexion.md).
   // Si queda vacío, los datos NO se guardan.
@@ -345,8 +340,8 @@ const CONFIG = {
   var $ = function(id){ return document.getElementById(id); };
   var form = $('lead'), err = $('err'), btn = $('send');
 
-  var igUrl = 'https://ig.me/m/' + encodeURIComponent(CONFIG.IG_USER) + '?ref=' + encodeURIComponent(CONFIG.KEYWORD);
-  $('ig').href = igUrl;
+  $('calc').href = CONFIG.CALC_URL;
+  $('ig').href = 'https://www.instagram.com/' + encodeURIComponent(CONFIG.IG_USER) + '/';
   $('handle').textContent = CONFIG.IG_USER;
   if (CONFIG.PRIVACY_URL) { $('privLink').href = CONFIG.PRIVACY_URL; }
   else { $('privLink').style.display = 'none'; }
@@ -390,8 +385,6 @@ const CONFIG = {
       $('nameOut').textContent = nombre.split(' ')[0];
       $('landing').style.display = 'none';
       $('done').style.display = 'block';
-      /* Abre Instagram solo para que ManyChat empiece; el botón queda de respaldo */
-      if (!$('web').value) setTimeout(function(){ location.href = igUrl; }, 2500);
     }
 
     /* Honeypot: si lo llena un bot, simula éxito sin enviar */
