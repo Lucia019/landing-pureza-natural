@@ -23,37 +23,59 @@
 body{background:var(--canvas);color:var(--text);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:1.0625rem;line-height:1.65}
 img{display:block;max-width:100%;height:auto}
 h1,h2{font-family:'Lora',Georgia,serif;color:var(--deep);letter-spacing:-.02em;line-height:1.08}
-.top{background:var(--deep);color:var(--on-deep);padding:20px}
-.top-in{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.top a{color:#fff;text-decoration:none;font-weight:600}
-.hero{background:var(--deep);color:var(--on-deep);padding:30px 20px 64px}
-.hero-in{max-width:1000px;margin:0 auto}
-.hero h1{color:#fff;font-size:clamp(2.2rem,6vw,3.6rem);margin-bottom:14px}
-.hero p{max-width:50ch;font-size:1.15rem}
-main{max-width:1000px;margin:-30px auto 60px;padding:0 20px}
-.card+.card{margin-top:22px}.card{display:grid;grid-template-columns:.8fr 1.2fr;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--deep);font-family:'Lora',Georgia,serif;font-weight:700;white-space:nowrap}
+.brand img{width:36px;height:auto}
+.nav-links{display:flex;align-items:center;gap:22px;font-size:.95rem;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--text)}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--accent)}
+.nav-links a.btn-cta{color:#fff;padding:9px 18px;min-height:40px;font-size:.92rem}
+.hero{background:var(--deep);color:var(--on-deep);padding:40px 20px 36px}
+.hero-in{max-width:1040px;margin:0 auto}
+.hero h1{color:#fff;font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:12px}
+.hero p{max-width:60ch;font-size:1.1rem}
+main{max-width:1080px;margin:0 auto 60px;padding:26px 20px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .35s cubic-bezier(.22,.8,.24,1),box-shadow .35s}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(23,76,70,.14)}
-.card img{width:100%;height:100%;object-fit:cover;aspect-ratio:2/3;max-height:480px}
-.card div{padding:34px}
-.card small{font-family:monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-hover);font-size:.78rem}
-.card h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:10px 0 14px}
-.card p{color:var(--text-2);margin-bottom:20px}
-.card span{display:inline-block;background:var(--accent);color:#fff;padding:12px 24px;border-radius:99px;font-weight:600}
+.card img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.card div{flex:1;display:flex;flex-direction:column;align-items:flex-start;padding:20px 20px 22px}
+.card small{font-family:monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-hover);font-size:.72rem}
+.card h2{font-size:1.28rem;line-height:1.2;margin:8px 0 10px}
+.card p{color:var(--text-2);font-size:.95rem;line-height:1.55;margin-bottom:18px}
+.card span{margin-top:auto;display:inline-block;background:var(--accent);color:#fff;padding:9px 18px;border-radius:99px;font-weight:600;font-size:.92rem}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-@media(max-width:700px){.card{grid-template-columns:1fr}.card img{aspect-ratio:16/10;max-height:none}.card div{padding:24px}}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.chips{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px}
 .chips button{font:600 .92rem 'Plus Jakarta Sans',system-ui,sans-serif;border:1px solid #d9d4c6;background:#fff;color:#174C46;padding:9px 18px;border-radius:99px;cursor:pointer;transition:.2s}
 .chips button:hover{border-color:#174C46}.chips button.on{background:#174C46;color:#fff;border-color:#174C46}
 .card[hidden]{display:none}
+@media(max-width:900px){main{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+@media(max-width:600px){
+ .nav-in{padding:10px 16px;gap:10px}.brand{font-size:.98rem;gap:8px}.brand img{width:30px}
+ .nav-links{gap:12px;font-size:.9rem}.nav-links a.solo-ancho{display:none}.nav-links a.btn-cta{padding:8px 13px;font-size:.86rem;gap:6px}
+ .hero{padding:28px 16px 24px}.hero p{font-size:1rem}
+ main{grid-template-columns:minmax(0,1fr);gap:12px;padding:20px 16px 0}
+ .chips{gap:8px;margin-bottom:6px}.chips button{font-size:.84rem;padding:7px 13px}
+ .card{flex-direction:row;align-items:center;border-radius:12px}
+ .card img{width:104px;flex:none;align-self:stretch;height:auto;object-fit:cover}
+ .card div{padding:12px 14px}.card small{font-size:.66rem}.card h2{font-size:1.02rem;margin:6px 0 0}
+ .card p,.card span{display:none}
+}
+@media(max-width:389px){
+ .nav-in{padding:10px 12px;gap:8px}.brand{font-size:.88rem;gap:6px}.brand img{width:26px}
+ .nav-links{gap:8px;font-size:.82rem}.nav-links a.btn-cta{padding:7px 10px;font-size:.78rem;gap:5px}
+}
+@media(max-width:349px){.nav-links a:not(.btn-cta){display:none}}
+@media(prefers-reduced-motion:reduce){.card,.chips button{transition:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Blog de agua pura | Pureza Natural","url":"https://purezanatural.co/blog/","inLanguage":"es-CO","publisher":{"@type":"Organization","name":"Pureza Natural","url":"https://purezanatural.co/"},"blogPost":[{"@type":"BlogPosting","headline":"Purificador de agua por gravedad en Villavicencio: cómo funciona","url":"https://purezanatural.co/blog/que-es-un-purificador-de-agua-por-gravedad/","datePublished":"2026-11-27"},{"@type":"BlogPosting","headline":"Filtro de agua o purificador: cuál es la diferencia","url":"https://purezanatural.co/blog/filtro-de-agua-o-purificador-diferencia/","datePublished":"2026-11-24"},{"@type":"BlogPosting","headline":"Qué purificador elegir según tu familia","url":"https://purezanatural.co/blog/que-purificador-elegir-segun-tu-familia/","datePublished":"2026-11-10"},{"@type":"BlogPosting","headline":"Cómo curar la vasija de barro de tu purificador","url":"https://purezanatural.co/blog/como-curar-vasija-de-barro-purificador/","datePublished":"2026-11-08"},{"@type":"BlogPosting","headline":"Purificador vs botellón: cuál conviene en Villavicencio","url":"https://purezanatural.co/blog/purificador-vs-botellon-villavicencio/","datePublished":"2026-11-08"},{"@type":"BlogPosting","headline":"Purificadores de agua en Villavicencio: cuál elegir","url":"https://purezanatural.co/blog/purificadores-de-agua-villavicencio/","datePublished":"2026-11-08"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://purezanatural.co/#sitio","url":"https://purezanatural.co/","name":"Pureza Natural","alternateName":"Pureza Natural Villavicencio","inLanguage":"es-CO"},{"@type":"LocalBusiness","@id":"https://purezanatural.co/#negocio","name":"Pureza Natural","description":"Distribuidor autorizado de purificadores de agua AguaLogic en Villavicencio, Meta. Agua pura para el hogar, sin luz y sin instalación.","url":"https://purezanatural.co/","logo":"https://purezanatural.co/assets/logo.png","image":"https://purezanatural.co/assets/compartir.jpg","telephone":"+573053529366","address":{"@type":"PostalAddress","streetAddress":"Calle 35 A No. 27-86, San Isidro","addressLocality":"Villavicencio","addressRegion":"Meta","addressCountry":"CO"},"areaServed":["Villavicencio","Meta"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"16:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:30"}]}]}</script>
 <style id="minimal">
 :root{--canvas:#fff;--panel:#F7F7F5;--deep:#111;--line:#E7E7E3}
 body{background:#fff}
-.top,.hero{background:#fff;color:#1d1d1d}.top a{color:#111}.hero{border-bottom:1px solid var(--line)}
+.hero{background:#fff;color:#1d1d1d}.hero{border-bottom:1px solid var(--line)}
 .hero h1{color:#111;font-weight:600}.hero p{color:#5c5c5c}
-.card{border-radius:12px}.card span{background:#111}.card:hover span{background:var(--accent)}
+.card{border-radius:14px}.card span{background:#111}.card:hover span{background:var(--accent)}
 .card h2{color:#111;font-weight:600}
 
 /* wa-ganas */
@@ -67,7 +89,17 @@ a[href*="wa.me"].btn-cta:active,.wa-float:active{transform:scale(.97)}
 </style>
 </head>
 <body>
-<div class="top"><div class="top-in"><a href="../">Pureza Natural</a><a href="../catalogo-v2/">Ver catálogo</a></div></div>
+<nav class="nav" aria-label="Principal">
+  <div class="nav-in">
+    <a class="brand" href="../"><img src="../assets/logo-mark.png" alt="" width="36" height="37"><span>Pureza Natural</span></a>
+    <div class="nav-links">
+      <a class="solo-ancho" href="../">Inicio</a>
+      <a class="solo-ancho" href="./" aria-current="page">Blog</a>
+      <a href="../catalogo-v2/">Catálogo</a>
+      <a class="btn-cta" href="https://wa.me/573053529366?text=Hola%2C%20vi%20el%20blog%20y%20quiero%20un%20purificador%20AguaLogic%20en%20Villavicencio" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</nav>
 <header class="hero"><div class="hero-in">
   <h1>Blog de agua pura</h1>
   <p>Guías claras sobre purificadores AguaLogic, ahorro en botellones y agua segura para tu familia en Villavicencio.</p>
