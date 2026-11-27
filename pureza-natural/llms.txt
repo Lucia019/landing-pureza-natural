@@ -7,7 +7,7 @@
 - Nombre: Pureza Natural (distribuidor autorizado AguaLogic)
 - Ciudad: Villavicencio, Meta, Colombia.
 - Punto físico de entrega (con cita previa): Ferrecubiertas, Calle 35 A No. 27-86, barrio San Isidro, Villavicencio.
-- Envíos: gratis en Villavicencio urbano (dentro del anillo vial). Periferia y veredas: $20.000. Pompeya y otros municipios del Meta: $49.500.
+- Envíos: gratis en Villavicencio urbano (dentro del anillo vial). Fuera del perímetro urbano tiene un valor adicional.
 - Horario: lunes a viernes 8:00 a. m. a 4:00 p. m.; sábados 8:00 a. m. a 12:30 p. m.; domingo cerrado.
 - WhatsApp y teléfono: +57 305 352 9366
 - Pago en Villavicencio: contraentrega o Nequi.
@@ -19,7 +19,7 @@
 - El agua baja por gravedad a través de una pieza cerámica (arcilla, carbón activado y plata coloidal). No usa luz ni instalación.
 - Acepta agua de acueducto, pozo, aljibe o lluvia.
 - Los modelos grandes tienen 20 litros de capacidad total y filtran en promedio entre 1,5 y 2,5 litros por hora. Los mini y los Masaru filtran en promedio 0,6 litros por hora.
-- La pieza cerámica se limpia cada 2 meses con cepillo suave y sin jabón, y se cambia aproximadamente cada 2 años.
+- La pieza cerámica se limpia según la calidad del agua, con cepillo suave y sin jabón, y se cambia aproximadamente cada 2 años.
 
 ## Páginas principales
 
@@ -32,6 +32,7 @@
 ## Artículos del blog
 
 - [Filtro de agua o purificador: cuál es la diferencia](https://purezanatural.co/blog/filtro-de-agua-o-purificador-diferencia/)
+- [Purificador de agua por gravedad en Villavicencio: cómo funciona](https://purezanatural.co/blog/que-es-un-purificador-de-agua-por-gravedad/)
 - [Purificadores de agua en Villavicencio: precios y cuál elegir](https://purezanatural.co/blog/purificadores-de-agua-villavicencio/)
 - [Qué purificador elegir según tu familia](https://purezanatural.co/blog/que-purificador-elegir-segun-tu-familia/)
 - [Purificador vs botellón en Villavicencio](https://purezanatural.co/blog/purificador-vs-botellon-villavicencio/)
